@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDPRO-Recrutement</title>
+    <link rel="stylesheet" href="/public/all.css">
+    <link rel="stylesheet" href="/public/index.css">
+</head>
+
+<body>
+{{inject_navbar}}
+<div class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="header-info">
+                <h1>
+                    <div class="container_choice">
+
+                    </div>
+                    Join us
+                </h1>
+                <p class="header-subtitle">Recruitment process and form</p>
+                <p class="header-description">
+                    Wolfdefansy repose sur un travail d'équipe solide, un engagement et une action durable. Nous
+                    valorisons la contribution de chaque membre et sommes convaincus que chacun peut apporter sa
+                    contribution unique au projet. Notre processus de recrutement est conçu pour être
+                    accueillant et encourageant, vous permettant une intégration harmonieuse et le développement
+                    de vos compétences à votre rythme. Que vous soyez débutant ou expérimenté, votre motivation
+                    et votre envie d'apprendre sont primordiales.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="roulette-select-container">
+        <div class="rs-sentence">
+            je souhaite rejoindre le pôle
+            <div class="rs-roulette">
+                <div class="rs-options">
+                    <div class="rs-option">{choisir}</div>
+                    <div class="rs-option">développeur</div>
+                    <div class="rs-option">cyber</div>
+                    <div class="rs-option">pédagogie</div>
+                    <div class="rs-option">graphisme</div>
+                    <div class="rs-option">stratégie</div>
+                </div>
+            </div>
+        </div>
+
+        <button class="rs-btn" id="rs-validate" disabled>Suite</button>
+    </div>
+
+</div>
+<!-- Recruitment steps timeline -->
+<div class="tl-container-unique">
+    <section class="timeline-section">
+        <h2 class="timeline-title"></h2>
+        <div class="timeline-container">
+            <div class="timeline-card">
+                <div class="timeline-icon">1</div>
+                <div class="timeline-content">
+                    <h3>Candidature</h3>
+                    <p class="align">Parlez-nous de vous et attendez la validation de notre équipe. Nous vous
+                        répondrons sous 24 h.</p>
+                </div>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-icon">2</div>
+                <div class="timeline-content">
+                    <h3>Immersion</h3>
+                    <p class="align">Découvrez notre équipe, les coulisses et ressentez partagez notre dynamique
+                        de groupe.</p>
+                </div>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-icon">3</div>
+                <div class="timeline-content">
+                    <h3>Entraînement</h3>
+                    <p class="align">Besoin de progresser ? Utilisez nos ressources et laissez parler votre
+                        motivation.</p>
+                </div>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-icon">4</div>
+                <div class="timeline-content">
+                    <h3>Validation</h3>
+                    <p class="align">Une évaluation permettra de reconnaître vos compétences et votre
+                        engagement.</p>
+                </div>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-icon">5</div>
+                <div class="timeline-content">
+                    <h3>Integration</h3>
+                    <p class="align">Prêt ? Rejoignez l'équipe, exploitez vos talents et devenez un acteur clé.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Animated grid background and recruitment info -->
+    <div class="text-plane">
+        <div class="grid-container">
+            <div class="plane">
+                <div class="grid"></div>
+                <div class="glow"></div>
+            </div>
+            <div class="plane">
+                <div class="grid"></div>
+                <div class="glow"></div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+{{inject_footer}}
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".timeline-card");
+        const container = document.querySelector(".timeline-container"); // ton container scrollable
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                const card = entry.target;
+                if (entry.isIntersecting) {
+                    card.classList.remove("visible");
+                    void card.offsetWidth; // reflow
+                    card.classList.add("visible");
+                } else {
+                    card.classList.remove("visible");
+                }
+            });
+        }, {
+            root: container,      // <-- important : observer regarde le container
+            threshold: 0.3
+        });
+
+        cards.forEach((card, i) => {
+            card.style.transitionDelay = `${i * 200}ms`;
+            observer.observe(card);
+        });
+    });
+
+</script>
+<script>
+    (function () {
+        const container = document.getElementById("roulette-select-container");
+        const optionsContainer = container.querySelector(".rs-options");
+        const options = container.querySelectorAll(".rs-option");
+        const validateBtn = container.querySelector("#rs-validate");
+
+        let currentIndex = 0;
+        const optionHeight = 50;
+        const visibleCenter = 150 / 2 - optionHeight / 2;
+
+        function updateOptions() {
+            options.forEach((opt, i) => {
+                opt.classList.toggle("active", i === currentIndex);
+            });
+            optionsContainer.style.transform = `translateY(${visibleCenter - currentIndex * optionHeight}px)`;
+
+            validateBtn.disabled = options[currentIndex].innerText === "{choisir}";
+        }
+
+        function scrollHandler(e) {
+            if (e.deltaY > 0) {
+                currentIndex = Math.min(currentIndex + 1, options.length - 1);
+            } else {
+                currentIndex = Math.max(currentIndex - 1, 0);
+            }
+            updateOptions();
+        }
+
+        container.querySelector(".rs-roulette").addEventListener("wheel", scrollHandler);
+
+        options.forEach((opt, i) => {
+            opt.addEventListener("click", () => {
+                currentIndex = i;
+                updateOptions();
+            });
+        });
+
+        validateBtn.addEventListener("click", () => {
+            const choice = options[currentIndex].innerText;
+
+            // Redirections temporaires (#1, #2, etc.)
+            let url = "index.html"; // valeur par défaut
+            switch (choice) {
+                case "développeur":
+                    url = "prog"; // lien vers la page développeur
+                    break;
+                case "cyber":
+                    url = "cyber";
+                    break;
+                case "pédagogie":
+                    url = "pedagogie";
+                    break;
+                case "graphisme":
+                    url = "graphisme";
+                    break;
+                case "stratégie":
+                    url = "strategie";
+                    break;
+            }
+
+            window.location.href = `/recrutement/${url}`;
+        });
+
+        updateOptions();
+    })();
+</script>
+
+</body>
+
+</html>
