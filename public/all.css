@@ -286,7 +286,6 @@ body {
     background: rgba(5, 3, 33, 0.95);
     position: relative;
     z-index: 2000;
-    /* très haut */
 }
 
 .nav-links {
