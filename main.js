@@ -5,6 +5,7 @@ const fs = require('fs');
 const app = express();
 const PORT = 3000;
 
+
 // Pour servir les fichiers statiques (CSS, images, etc.)
 app.use("/public", express.static('public'));
 
@@ -77,4 +78,8 @@ function injector(content) {
 
 app.listen(PORT, () => {
     console.log(`Serveur en ligne : http://localhost:${PORT}`);
+});
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Serveur lancé sur http://0.0.0.0:${PORT}`);
 });
