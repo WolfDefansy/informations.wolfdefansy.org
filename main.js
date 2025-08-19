@@ -79,3 +79,13 @@ function injector(content) {
 app.listen(PORT, () => {
     console.log(`Serveur en ligne : http://localhost:${PORT}`);
 });
+
+// Route pour servir le fichier robots.txt
+app.get('/robots.txt', (req, res) => {
+    res.sendFile(path.join(__dirname, 'robots.txt'));
+});
+
+// Route pour servir le fichier sitemap.xml
+app.get('/sitemap.xml', (req, res) => {
+    res.sendFile(path.join(__dirname, 'sitemap.xml'));
+});
