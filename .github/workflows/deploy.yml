@@ -1,0 +1,91 @@
+name: Update informations.wolfdefansy.org
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+    inputs:
+      upgrade:
+        type: choice
+        description: 'Upgrade'
+        required: true
+        options:
+          - patch
+          - minor
+          - major
+
+permissions:
+  contents: write
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # We use the docker login action to connect to the
+      # harbor container registery
+      - uses: docker/login-action@v1
+        with:
+          registry: reg.wolfdefansy.org ## amazing host, need to be set as secret
+          username: "robot$wolfdefansy" ## amazing username, need to be set as secret
+          password: ${{ secrets.HARBOR_ROBOT_PASSWORD }}
+
+      - name: get latest docker image version tag
+        id: get_latest_tag
+        run: |
+
+          TAG=$(curl -s -u "robot\$wolfdefansy.org":"${{ secrets.HARBOR_ROBOT_PASSWORD }}" "https://reg.wolfdefansy.org/v2/wolfdefansy.org/informations.wolfdefansy.org/tags/list" | jq -r '.tags // empty | sort | last // "0.0.0"')
+
+          if [ -z "$TAG" ]; then
+            TAG="0.0.0"
+          fi
+
+          # Split the version string into an array based on the dot (.) delimiter
+          IFS='.' read -ra version_parts <<< "$TAG"
+          major="${version_parts[0]}"
+          minor="${version_parts[1]}"
+          patch="${version_parts[2]}"
+
+          echo "${major}.${minor}.${patch}"
+
+          if [ "${{ github.event.inputs.upgrade }}" = "minor" ]
+          then
+            echo "minor"
+            minor=$((minor+1))
+            major=$((major+0))
+            NEWV="${major}.${minor}.0"
+          elif [ "${{ github.event.inputs.upgrade }}" = "major" ]
+          then
+            echo "major"
+            major=$((major+1))
+            NEWV="${major}.0.0"
+          else
+            echo "patch"
+            patch=$((patch+1))
+            major=$((major+0))
+            minor=$((minor+0))
+            NEWV="${major}.${minor}.${patch}"
+          fi
+
+          echo "Final tag $NEWV"
+          
+          IFS='.' read -ra version_parts <<< "$NEWV"
+          major="${version_parts[0]}"
+          minor="${version_parts[1]}"
+          patch="${version_parts[2]}"
+
+          echo "${major}.${minor}.${patch}"
+
+          echo "version=${major}.${minor}.${patch}" >> "$GITHUB_OUTPUT"
+
+          version=${major}.${minor}.${patch}
+
+          echo "Building docker image for bddapi with version $version"
+
+          docker build ./ -t reg.wolfdefansy.org/wolfdefansy.org/informations.wolfdefansy.org:$version
+          docker push reg.wolfdefansy.org/wolfdefansy.org/informations.wolfdefansy.org:$version
