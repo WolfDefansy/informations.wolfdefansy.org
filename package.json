@@ -1,5 +1,5 @@
 {
-  "name": "informations.wolfdefansy.org",
+  "name": "informations.WolfDefansy.org",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WolfDefansy/informations.wolfdefansy.org.git"
+    "url": "git+https://github.com/WolfDefansy/informations.WolfDefansy.org.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/WolfDefansy/informations.wolfdefansy.org/issues"
+    "url": "https://github.com/WolfDefansy/informations.WolfDefansy.org/issues"
   },
-  "homepage": "https://github.com/WolfDefansy/informations.wolfdefansy.org#readme",
+  "homepage": "https://github.com/WolfDefansy/informations.WolfDefansy.org#readme",
   "dependencies": {
     "express": "^5.1.0"
   }
