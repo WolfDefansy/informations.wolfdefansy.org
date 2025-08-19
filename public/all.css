@@ -42,23 +42,10 @@ html {
         radial-gradient(circle at 50% 50%, rgba(0, 100, 255, 0.25), transparent 60%),
         linear-gradient(to bottom right, #141414, #03093a);
     background-size: 200% 200%;
-    animation: waveBackground 15s ease-in-out infinite;
     height: 100%;
 }
 
-@keyframes waveBackground {
-    0% {
-        background-position: 0% 50%;
-    }
 
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
 
 * {
     margin: 0;
@@ -74,13 +61,21 @@ body {
         radial-gradient(circle at 50% 50%, rgba(0, 100, 255, 0.25), transparent 60%),
         linear-gradient(to bottom right, #141414, #03093a);
     background-size: 200% 200%;
-    animation: waveBackground 15s ease-in-out infinite;
     color: var(--dark-gray);
     line-height: 1.6;
     scroll-behavior: smooth;
     overflow-x: hidden;
     height: 100%;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
 
 .header {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -1629,7 +1624,7 @@ section {
     text-align: center;
     margin-top: 60px;
     bottom: -10%;
-    
+
 }
 
 .footer-container {
