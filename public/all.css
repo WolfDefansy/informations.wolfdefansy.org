@@ -719,7 +719,7 @@ body::-webkit-scrollbar {
     letter-spacing: 0.05em;
 }
 
-.platform-wolfdefansy {
+.platform-WolfDefansy{
     background: rgba(165, 165, 255, 0.1);
     color: var(--purple);
     border: 1px solid rgba(165, 165, 255, 0.2);
@@ -1465,7 +1465,7 @@ section {
     letter-spacing: 0.05em;
 }
 
-.platform-wolfdefansy {
+.platform-WolfDefansy{
     background: rgba(165, 165, 255, 0.1);
     color: var(--purple);
     border: 1px solid rgba(165, 165, 255, 0.2);
