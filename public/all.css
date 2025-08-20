@@ -1216,7 +1216,6 @@ section {
 /* ===== Timeline ===== */
 .timeline-section {
     width: 100%;
-    height: 35vh;
     /* hauteur fixe nécessaire */
     margin: 0 auto;
     text-align: center;
@@ -1225,7 +1224,7 @@ section {
     /* masquer scrollbar Firefox */
     margin-top: 5%;
     border-radius: 20px;
-    background-color: #0d111738;
+    background-color: #00000059;
     box-shadow: rgba(9, 122, 228, 0.397) 0px 0px 20px 0px;
 
 }
@@ -1237,7 +1236,6 @@ section {
 
 .timeline-title {
     font-size: 2.5rem;
-    margin-bottom: 60px;
     color: var(--accent);
 }
 
@@ -1261,6 +1259,7 @@ section {
     backdrop-filter: blur(4px);
     color: white;
     background-color: rgba(255, 255, 255, 0.2);
+    margin: 0.25%;
 }
 
 .timeline-card.visible {
@@ -1297,6 +1296,44 @@ section {
     .timeline-container {
         flex-direction: column;
         align-items: center;
+    }
+
+    .timeline-card{
+        padding: none;
+    }
+
+    .timeline-section{
+        background-color: #00000000;
+        height: 50vh;
+        margin-top: 26%;
+    }
+    
+    .plane{
+        display: none;
+    }
+
+    .video_live{
+      display: none;  
+    }
+
+    .video-background{
+        background-image: url("/public/pictures/part1.png");
+        background-size: cover;
+        background-position: center +25%; /* Centre horizontalement, colle en haut */
+                filter: grayscale(50%);
+
+    }
+
+    .video-background h1 {
+        font-size: 1.5rem;
+
+        margin-top: -10%;
+        background-color: rgba(0, 0, 0, 0.596);
+        width: 90%;
+        margin-left: 5%;
+        padding-bottom: 10%;
+        padding-top: 10%
+
     }
 }
 
