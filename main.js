@@ -76,16 +76,19 @@ function injector(content) {
         .replace('{{inject_footer}}', fs.readFileSync("views/components/footer.html", 'utf8'));
 }
 
-app.listen(PORT, () => {
-    console.log(`Serveur en ligne : http://localhost:${PORT}`);
-});
 
 // Route pour servir le fichier robots.txt
 app.get('/robots.txt', (req, res) => {
-    res.sendFile(path.join(__dirname, 'robots.txt'));
+    res.sendFile(path.join(__dirname, 'public/robots.txt'));
 });
 
 // Route pour servir le fichier sitemap.xml
 app.get('/sitemap.xml', (req, res) => {
-    res.sendFile(path.join(__dirname, 'sitemap.xml'));
+    res.sendFile(path.join(__dirname, 'public/sitemap.xml'));
+});
+
+
+
+app.listen(PORT, () => {
+    console.log(`Serveur en ligne : http://localhost:${PORT}`);
 });
