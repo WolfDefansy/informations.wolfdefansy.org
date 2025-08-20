@@ -72,6 +72,7 @@ app.get('/entrainement/:page', (req, res) => {
 // Injecter le contenu dans les fichiers HTML
 function injector(content) {
     return content
+        .replace('{{inject_head}}', fs.readFileSync("views/components/head.html", 'utf8'))
         .replace('{{inject_navbar}}', fs.readFileSync("views/components/navbar.html", 'utf8'))
         .replace('{{inject_footer}}', fs.readFileSync("views/components/footer.html", 'utf8'));
 }

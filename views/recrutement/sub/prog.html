@@ -5,135 +5,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WolfDefansy-Asso | Team Developpeurs</title>
-    <meta name="description" content="Rejoignez le pôle Développeurs de WolfDefansy. Participez à la création et à l'amélioration de notre plateforme gratuite et éducative en cybersécurité.">
+    <meta name="description"
+          content="Rejoignez le pôle Développeurs de WolfDefansy. Participez à la création et à l'amélioration de notre plateforme gratuite et éducative en cybersécurité.">
     <link rel="stylesheet" href="/public/all.css">
     <link rel="stylesheet" href="/public/index.css">
-    <link rel="icon" href="/public/pictures/pro.ico" type="image/x-icon">
+    {{inject_head}}
 </head>
 
 <body>
-    {{inject_navbar}}
-    <!-- Recruitment steps timeline -->
+{{inject_navbar}}
+<!-- Recruitment steps timeline -->
 
-    <div class="tl-container-unique">
-        <div class="title_aplying">
-            <div class="video-background">
-                <video autoplay loop muted>
-                    <source src="https://cdn.pixabay.com/video/2022/10/24/136259-764387660_large.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas les vidéos.
-                </video>
-                <div class="content">
-                    <h1>Construire</h1>
-                </div>
-            </div>
-        </div>
-        <!-- Animated grid background and recruitment info -->
-        <div class="text-plane">
-            <div class="grid-container">
-                <div class="plane">
-                    <div class="grid"></div>
-                    <div class="glow"></div>
-                </div>
-                <div class="plane">
-                    <div class="grid"></div>
-                    <div class="glow"></div>
-                </div>
-            </div>
-            <div class="recrut-content">
-                <h1 class="recrut_title">Construire l'aventure</h1>
-                <section>
-                    <p>
-                        WolfDefansy recherche des contributeurs pour son site web. Pas besoin d’être un expert,
-                        mais des bases en HTML, CSS et TypeScript/JavaScript sont requises.
-                    </p>
-                    <p>
-                        Le projet utilise <strong>Ionic</strong> (multi-plateforme) et <strong>Angular</strong>
-                        (bonne
-                        séparation du code). Les bases suffisent.
-                    </p>
-                </section>
-                <section>
-                    <h2 class="recrut_title">Prérequis</h2>
-                    <ul>
-                        <li>Connaître les commandes <strong>git</strong> de base (repo sur GitHub)</li>
-                        <li>Avoir quelques notions de <strong>programmation orientée objet</strong></li>
-                        <li>Savoir styliser un composant à partir d’une maquette (HTML & CSS)</li>
-                        <li>Aimer le <strong>travail en équipe</strong> (partage, communication, bonne ambiance)
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <p>
-                        Les débutants motivés sont les bienvenus. L’équipe et le Wiki vous guideront.
-                        L’apprentissage est collaboratif.
-                    </p>
-                    <h2 class="recrut_title">Sujets abordés</h2>
-                    <ul>
-                        <li>Création de composants</li>
-                        <li>Création de services (synchrone/asynchrone)</li>
-                        <li>Données avec <strong>RxJS</strong> ou <strong>Angular Signals</strong></li>
-                        <li>Gestion des événements utilisateur</li>
-                        <li>Affichage dynamique avec Angular</li>
-                        <li>Et bien plus encore !</li>
-                    </ul>
-                </section>
-                <section>
-                    <p>
-                        Vous n’avez pas besoin de tout connaître. L’essentiel est de savoir chercher :
-                        documentation, Google ou
-                        Copilot.
-                    </p>
-                    <p>
-                        Notre équipe est bienveillante. La motivation et l’implication sont les clés du progrès.
-                    </p>
-                    <p><strong>Ne soyez plus un "loup solitaire", rejoignez la meute…</strong></p>
-                </section>
-            </div>
-
-        </div>
-        <!-- Application button -->
-        <div class="formation_selector">
-            <div class="wrapper">
-                <section class="sec01"></section>
-                <section class="sec02">
-                    <div class="alternative">Rejoignez-nous<a href="https://docs.google.com/forms/d/e/1FAIpQLSdXRpRlUSAgu6idSZyMsi3PJ9wRV4hYbSVw6G4_TDdrFCuELA/viewform?usp=header" target="_blank">Formulaire</a></div>
-                </section>
-                <section class="sec03"></section>
+<div class="tl-container-unique">
+    <div class="title_aplying">
+        <div class="video-background">
+            <video autoplay loop muted>
+                <source src="https://cdn.pixabay.com/video/2022/10/24/136259-764387660_large.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas les vidéos.
+            </video>
+            <div class="content">
+                <h1>Construire</h1>
             </div>
         </div>
     </div>
-    {{inject_footer}}
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const cards = document.querySelectorAll(".timeline-card");
+    <!-- Animated grid background and recruitment info -->
+    <div class="text-plane">
+        <div class="grid-container">
+            <div class="plane">
+                <div class="grid"></div>
+                <div class="glow"></div>
+            </div>
+            <div class="plane">
+                <div class="grid"></div>
+                <div class="glow"></div>
+            </div>
+        </div>
+        <div class="recrut-content">
+            <h1 class="recrut_title">Construire l'aventure</h1>
+            <section>
+                <p>
+                    WolfDefansy recherche des contributeurs pour son site web. Pas besoin d’être un expert,
+                    mais des bases en HTML, CSS et TypeScript/JavaScript sont requises.
+                </p>
+                <p>
+                    Le projet utilise <strong>Ionic</strong> (multi-plateforme) et <strong>Angular</strong>
+                    (bonne
+                    séparation du code). Les bases suffisent.
+                </p>
+            </section>
+            <section>
+                <h2 class="recrut_title">Prérequis</h2>
+                <ul>
+                    <li>Connaître les commandes <strong>git</strong> de base (repo sur GitHub)</li>
+                    <li>Avoir quelques notions de <strong>programmation orientée objet</strong></li>
+                    <li>Savoir styliser un composant à partir d’une maquette (HTML & CSS)</li>
+                    <li>Aimer le <strong>travail en équipe</strong> (partage, communication, bonne ambiance)
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <p>
+                    Les débutants motivés sont les bienvenus. L’équipe et le Wiki vous guideront.
+                    L’apprentissage est collaboratif.
+                </p>
+                <h2 class="recrut_title">Sujets abordés</h2>
+                <ul>
+                    <li>Création de composants</li>
+                    <li>Création de services (synchrone/asynchrone)</li>
+                    <li>Données avec <strong>RxJS</strong> ou <strong>Angular Signals</strong></li>
+                    <li>Gestion des événements utilisateur</li>
+                    <li>Affichage dynamique avec Angular</li>
+                    <li>Et bien plus encore !</li>
+                </ul>
+            </section>
+            <section>
+                <p>
+                    Vous n’avez pas besoin de tout connaître. L’essentiel est de savoir chercher :
+                    documentation, Google ou
+                    Copilot.
+                </p>
+                <p>
+                    Notre équipe est bienveillante. La motivation et l’implication sont les clés du progrès.
+                </p>
+                <p><strong>Ne soyez plus un "loup solitaire", rejoignez la meute…</strong></p>
+            </section>
+        </div>
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    const card = entry.target;
-                    if (entry.isIntersecting) {
-                        // Forcer la réinitialisation de l'animation
-                        card.classList.remove("visible");
+    </div>
+    <!-- Application button -->
+    <div class="formation_selector">
+        <div class="wrapper">
+            <section class="sec01"></section>
+            <section class="sec02">
+                <div class="alternative">Rejoignez-nous<a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSdXRpRlUSAgu6idSZyMsi3PJ9wRV4hYbSVw6G4_TDdrFCuELA/viewform?usp=header"
+                        target="_blank">Formulaire</a></div>
+            </section>
+            <section class="sec03"></section>
+        </div>
+    </div>
+</div>
+{{inject_footer}}
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".timeline-card");
 
-                        // Forcer le reflow pour que la classe soit bien reappliquée
-                        void card.offsetWidth;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                const card = entry.target;
+                if (entry.isIntersecting) {
+                    // Forcer la réinitialisation de l'animation
+                    card.classList.remove("visible");
 
-                        card.classList.add("visible");
-                    } else {
-                        // Optionnel : si tu veux cacher à nouveau quand elle sort de l'écran
-                        card.classList.remove("visible");
-                    }
-                });
-            }, {
-                threshold: 0.3
+                    // Forcer le reflow pour que la classe soit bien reappliquée
+                    void card.offsetWidth;
+
+                    card.classList.add("visible");
+                } else {
+                    // Optionnel : si tu veux cacher à nouveau quand elle sort de l'écran
+                    card.classList.remove("visible");
+                }
             });
-
-            cards.forEach((card, i) => {
-                // Animation delay en cascade
-                card.style.transitionDelay = `${i * 200}ms`;
-                observer.observe(card);
-            });
+        }, {
+            threshold: 0.3
         });
-    </script>
+
+        cards.forEach((card, i) => {
+            // Animation delay en cascade
+            card.style.transitionDelay = `${i * 200}ms`;
+            observer.observe(card);
+        });
+    });
+</script>
 </body>
 
 </html>

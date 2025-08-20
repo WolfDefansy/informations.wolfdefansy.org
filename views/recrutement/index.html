@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WolfDefansy-Asso | Rejoindre l'équipe</title>
-    <meta name="description" content="Nos bénévoles sont au cœur de notre projet. Découvrez comment postuler et contribuer à notre mission éducative en cybersécurité.">
     <link rel="stylesheet" href="/public/all.css">
     <link rel="stylesheet" href="/public/index.css">
-    <link rel="icon" href="/public/pictures/pro.ico" type="image/x-icon">
-
+    {{inject_head}}
 </head>
 
 <body>
@@ -148,125 +146,125 @@
 
 </script>
 <script>
-(function () {
-    const container = document.getElementById("roulette-select-container");
-    const optionsContainer = container.querySelector(".rs-options");
-    const options = container.querySelectorAll(".rs-option");
-    const validateBtn = container.querySelector("#rs-validate");
-    const roulette = container.querySelector(".rs-roulette");
+    (function () {
+        const container = document.getElementById("roulette-select-container");
+        const optionsContainer = container.querySelector(".rs-options");
+        const options = container.querySelectorAll(".rs-option");
+        const validateBtn = container.querySelector("#rs-validate");
+        const roulette = container.querySelector(".rs-roulette");
 
-    let currentIndex = 0;
-    const optionHeight = 50;
-    const visibleCenter = 150 / 2 - optionHeight / 2;
+        let currentIndex = 0;
+        const optionHeight = 50;
+        const visibleCenter = 150 / 2 - optionHeight / 2;
 
-    function updateOptions() {
-        options.forEach((opt, i) => {
-            opt.classList.toggle("active", i === currentIndex);
-        });
-        optionsContainer.style.transform = `translateY(${visibleCenter - currentIndex * optionHeight}px)`;
-        validateBtn.disabled = options[currentIndex].innerText === "{choisir}";
-    }
-
-    function scrollHandler(e) {
-        if (e.deltaY > 0) {
-            currentIndex = Math.min(currentIndex + 1, options.length - 1);
-        } else {
-            currentIndex = Math.max(currentIndex - 1, 0);
+        function updateOptions() {
+            options.forEach((opt, i) => {
+                opt.classList.toggle("active", i === currentIndex);
+            });
+            optionsContainer.style.transform = `translateY(${visibleCenter - currentIndex * optionHeight}px)`;
+            validateBtn.disabled = options[currentIndex].innerText === "{choisir}";
         }
-        updateOptions();
-    }
 
-    // Gestion du toucher
-    let startY = 0;
-
-    function touchStartHandler(e) {
-        startY = e.touches[0].clientY;
-    }
-
-    function touchMoveHandler(e) {
-        const deltaY = e.touches[0].clientY - startY;
-
-        if (Math.abs(deltaY) > 20) {
-            if (deltaY < 0) {
+        function scrollHandler(e) {
+            if (e.deltaY > 0) {
                 currentIndex = Math.min(currentIndex + 1, options.length - 1);
             } else {
                 currentIndex = Math.max(currentIndex - 1, 0);
             }
             updateOptions();
-            startY = e.touches[0].clientY; // Réinitialiser pour scroll fluide
         }
-    }
 
-    // Ajout des écouteurs d'événements
-    roulette.addEventListener("wheel", scrollHandler);
-    roulette.addEventListener("touchstart", touchStartHandler, { passive: true });
-    roulette.addEventListener("touchmove", touchMoveHandler, { passive: true });
+        // Gestion du toucher
+        let startY = 0;
 
-    options.forEach((opt, i) => {
-        opt.addEventListener("click", () => {
-            currentIndex = i;
-            updateOptions();
+        function touchStartHandler(e) {
+            startY = e.touches[0].clientY;
+        }
+
+        function touchMoveHandler(e) {
+            const deltaY = e.touches[0].clientY - startY;
+
+            if (Math.abs(deltaY) > 20) {
+                if (deltaY < 0) {
+                    currentIndex = Math.min(currentIndex + 1, options.length - 1);
+                } else {
+                    currentIndex = Math.max(currentIndex - 1, 0);
+                }
+                updateOptions();
+                startY = e.touches[0].clientY; // Réinitialiser pour scroll fluide
+            }
+        }
+
+        // Ajout des écouteurs d'événements
+        roulette.addEventListener("wheel", scrollHandler);
+        roulette.addEventListener("touchstart", touchStartHandler, {passive: true});
+        roulette.addEventListener("touchmove", touchMoveHandler, {passive: true});
+
+        options.forEach((opt, i) => {
+            opt.addEventListener("click", () => {
+                currentIndex = i;
+                updateOptions();
+            });
         });
-    });
 
-    validateBtn.addEventListener("click", () => {
-        const choice = options[currentIndex].innerText;
+        validateBtn.addEventListener("click", () => {
+            const choice = options[currentIndex].innerText;
 
-        let url = "index.html"; // Valeur par défaut
-        switch (choice) {
-            case "développeur":
-                url = "prog";
-                break;
-            case "cyber":
-                url = "cyber";
-                break;
-            case "pédagogie":
-                url = "pedagogie";
-                break;
-            case "graphisme":
-                url = "graphisme";
-                break;
-            case "stratégie":
-                url = "strategie";
-                break;
-        }
+            let url = "index.html"; // Valeur par défaut
+            switch (choice) {
+                case "développeur":
+                    url = "prog";
+                    break;
+                case "cyber":
+                    url = "cyber";
+                    break;
+                case "pédagogie":
+                    url = "pedagogie";
+                    break;
+                case "graphisme":
+                    url = "graphisme";
+                    break;
+                case "stratégie":
+                    url = "strategie";
+                    break;
+            }
 
-        window.location.href = `/recrutement/${url}`;
-    });
+            window.location.href = `/recrutement/${url}`;
+        });
 
-    updateOptions();
-})();
+        updateOptions();
+    })();
 </script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const roulette = document.querySelector('.rs-roulette');
-    const body = document.body;
-    const html = document.documentElement;
+    document.addEventListener('DOMContentLoaded', () => {
+        const roulette = document.querySelector('.rs-roulette');
+        const body = document.body;
+        const html = document.documentElement;
 
-    if (!roulette) {
-      console.warn("Élément .rs-roulette introuvable.");
-      return;
-    }
+        if (!roulette) {
+            console.warn("Élément .rs-roulette introuvable.");
+            return;
+        }
 
-    const disableScroll = () => {
-      html.style.overflow = 'hidden';
-      body.style.overflow = 'hidden';
-    };
+        const disableScroll = () => {
+            html.style.overflow = 'hidden';
+            body.style.overflow = 'hidden';
+        };
 
-    const enableScroll = () => {
-      html.style.overflow = '';
-      body.style.overflow = '';
-    };
+        const enableScroll = () => {
+            html.style.overflow = '';
+            body.style.overflow = '';
+        };
 
-    // Desktop (souris)
-    roulette.addEventListener('mouseenter', disableScroll);
-    roulette.addEventListener('mouseleave', enableScroll);
+        // Desktop (souris)
+        roulette.addEventListener('mouseenter', disableScroll);
+        roulette.addEventListener('mouseleave', enableScroll);
 
-    // Mobile (touch)
-    roulette.addEventListener('touchstart', disableScroll);
-    roulette.addEventListener('touchend', enableScroll);
-  });
+        // Mobile (touch)
+        roulette.addEventListener('touchstart', disableScroll);
+        roulette.addEventListener('touchend', enableScroll);
+    });
 </script>
 
 
