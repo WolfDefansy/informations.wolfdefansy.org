@@ -956,6 +956,7 @@ body::-webkit-scrollbar {
 .wrapper section.sec01 {
     background-image: url("/public/pictures/part1.png");
     pointer-events: none;
+    border-top-left-radius: 5%;
 }
 
 .wrapper section.sec02 {
@@ -965,6 +966,7 @@ body::-webkit-scrollbar {
 .wrapper section.sec03 {
     background-image: url("/public/pictures/part2.png");
     pointer-events: none;
+    border-top-right-radius: 5%;
 }
 
 .wrapper:hover section:hover {
@@ -1723,3 +1725,5 @@ section {
         margin-top: 3%;
     }
 }
+
+
