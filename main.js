@@ -71,11 +71,16 @@ app.get('/entrainement/:page', (req, res) => {
 
 // Injecter le contenu dans les fichiers HTML
 function injector(content) {
+    const head = fs.readFileSync(path.join(__dirname, "views/components/head.html"), 'utf8');
+    const navbar = fs.readFileSync(path.join(__dirname, "views/components/navbar.html"), 'utf8');
+    const footer = fs.readFileSync(path.join(__dirname, "views/components/footer.html"), 'utf8');
+
     return content
-        .replace('{{inject_head}}', fs.readFileSync("views/components/head.html", 'utf8'))
-        .replace('{{inject_navbar}}', fs.readFileSync("views/components/navbar.html", 'utf8'))
-        .replace('{{inject_footer}}', fs.readFileSync("views/components/footer.html", 'utf8'));
+        .replace('{{inject_head}}', head)
+        .replace('{{inject_navbar}}', navbar)
+        .replace('{{inject_footer}}', footer);
 }
+
 
 
 
