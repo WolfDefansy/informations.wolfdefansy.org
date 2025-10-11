@@ -75,11 +75,17 @@ function injector(content) {
     const navbar = fs.readFileSync(path.join(__dirname, "views/components/navbar.html"), 'utf8');
     const footer = fs.readFileSync(path.join(__dirname, "views/components/footer.html"), 'utf8');
 
-    return content
+    let injected = content
         .replace('{{inject_head}}', head)
         .replace('{{inject_navbar}}', navbar)
         .replace('{{inject_footer}}', footer);
+
+    // Remplacer automatiquement tous les chemins "/public/..." par "/..."
+    injected = injected.replace(/\/public\//g, '/');
+
+    return injected;
 }
+
 
 
 
