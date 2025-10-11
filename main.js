@@ -78,6 +78,7 @@ function injector(content) {
 }
 
 
+
 // Route pour servir le fichier robots.txt
 app.get('/robots.txt', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/robots.txt'));
