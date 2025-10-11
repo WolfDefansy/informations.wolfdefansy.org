@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 COPY main.js .
-COPY public ./public
+COPY public . 
 COPY views ./views
 
 RUN npm install

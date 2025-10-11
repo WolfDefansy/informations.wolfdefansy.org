@@ -954,17 +954,17 @@ body::-webkit-scrollbar {
 }
 
 .wrapper section.sec01 {
-    background-image: url("/public/pictures/part1.png");
+    background-image: url(" /pictures/part1.png");
     pointer-events: none;
     border-top-left-radius: 5%;
 }
 
 .wrapper section.sec02 {
-    background-image: url("/public/pictures/image.png");
+    background-image: url(" /pictures/image.png");
 }
 
 .wrapper section.sec03 {
-    background-image: url("/public/pictures/part2.png");
+    background-image: url(" /pictures/part2.png");
     pointer-events: none;
     border-top-right-radius: 5%;
 }
@@ -1319,7 +1319,7 @@ section {
     }
 
     .video-background{
-        background-image: url("/public/pictures/part1.png");
+        background-image: url(" /pictures/part1.png");
         background-size: cover;
         background-position: center +25%; /* Centre horizontalement, colle en haut */
                 filter: grayscale(50%);

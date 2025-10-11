@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /entrainement/
 
-Sitemap: https://informations.wolfdefansy.org/public/sitemap.xml
+Sitemap: https://informations.wolfdefansy.org /sitemap.xml
