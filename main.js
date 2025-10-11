@@ -80,7 +80,7 @@ function injector(content) {
         .replace('{{inject_navbar}}', navbar)
         .replace('{{inject_footer}}', footer);
 
-    // Remplacer automatiquement tous les chemins "/public/..." par "/..."
+    // Remplace tous les /public/... par / pour le navigateur
     injected = injected.replace(/\/public\//g, '/');
 
     return injected;
