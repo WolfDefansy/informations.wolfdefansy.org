@@ -58,7 +58,15 @@ app.get('/partners/oteria', (req, res) => {
     }
 });
 
-
+app.get('/partners', (req, res) => {
+    const file = path.join(__dirname, 'views/partners/index.html');
+    try {
+        let content = fs.readFileSync(file, 'utf8');
+        return res.send(injector(content));
+    } catch (e) {
+        res.status(500).send('Erreur interne du serveur: Fichier index.html non trouvé.');
+    }
+});
 
 app.get('/contact', (req, res) => {
     const file = path.join(__dirname, 'views/contact.html');
