@@ -18,11 +18,13 @@ function injector(content) {
         const head = fs.readFileSync(path.join(__dirname, "views/components/head.html"), 'utf8');
         const navbar = fs.readFileSync(path.join(__dirname, "views/components/navbar.html"), 'utf8');
         const footer = fs.readFileSync(path.join(__dirname, "views/components/footer.html"), 'utf8');
+        const recruit = fs.readFileSync(path.join(__dirname, "views/components/recruit.html"), 'utf8');
 
         let injected = content
             .replace('{{inject_head}}', head)
             .replace('{{inject_navbar}}', navbar)
-            .replace('{{inject_footer}}', footer);
+            .replace('{{inject_footer}}', footer)
+            .replace('{{inject_recruit}}', recruit);
         
 
         return injected;
@@ -46,10 +48,40 @@ app.get('/', (req, res) => {
     }
 });
 
+app.get('/partners/oteria', (req, res) => {
+    const file = path.join(__dirname, 'views/partners/oteria.html');
+    try {
+        let content = fs.readFileSync(file, 'utf8');
+        return res.send(injector(content));
+    } catch (e) {
+        res.status(500).send('Erreur interne du serveur: Fichier index.html non trouvé.');
+    }
+});
+
 
 
 app.get('/contact', (req, res) => {
     const file = path.join(__dirname, 'views/contact.html');
+    try {
+        let content = fs.readFileSync(file, 'utf8');
+        return res.send(injector(content));
+    } catch (e) {
+        res.status(500).send('Erreur interne du serveur.');
+    }
+});
+
+app.get('/project', (req, res) => {
+    const file = path.join(__dirname, 'views/project/index.html');
+    try {
+        let content = fs.readFileSync(file, 'utf8');
+        return res.send(injector(content));
+    } catch (e) {
+        res.status(500).send('Erreur interne du serveur.');
+    }
+});
+
+app.get('/project/staff', (req, res) => {
+    const file = path.join(__dirname, 'views/project/staff.html');
     try {
         let content = fs.readFileSync(file, 'utf8');
         return res.send(injector(content));

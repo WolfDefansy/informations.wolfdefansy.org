@@ -1,23 +1,34 @@
 {
-  "name": "informations.WolfDefansy.org",
+  "name": "informations-wolfdefansy-org",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Serveur Express pour l'injection de composants et le développement avec auto-reload.",
+  "main": "main.js",
   "scripts": {
+    "start": "node main.js",
+    "dev": "NODE_ENV=development nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WolfDefansy/informations.WolfDefansy.org.git"
-  },
-  "keywords": [],
+  "keywords": [
+    "express",
+    "nodemon",
+    "livereload"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/WolfDefansy/informations.WolfDefansy.org/issues"
+    "url": "https://github.com/WolfDefansy/informations.wolfdefansy.org/issues"
   },
-  "homepage": "https://github.com/WolfDefansy/informations.WolfDefansy.org#readme",
+  "homepage": "https://github.com/WolfDefansy/informations.wolfdefansy.org#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WolfDefansy/informations.wolfdefansy.org.git"
+  },
   "dependencies": {
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.6.1",
+    "livereload": "^0.10.3",
+    "nodemon": "^3.0.1"
   }
 }

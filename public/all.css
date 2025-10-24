@@ -719,7 +719,7 @@ body::-webkit-scrollbar {
     letter-spacing: 0.05em;
 }
 
-.platform-WolfDefansy{
+.platform-WolfDefansy {
     background: rgba(165, 165, 255, 0.1);
     color: var(--purple);
     border: 1px solid rgba(165, 165, 255, 0.2);
@@ -1300,29 +1300,30 @@ section {
         align-items: center;
     }
 
-    .timeline-card{
+    .timeline-card {
         padding: none;
     }
 
-    .timeline-section{
+    .timeline-section {
         background-color: #00000000;
         height: 50vh;
         margin-top: 26%;
     }
-    
-    .plane{
+
+    .plane {
         display: none;
     }
 
-    .video_live{
-      display: none;  
+    .video_live {
+        display: none;
     }
 
-    .video-background{
+    .video-background {
         background-image: url(" /pictures/part1.png");
         background-size: cover;
-        background-position: center +25%; /* Centre horizontalement, colle en haut */
-                filter: grayscale(50%);
+        background-position: center +25%;
+        /* Centre horizontalement, colle en haut */
+        filter: grayscale(50%);
 
     }
 
@@ -1335,7 +1336,6 @@ section {
         margin-left: 5%;
         padding-bottom: 10%;
         padding-top: 10%
-
     }
 }
 
@@ -1504,7 +1504,7 @@ section {
     letter-spacing: 0.05em;
 }
 
-.platform-WolfDefansy{
+.platform-WolfDefansy {
     background: rgba(165, 165, 255, 0.1);
     color: var(--purple);
     border: 1px solid rgba(165, 165, 255, 0.2);
@@ -1729,6 +1729,135 @@ section {
 
 
 
-.align{
+.align {
     text-align: justify;
+}
+
+
+
+
+.wolde-welcome-container {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.wolde-welcome-card {
+    max-width: 800px;
+    width: 100%;
+    background: rgba(30, 58, 138, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.wolde-welcome-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.wolde-logo-section {
+    flex-shrink: 0;
+}
+
+.wolde-logo-placeholder {
+    width: 120px;
+    height: 120px;
+    background: #f3f4f6;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.wolde-logo-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+.wolde-logo-text {
+    font-size: 10px;
+    font-weight: 700;
+    color: #374151;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.wolde-logo-subtext {
+    font-size: 8px;
+    color: #6b7280;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.wolde-text-section {
+    flex: 1;
+}
+
+.wolde-title {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 16px 0;
+    line-height: 1.5;
+}
+
+.wolde-description {
+    color: white;
+    font-size: 14px;
+    margin: 0 0 24px 0;
+    line-height: 1.6;
+}
+
+.wolde-button-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.wolde-btn {
+    padding: 12px 24px;
+    background: #111827;
+    color: white;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.wolde-btn:hover {
+    background: #1f2937;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.wolde-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+    .wolde-welcome-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .wolde-button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .wolde-btn {
+        width: 100%;
+    }
 }
