@@ -123,6 +123,20 @@ app.get("/project/trailers", (req, res) => {
   }
 });
 
+app.get("/project/ambitions", (req, res) => {
+  const file = path.join(__dirname, "views/project/ambitions.html"); // corrigé
+  if (!fs.existsSync(file)) {
+    return res.status(404).send("Page non trouvée");
+  }
+  try {
+    const content = fs.readFileSync(file, "utf8");
+    return res.send(injector(content));
+  } catch (e) {
+    console.error("Erreur lecture trailers.html:", e);
+    res.status(500).send("Erreur interne du serveur.");
+  }
+});
+
 app.get("/project/staff", (req, res) => {
   const file = path.join(__dirname, "views/project/staff.html");
   try {

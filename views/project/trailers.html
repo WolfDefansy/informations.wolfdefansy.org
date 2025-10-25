@@ -3,139 +3,583 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/all.css" />
+    <title>WolfDefansy - Contacts</title>
+    <link rel="stylesheet" href=" /all.css" />
     <link rel="stylesheet" href="public/all.css" />
-    <link rel="stylesheet" href="/index.css" />
-
+    <link rel="stylesheet" href=" /index.css" />
     <style>
-      /* Force l'overflow visible pour cette page spécifique */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+      }
+
       body {
-        overflow-x: visible !important;
+        background: var(--bg-light);
+        color: var(--text-dark);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
       }
 
-      main {
-        width: 100%;
-        height: 700vh;
-        overflow-x: visible !important;
-        overflow-y: visible !important;
-      }
-
-      .carousel {
-        width: 100%;
-        height: 100vh;
-        perspective: 300px;
-        overflow: visible !important;
-        opacity: 0;
-      }
-
-      .card {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-dark) 100%
+        );
+        position: relative;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
-        font-size: 3rem;
-        font-family: monospace;
-        color: #fff;
+        justify-content: center;
         overflow: hidden;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        padding: 80px 20px;
       }
 
-      /* Image de fond pour les cartes */
-      .card::before {
+      .hero::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></svg>');
+        background-size: 50px 50px;
+        animation: float 20s linear infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100px);
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 800px;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-logo {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 30px;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .hero-logo img {
         width: 100%;
         height: 100%;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 0.4;
-        z-index: -1;
-        transition: opacity 0.3s ease;
+        object-fit: contain;
+        filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
       }
 
-      .card:hover::before {
-        opacity: 0.6;
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        color: white;
+        margin-bottom: 20px;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
       }
 
-      /* Images spécifiques pour chaque carte */
-      .card[data-card="1"]::before {
-        background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475?w=800");
+      .hero-subtitle {
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 30px;
+        font-weight: 300;
       }
 
-      .card[data-card="2"]::before {
-        background-image: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800");
-      }
-
-      .card[data-card="3"]::before {
-        background-image: url("https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?w=800");
-      }
-
-      .card[data-card="4"]::before {
-        background-image: url("https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=800");
-      }
-
-      .card[data-card="5"]::before {
-        background-image: url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800");
-      }
-
-      .card[data-card="6"]::before {
-        background-image: url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800");
-      }
-
-      .card[data-card="7"]::before {
-        background-image: url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800");
-      }
-
-      /* Contenu de la carte */
-      .card-content {
-        position: relative;
-        z-index: 1;
-        text-align: center;
-        padding: 2rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-      }
-
-      .card-title {
-        font-size: 3rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-      }
-
-      .card-description {
-        font-size: 1.2rem;
-        font-family: Arial, sans-serif;
+      .hero-description {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.8;
         max-width: 600px;
-        line-height: 1.4;
+        margin: 0 auto 40px;
       }
 
-      .arrow {
-        position: fixed;
-        bottom: 5vh;
+      .contact-email {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 18px 35px;
+        border-radius: 50px;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .contact-email:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .scroll-hint {
+        position: absolute;
+        bottom: 40px;
         left: 50%;
         transform: translateX(-50%);
-        height: 8vh;
-        width: 24px;
-        opacity: 1;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        text-align: center;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        40% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-5px);
+        }
+      }
+
+      /* Video Section Full Width */
+      .video-section-full {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .video-section-full iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
+      .video-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8) 0%,
+          transparent 100%
+        );
+        padding: 60px 40px 40px;
+        color: white;
+        z-index: 10;
+      }
+
+      .video-overlay h3 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .video-overlay p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Team Section */
+      .team-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 20px;
+        background: white;
+      }
+
+      .team-container {
+        display: flex;
+        width: 100%;
+        max-width: 1400px;
+        gap: 80px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .carousel-section {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .controls-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+        padding-left: 40px;
+      }
+
+      .section-label {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .carousel-container {
+        width: 100%;
+        max-width: 500px;
+        height: 70vh;
+        position: relative;
+        perspective: 1000px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .carousel-container .nav-arrow {
+        display: none;
+      }
+
+      .carousel-track {
+        width: 450px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .card {
+        position: absolute;
+        width: 400px;
+        height: 225px;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        cursor: pointer;
+        border: 3px solid transparent;
+      }
+
+      .card:hover {
+        border-color: var(--accent);
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .card.center {
+        z-index: 10;
+        transform: scale(1.15) translateZ(0);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+      }
+
+      .card.center img {
+        filter: none;
+      }
+
+      .card.up-2 {
+        z-index: 1;
+        transform: translateY(-300px) scale(0.8) translateZ(-300px);
+        opacity: 0.5;
+      }
+
+      .card.up-2 img {
+        filter: grayscale(100%) brightness(0.8);
+      }
+
+      .card.up-1 {
+        z-index: 5;
+        transform: translateY(-150px) scale(0.9) translateZ(-100px);
+        opacity: 0.8;
+      }
+
+      .card.up-1 img {
+        filter: grayscale(50%);
+      }
+
+      .card.down-1 {
+        z-index: 5;
+        transform: translateY(150px) scale(0.9) translateZ(-100px);
+        opacity: 0.8;
+      }
+
+      .card.down-1 img {
+        filter: grayscale(50%);
+      }
+
+      .card.down-2 {
+        z-index: 1;
+        transform: translateY(300px) scale(0.8) translateZ(-300px);
+        opacity: 0.5;
+      }
+
+      .card.down-2 img {
+        filter: grayscale(100%) brightness(0.8);
+      }
+
+      .card.hidden {
+        opacity: 0;
         pointer-events: none;
-        z-index: 100;
+      }
+
+      .member-info {
+        text-align: left;
+        transition: all 0.5s ease-out;
+      }
+
+      .member-name {
+        color: var(--primary);
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 15px;
+        letter-spacing: -0.02em;
+      }
+
+      .member-role {
+        color: var(--text-light);
+        font-size: 1.3rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .nav-controls {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .nav-arrow {
+        background: var(--primary);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: none;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-arrow:hover {
+        background: var(--primary-dark);
+        transform: scale(1.1);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .nav-arrow img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+      }
+
+      .dots {
+        display: flex;
+        gap: 12px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(8, 42, 123, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .dot.active {
+        background: var(--primary);
+        width: 30px;
+        border-radius: 5px;
+      }
+
+      .dot:hover {
+        background: var(--accent);
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--primary-dark);
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .footer p {
+        opacity: 0.8;
+        font-size: 0.95rem;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .hero-description {
+          font-size: 1rem;
+        }
+
+        .contact-email {
+          font-size: 1rem;
+          padding: 15px 25px;
+        }
+
+        .team-container {
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .controls-section {
+          padding-left: 0;
+          gap: 30px;
+        }
+
+        .carousel-container {
+          height: 60vh;
+          max-width: 350px;
+        }
+
+        .carousel-container .nav-arrow {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 55px;
+          height: 55px;
+          background: var(--primary);
+          box-shadow: var(--shadow-md);
+        }
+
+        .carousel-container .nav-arrow.up {
+          top: 20px;
+        }
+
+        .carousel-container .nav-arrow.down {
+          bottom: 20px;
+        }
+
+        .carousel-container .nav-arrow.up img {
+          transform: rotate(-90deg);
+        }
+
+        .carousel-container .nav-arrow.down img {
+          transform: rotate(90deg);
+        }
+
+        .nav-controls {
+          display: none;
+        }
+
+        .card {
+          width: 320px;
+          height: 180px;
+        }
+
+        .carousel-track {
+          width: 350px;
+        }
+
+        .card.up-2 {
+          transform: translateY(-160px) scale(0.8) translateZ(-300px);
+        }
+
+        .card.up-1 {
+          transform: translateY(-80px) scale(0.9) translateZ(-100px);
+        }
+
+        .card.down-1 {
+          transform: translateY(80px) scale(0.9) translateZ(-100px);
+        }
+
+        .card.down-2 {
+          transform: translateY(160px) scale(0.8) translateZ(-300px);
+        }
+
+        .member-name {
+          font-size: 2.5rem;
+        }
+
+        .member-role {
+          font-size: 1rem;
+        }
+
+        .member-info {
+          text-align: center;
+        }
+
+        .video-overlay {
+          padding: 40px 20px 30px;
+        }
+
+        .video-overlay h3 {
+          font-size: 1.8rem;
+        }
+
+        .video-overlay p {
+          font-size: 1rem;
+        }
       }
     </style>
-
-    <!-- GSAP + ScrollTrigger (CDN) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   </head>
   <body>
+    <!-- Hero Section -->
     {{inject_navbar}}
     <div class="header">
       <div class="container">
@@ -143,7 +587,10 @@
           <div class="header-info">
             <h1>
               <div class="header-icon">
-                <img src="/pictures/25A01LOGODISC.png" alt="WolfDefansy logo" />
+                <img
+                  src=" /pictures/25A01LOGODISC.png"
+                  alt="WolfDefansy logo"
+                />
               </div>
               Contacts
             </h1>
@@ -165,190 +612,240 @@
         </div>
       </div>
     </div>
-    <main>
-      <div class="carousel">
-        <div class="card" data-card="7">
-          <div class="card-content">
-            <div class="card-title">Analytics</div>
-            <div class="card-description">
-              Données et insights en temps réel
+
+    <!-- Full Width Video 1 -->
+    <section class="video-section-full">
+      <iframe
+        src="https://www.youtube.com/embed/MmyRn5GeJZ8?si=y0Eq85EMBsWOCtJS&autoplay=1&mute=1&playsinline=1&controls=0&modestbranding=1"
+        title="TRAILER #1 - WolfDefansy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <div class="video-overlay">
+        <h3>TRAILER #1</h3>
+        <p>Le début d'un grand projet</p>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+      <div class="team-container">
+        <div class="carousel-section">
+          <div class="carousel-container">
+            <button class="nav-arrow up">
+              <img
+                src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249"
+                alt="Up"
+              />
+            </button>
+            <div class="carousel-track">
+              <div class="card" data-index="0">
+                <img src="/pictures/1.png" alt="Team Member 1" />
+              </div>
+              <div class="card" data-index="1">
+                <img src="/pictures/2.png" alt="Team Member 2" />
+              </div>
+              <div class="card" data-index="2">
+                <img src="/pictures/3.png" alt="Team Member 3" />
+              </div>
+              <div class="card" data-index="3">
+                <img src="/pictures/4.png" alt="Team Member 4" />
+              </div>
+              <div class="card" data-index="4">
+                <img src="/pictures/5.png" alt="Team Member 5" />
+              </div>
+              <div class="card" data-index="5">
+                <img src="/pictures/6.png" alt="Team Member 6" />
+              </div>
             </div>
+            <button class="nav-arrow down">
+              <img
+                src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249"
+                alt="Down"
+              />
+            </button>
           </div>
         </div>
-        <div class="card" data-card="6">
-          <div class="card-content">
-            <div class="card-title">Collaboration</div>
-            <div class="card-description">Travaillez ensemble efficacement</div>
+
+        <div class="controls-section">
+          <div class="section-label">Notre Équipe</div>
+          <div class="member-info">
+            <h2 class="member-name">Luffy</h2>
+            <p class="member-role">Founder</p>
           </div>
-        </div>
-        <div class="card" data-card="5">
-          <div class="card-content">
-            <div class="card-title">Innovation</div>
-            <div class="card-description">Technologies de pointe</div>
+          <div class="nav-controls">
+            <button class="nav-arrow up">
+              <img
+                src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765"
+                alt="Up"
+              />
+            </button>
+            <button class="nav-arrow down">
+              <img
+                src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249"
+                alt="Down"
+              />
+            </button>
           </div>
-        </div>
-        <div class="card" data-card="4">
-          <div class="card-content">
-            <div class="card-title">Design</div>
-            <div class="card-description">Interface élégante et intuitive</div>
-          </div>
-        </div>
-        <div class="card" data-card="3">
-          <div class="card-content">
-            <div class="card-title">Performance</div>
-            <div class="card-description">Rapidité et efficacité optimales</div>
-          </div>
-        </div>
-        <div class="card" data-card="2">
-          <div class="card-content">
-            <div class="card-title">Sécurité</div>
-            <div class="card-description">
-              Protection maximale de vos données
-            </div>
-          </div>
-        </div>
-        <div class="card" data-card="1">
-          <div class="card-content">
-            <div class="card-title">Bienvenue</div>
-            <div class="card-description">
-              Découvrez nos solutions innovantes
-            </div>
+          <div class="dots">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+            <div class="dot" data-index="3"></div>
+            <div class="dot" data-index="4"></div>
+            <div class="dot" data-index="5"></div>
           </div>
         </div>
       </div>
-      <svg class="arrow" viewBox="0 0 2 10" preserveAspectRatio="xMidYMid meet">
-        <path stroke="#fff" stroke-width="0.4" fill="none" d="M1 0 L1 0" />
-      </svg>
-    </main>
+    </section>
+
+    <!-- Full Width Video 2 -->
+    <section class="video-section-full">
+      <iframe
+        src="https://www.youtube.com/embed/MhPy7dgYAh4?si=NdAsd8yzKaFs3z_T&autoplay=1&mute=1&playsinline=1&controls=0&modestbranding=1"
+        title="TRAILER #2 - WolfDefansy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <div class="video-overlay">
+        <h3>Notre Vision</h3>
+        <p>Une équipe passionnée et dévouée</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2025 WolfDefansy. Tous droits réservés.</p>
+    </footer>
 
     <script>
-      window.addEventListener("load", () => {
-        gsap.registerPlugin(ScrollTrigger);
+      const teamMembers = [
+        { name: "Luffy", role: "Founder" },
+        { name: "Monkey D. Luffy", role: "Creative Director" },
+        { name: "Luffy chan", role: "Lead Developer" },
+        { name: "Lucy", role: "UX Designer" },
+        { name: "Luffy kun", role: "Marketing Manager" },
+        { name: "Monkey chan", role: "Product Manager" },
+      ];
 
-        const colors = ["255,90,80", "125,250,225", "225,150,225"];
+      const cards = document.querySelectorAll(".card");
+      const dots = document.querySelectorAll(".dot");
+      const memberName = document.querySelector(".member-name");
+      const memberRole = document.querySelector(".member-role");
+      const upArrows = document.querySelectorAll(".nav-arrow.up");
+      const downArrows = document.querySelectorAll(".nav-arrow.down");
 
-        const tl = gsap
-          .timeline({ defaults: { duration: 2 } })
-          .set(".card", {
-            backgroundColor: (i) =>
-              "rgba(" + colors[gsap.utils.wrap(0, colors.length, i)] + ",0.85)",
-            backgroundImage: (i, t, a) =>
-              i == a.length - 1
-                ? "radial-gradient(ellipse at 330px 120px, rgba(0,0,0,0) 30%, #000 150%)"
-                : "radial-gradient(ellipse at 2500px -400px, rgba(0,0,0,0) 0%, #000 60%)",
-            transformOrigin: "50% 50% -100px",
-            backdropFilter: "blur(20px)",
-            x: "-50%",
-            y: "-45%",
-            z: -500,
-            rotateX: 2,
-          })
-          .to(
-            ".card",
-            {
-              z: 10,
-              rotateX: -3,
-              stagger: -1,
-            },
-            0
-          )
-          .to(
-            ".card",
-            {
-              yPercent: 100,
-              stagger: -1,
-              ease: "back.in(2)",
-            },
-            0
-          )
-          .to(
-            ".card",
-            {
-              duration: 1,
-              backdropFilter: "blur(8px)",
-              backgroundImage:
-                "radial-gradient(ellipse at 150px 250px, rgba(0,0,0,0) 80%, #000 300%)",
-              stagger: -1,
-              ease: "power3.in",
-            },
-            0
-          )
-          .to(
-            ".card",
-            {
-              duration: 1,
-              backdropFilter: "blur(1px)",
-              backgroundImage:
-                "radial-gradient(ellipse at -1000px 500px, rgba(0,0,0,0) 0%, #000 50%)",
-              stagger: -1,
-              ease: "sine.in",
-            },
-            1
-          )
-          .to(
-            ".card",
-            {
-              duration: 0.1,
-              autoAlpha: 0,
-              stagger: -1,
-            },
-            1.9
-          )
-          .pause(1);
+      let currentIndex = 0;
+      let isAnimating = false;
 
-        gsap
-          .timeline()
-          .to(".carousel", { duration: 0.8, opacity: 1, ease: "power2.inOut" })
-          .fromTo(
-            tl,
-            {
-              progress: 1,
-            },
-            {
-              duration: 1.5,
-              progress: 0.07,
-              ease: "expo",
-              onComplete: initST,
-            },
-            0
+      function updateCarousel(newIndex) {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        currentIndex = (newIndex + cards.length) % cards.length;
+
+        cards.forEach((card, i) => {
+          const offset = (i - currentIndex + cards.length) % cards.length;
+          card.classList.remove(
+            "center",
+            "up-1",
+            "up-2",
+            "down-1",
+            "down-2",
+            "hidden"
           );
 
-        function initST() {
-          gsap.set("body", { overflow: "auto" });
+          if (offset === 0) {
+            card.classList.add("center");
+          } else if (offset === 1) {
+            card.classList.add("down-1");
+          } else if (offset === 2) {
+            card.classList.add("down-2");
+          } else if (offset === cards.length - 1) {
+            card.classList.add("up-1");
+          } else if (offset === cards.length - 2) {
+            card.classList.add("up-2");
+          } else {
+            card.classList.add("hidden");
+          }
+        });
 
-          gsap.to(tl, {
-            progress: 1,
-            scrollTrigger: {
-              trigger: "main",
-              start: "top top",
-              end: "bottom bottom",
-              scrub: true,
-              pin: ".carousel",
-            },
-          });
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === currentIndex);
+        });
 
-          gsap
-            .timeline({ repeat: -1, repeatDelay: 0.5 })
-            .to(".arrow path", {
-              attr: { d: "M1 0 L1 10" },
-              ease: "power3.inOut",
-            })
-            .to(".arrow path", {
-              attr: { d: "M1 10 L1 10" },
-              ease: "power3.inOut",
-            });
+        memberName.style.opacity = "0";
+        memberRole.style.opacity = "0";
 
-          gsap.to(".arrow", {
-            opacity: 0,
-            scrollTrigger: {
-              trigger: "main",
-              start: "0 0",
-              end: "9px 0",
-              scrub: 1,
-            },
-          });
+        setTimeout(() => {
+          memberName.textContent = teamMembers[currentIndex].name;
+          memberRole.textContent = teamMembers[currentIndex].role;
+          memberName.style.opacity = "1";
+          memberRole.style.opacity = "1";
+        }, 300);
+
+        setTimeout(() => {
+          isAnimating = false;
+        }, 800);
+      }
+
+      upArrows.forEach((arrow) => {
+        arrow.addEventListener("click", () => {
+          updateCarousel(currentIndex - 1);
+        });
+      });
+
+      downArrows.forEach((arrow) => {
+        arrow.addEventListener("click", () => {
+          updateCarousel(currentIndex + 1);
+        });
+      });
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+          updateCarousel(i);
+        });
+      });
+
+      cards.forEach((card, i) => {
+        card.addEventListener("click", () => {
+          updateCarousel(i);
+        });
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowUp") {
+          updateCarousel(currentIndex - 1);
+        } else if (e.key === "ArrowDown") {
+          updateCarousel(currentIndex + 1);
         }
       });
+
+      let touchStartY = 0;
+      let touchEndY = 0;
+
+      document.addEventListener("touchstart", (e) => {
+        touchStartY = e.changedTouches[0].screenY;
+      });
+
+      document.addEventListener("touchend", (e) => {
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+      });
+
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartY - touchEndY;
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            updateCarousel(currentIndex + 1);
+          } else {
+            updateCarousel(currentIndex - 1);
+          }
+        }
+      }
+
+      updateCarousel(0);
     </script>
   </body>
 </html>
