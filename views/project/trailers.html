@@ -8,21 +8,6 @@
     <link rel="stylesheet" href="public/all.css" />
     <link rel="stylesheet" href=" /index.css" />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          sans-serif;
-      }
-
-      body {
-        background: var(--bg-light);
-        color: var(--text-dark);
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-      }
-
       /* Hero Section */
       .hero {
         min-height: 100vh;
@@ -227,7 +212,8 @@
         align-items: center;
         justify-content: center;
         padding: 100px 20px;
-        background: white;
+        background: rgba(18, 4, 98, 0.185);
+        color: white;
       }
 
       .team-container {
@@ -259,7 +245,7 @@
         font-size: 0.9rem;
         text-transform: uppercase;
         letter-spacing: 0.15em;
-        color: var(--accent);
+        color: wheat;
         font-weight: 600;
         margin-bottom: 20px;
       }
@@ -302,6 +288,7 @@
         transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         cursor: pointer;
         border: 3px solid transparent;
+        color: white;
       }
 
       .card:hover {
@@ -376,7 +363,7 @@
       }
 
       .member-name {
-        color: var(--primary);
+        color: white;
         font-size: 3.5rem;
         font-weight: 800;
         margin-bottom: 15px;
@@ -434,13 +421,13 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: rgba(8, 42, 123, 0.2);
+        background: rgba(0, 76, 255, 0.2);
         cursor: pointer;
         transition: all 0.3s ease;
       }
 
       .dot.active {
-        background: var(--primary);
+        background: rgb(0, 217, 255);
         width: 30px;
         border-radius: 5px;
       }

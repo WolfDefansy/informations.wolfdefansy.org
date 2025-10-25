@@ -1251,7 +1251,8 @@ section {
   margin-top: 5%;
   border-radius: 20px;
   background-color: #00000059;
-  box-shadow: rgba(9, 122, 228, 0.397) 0px 0px 20px 0px;
+  box-shadow: 0 0 80px #00f, /* Éclat très large et diffus */ #4a1e3a;
+  box-shadow: 0 4px 15px rgba(29, 20, 151, 0.5);
 }
 
 .timeline-section::-webkit-scrollbar {
@@ -1919,7 +1920,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 16px 24px;
-  background: var(--panel);
+  background: rgba(18, 4, 98, 0.185);
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
   backdrop-filter: blur(20px);
@@ -1965,7 +1966,7 @@ body {
 
 .left-panel {
   flex: 1;
-  background: var(--panel);
+  background: rgba(18, 4, 98, 0.185);
   border: 1px solid var(--border-subtle);
   padding: 40px;
   border-radius: 20px;
@@ -2023,7 +2024,7 @@ body {
 }
 
 .dropdown-container {
-  background: var(--panel);
+  background: rgba(18, 4, 98, 0.185);
   border: 1px solid var(--border-subtle);
   padding: 20px;
   border-radius: 16px;
@@ -2057,7 +2058,7 @@ body {
 
 .professional-select:hover {
   border-color: var(--accent-primary);
-  background: var(--panel-light);
+  background: rgba(18, 4, 98, 0.185);
 }
 
 .professional-select:focus {
@@ -2070,7 +2071,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 0;
-  background: var(--panel);
+  background: rgba(18, 4, 98, 0.185);
   border: 1px solid var(--border-subtle);
   border-radius: 20px;
   padding: 24px;
@@ -2170,11 +2171,7 @@ body {
 
 .news-date {
   min-width: 70px;
-  background: linear-gradient(
-    135deg,
-    var(--accent-primary),
-    var(--accent-secondary)
-  );
+  background: rgba(18, 4, 98, 0.185);
   color: white;
   padding: 12px;
   border-radius: 12px;
@@ -2260,11 +2257,7 @@ body {
 }
 
 .news-mini.active {
-  background: linear-gradient(
-    135deg,
-    rgba(99, 102, 241, 0.1),
-    rgba(139, 92, 246, 0.05)
-  );
+  background: rgba(18, 4, 98, 0.185);
 }
 
 .mini-title {
@@ -2285,11 +2278,7 @@ body {
 }
 
 .right-panel-inner::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    var(--accent-primary),
-    var(--accent-secondary)
-  );
+  background: rgba(18, 4, 98, 0.185);
   border-radius: 10px;
 }
 
@@ -2302,7 +2291,7 @@ body {
 }
 
 .left-panel::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(18, 4, 98, 0.185);
   border-radius: 10px;
 }
 
@@ -2313,7 +2302,6 @@ body {
 
   .right-column-container {
     width: 100%;
-    max-height: 60vh;
   }
 
   .left-panel {
@@ -2329,9 +2317,5 @@ body {
 
   .left-panel h1 {
     font-size: 2rem;
-  }
-
-  .right-column-container {
-    max-height: 50vh;
   }
 }
