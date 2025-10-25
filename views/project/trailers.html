@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/all.css" />
+    <link rel="stylesheet" href="public/all.css" />
+    <link rel="stylesheet" href="/index.css" />
+
+    <style>
+      /* Force l'overflow visible pour cette page spécifique */
+      body {
+        overflow-x: visible !important;
+      }
+
+      main {
+        width: 100%;
+        height: 700vh;
+        overflow-x: visible !important;
+        overflow-y: visible !important;
+      }
+
+      .carousel {
+        width: 100%;
+        height: 100vh;
+        perspective: 300px;
+        overflow: visible !important;
+        opacity: 0;
+      }
+
+      .card {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        font-family: monospace;
+        color: #fff;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Image de fond pour les cartes */
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.4;
+        z-index: -1;
+        transition: opacity 0.3s ease;
+      }
+
+      .card:hover::before {
+        opacity: 0.6;
+      }
+
+      /* Images spécifiques pour chaque carte */
+      .card[data-card="1"]::before {
+        background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475?w=800");
+      }
+
+      .card[data-card="2"]::before {
+        background-image: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800");
+      }
+
+      .card[data-card="3"]::before {
+        background-image: url("https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?w=800");
+      }
+
+      .card[data-card="4"]::before {
+        background-image: url("https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=800");
+      }
+
+      .card[data-card="5"]::before {
+        background-image: url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800");
+      }
+
+      .card[data-card="6"]::before {
+        background-image: url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800");
+      }
+
+      .card[data-card="7"]::before {
+        background-image: url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800");
+      }
+
+      /* Contenu de la carte */
+      .card-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 2rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      }
+
+      .card-title {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .card-description {
+        font-size: 1.2rem;
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        line-height: 1.4;
+      }
+
+      .arrow {
+        position: fixed;
+        bottom: 5vh;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 8vh;
+        width: 24px;
+        opacity: 1;
+        pointer-events: none;
+        z-index: 100;
+      }
+    </style>
+
+    <!-- GSAP + ScrollTrigger (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    {{inject_navbar}}
+    <div class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="header-info">
+            <h1>
+              <div class="header-icon">
+                <img src="/pictures/25A01LOGODISC.png" alt="WolfDefansy logo" />
+              </div>
+              Contacts
+            </h1>
+            <p class="header-subtitle">
+              Contactez-nous pour toute question, collaboration ou retour
+            </p>
+            <p class="header-description">
+              Vous souhaitez nous poser une question, proposer une collaboration
+              ou simplement nous faire un retour ?
+              <br /><br />
+              L'équipe WolfDefansy reste à votre écoute. Afin d'assurer un
+              meilleur suivi et centraliser les échanges, toutes les demandes
+              doivent être envoyées par email.
+              <br /><br />
+              📧 <strong>contact@WolfDefansy.org</strong> <br /><br />
+              Merci pour votre compréhension et à bientôt !
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main>
+      <div class="carousel">
+        <div class="card" data-card="7">
+          <div class="card-content">
+            <div class="card-title">Analytics</div>
+            <div class="card-description">
+              Données et insights en temps réel
+            </div>
+          </div>
+        </div>
+        <div class="card" data-card="6">
+          <div class="card-content">
+            <div class="card-title">Collaboration</div>
+            <div class="card-description">Travaillez ensemble efficacement</div>
+          </div>
+        </div>
+        <div class="card" data-card="5">
+          <div class="card-content">
+            <div class="card-title">Innovation</div>
+            <div class="card-description">Technologies de pointe</div>
+          </div>
+        </div>
+        <div class="card" data-card="4">
+          <div class="card-content">
+            <div class="card-title">Design</div>
+            <div class="card-description">Interface élégante et intuitive</div>
+          </div>
+        </div>
+        <div class="card" data-card="3">
+          <div class="card-content">
+            <div class="card-title">Performance</div>
+            <div class="card-description">Rapidité et efficacité optimales</div>
+          </div>
+        </div>
+        <div class="card" data-card="2">
+          <div class="card-content">
+            <div class="card-title">Sécurité</div>
+            <div class="card-description">
+              Protection maximale de vos données
+            </div>
+          </div>
+        </div>
+        <div class="card" data-card="1">
+          <div class="card-content">
+            <div class="card-title">Bienvenue</div>
+            <div class="card-description">
+              Découvrez nos solutions innovantes
+            </div>
+          </div>
+        </div>
+      </div>
+      <svg class="arrow" viewBox="0 0 2 10" preserveAspectRatio="xMidYMid meet">
+        <path stroke="#fff" stroke-width="0.4" fill="none" d="M1 0 L1 0" />
+      </svg>
+    </main>
+
+    <script>
+      window.addEventListener("load", () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const colors = ["255,90,80", "125,250,225", "225,150,225"];
+
+        const tl = gsap
+          .timeline({ defaults: { duration: 2 } })
+          .set(".card", {
+            backgroundColor: (i) =>
+              "rgba(" + colors[gsap.utils.wrap(0, colors.length, i)] + ",0.85)",
+            backgroundImage: (i, t, a) =>
+              i == a.length - 1
+                ? "radial-gradient(ellipse at 330px 120px, rgba(0,0,0,0) 30%, #000 150%)"
+                : "radial-gradient(ellipse at 2500px -400px, rgba(0,0,0,0) 0%, #000 60%)",
+            transformOrigin: "50% 50% -100px",
+            backdropFilter: "blur(20px)",
+            x: "-50%",
+            y: "-45%",
+            z: -500,
+            rotateX: 2,
+          })
+          .to(
+            ".card",
+            {
+              z: 10,
+              rotateX: -3,
+              stagger: -1,
+            },
+            0
+          )
+          .to(
+            ".card",
+            {
+              yPercent: 100,
+              stagger: -1,
+              ease: "back.in(2)",
+            },
+            0
+          )
+          .to(
+            ".card",
+            {
+              duration: 1,
+              backdropFilter: "blur(8px)",
+              backgroundImage:
+                "radial-gradient(ellipse at 150px 250px, rgba(0,0,0,0) 80%, #000 300%)",
+              stagger: -1,
+              ease: "power3.in",
+            },
+            0
+          )
+          .to(
+            ".card",
+            {
+              duration: 1,
+              backdropFilter: "blur(1px)",
+              backgroundImage:
+                "radial-gradient(ellipse at -1000px 500px, rgba(0,0,0,0) 0%, #000 50%)",
+              stagger: -1,
+              ease: "sine.in",
+            },
+            1
+          )
+          .to(
+            ".card",
+            {
+              duration: 0.1,
+              autoAlpha: 0,
+              stagger: -1,
+            },
+            1.9
+          )
+          .pause(1);
+
+        gsap
+          .timeline()
+          .to(".carousel", { duration: 0.8, opacity: 1, ease: "power2.inOut" })
+          .fromTo(
+            tl,
+            {
+              progress: 1,
+            },
+            {
+              duration: 1.5,
+              progress: 0.07,
+              ease: "expo",
+              onComplete: initST,
+            },
+            0
+          );
+
+        function initST() {
+          gsap.set("body", { overflow: "auto" });
+
+          gsap.to(tl, {
+            progress: 1,
+            scrollTrigger: {
+              trigger: "main",
+              start: "top top",
+              end: "bottom bottom",
+              scrub: true,
+              pin: ".carousel",
+            },
+          });
+
+          gsap
+            .timeline({ repeat: -1, repeatDelay: 0.5 })
+            .to(".arrow path", {
+              attr: { d: "M1 0 L1 10" },
+              ease: "power3.inOut",
+            })
+            .to(".arrow path", {
+              attr: { d: "M1 10 L1 10" },
+              ease: "power3.inOut",
+            });
+
+          gsap.to(".arrow", {
+            opacity: 0,
+            scrollTrigger: {
+              trigger: "main",
+              start: "0 0",
+              end: "9px 0",
+              scrub: 1,
+            },
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

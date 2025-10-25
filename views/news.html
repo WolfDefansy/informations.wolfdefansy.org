@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actualités du Projet - Interface Améliorée</title>
+    <link rel="stylesheet" href=" /all.css" />
+    <link rel="stylesheet" href=" /index.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+      :root {
+        --bg-main: #0a0a0f;
+        --bg-secondary: #111118;
+        --panel: #1a1a24;
+        --panel-light: #232330;
+        --text-primary: #ffffff;
+        --text-secondary: #a0a8c0;
+        --text-muted: #6b7280;
+        --accent-primary: #6366f1;
+        --accent-secondary: #8b5cf6;
+        --accent-hover: #4f46e5;
+        --border-subtle: rgba(255, 255, 255, 0.06);
+        --glass-bg: rgba(255, 255, 255, 0.03);
+        --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.4);
+        --shadow-xl: 0 30px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: radial-gradient(
+          circle at 20% 20%,
+          #1a1a2e 0%,
+          var(--bg-main) 50%
+        );
+        color: var(--text-primary);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .page-container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        gap: 24px;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 24px;
+        background: var(--panel);
+        border: 1px solid var(--border-subtle);
+        border-radius: 16px;
+        backdrop-filter: blur(20px);
+        flex-shrink: 0;
+      }
+
+      .header-title {
+        font-size: 0.875rem;
+        font-weight: 800;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .header-badge {
+        padding: 6px 14px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: white;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+      }
+
+      .content-wrapper {
+        flex: 1;
+        display: flex;
+        gap: 24px;
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      .left-panel {
+        flex: 1;
+        background: var(--panel);
+        border: 1px solid var(--border-subtle);
+        padding: 40px;
+        border-radius: 20px;
+        overflow-y: auto;
+        box-shadow: var(--shadow-lg);
+        position: relative;
+      }
+
+      .left-panel::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        background: radial-gradient(
+          circle at 50% 0%,
+          rgba(99, 102, 241, 0.1),
+          transparent
+        );
+        pointer-events: none;
+        border-radius: 20px 20px 0 0;
+      }
+
+      .left-panel-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .left-panel h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #ffffff, #a0a8c0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.2;
+      }
+
+      .left-panel p {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        font-size: 1.05rem;
+        font-weight: 400;
+      }
+
+      .right-column-container {
+        width: 480px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      .dropdown-container {
+        background: var(--panel);
+        border: 1px solid var(--border-subtle);
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: var(--shadow-lg);
+        flex-shrink: 0;
+      }
+
+      .dropdown-container label {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--accent-secondary);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
+
+      .professional-select {
+        width: 100%;
+        padding: 14px 18px;
+        border-radius: 12px;
+        border: 1px solid var(--border-subtle);
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        outline: none;
+      }
+
+      .professional-select:hover {
+        border-color: var(--accent-primary);
+        background: var(--panel-light);
+      }
+
+      .professional-select:focus {
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+      }
+
+      .right-panel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        background: var(--panel);
+        border: 1px solid var(--border-subtle);
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+      }
+
+      .right-panel-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 8px;
+      }
+
+      .right-panel-top {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+
+      .news-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(135deg, var(--glass-bg), transparent);
+        padding: 18px 20px;
+        border-radius: 14px;
+        border: 1px solid var(--border-subtle);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .news-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(
+          180deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .news-item:hover {
+        transform: translateX(4px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+      }
+
+      .news-item:hover::before {
+        opacity: 1;
+      }
+
+      .news-item.active {
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.1),
+          rgba(139, 92, 246, 0.05)
+        );
+        border-color: var(--accent-primary);
+        box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
+      }
+
+      .news-item.active::before {
+        opacity: 1;
+      }
+
+      .news-content {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .news-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+      }
+
+      .news-sub {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.4;
+      }
+
+      .news-date {
+        min-width: 70px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: white;
+        padding: 12px;
+        border-radius: 12px;
+        text-align: center;
+        font-weight: 800;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        flex-shrink: 0;
+      }
+
+      .news-date small {
+        display: block;
+        font-size: 0.7rem;
+        opacity: 0.9;
+        margin-top: 2px;
+        font-weight: 600;
+      }
+
+      .news-more-indicator {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 0;
+        border-top: 1px solid var(--border-subtle);
+        border-bottom: 1px solid var(--border-subtle);
+        flex-shrink: 0;
+        margin-top: 8px;
+      }
+
+      .count-badge {
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 800;
+        font-size: 0.85rem;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+      }
+
+      .indicator-text {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--text-secondary);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .scroll-hint {
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .news-scroll-section {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex-shrink: 0;
+        margin-top: 8px;
+      }
+
+      .news-mini {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border-subtle);
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+
+      .news-mini:hover {
+        background: var(--glass-bg);
+        transform: translateX(2px);
+      }
+
+      .news-mini.active {
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.1),
+          rgba(139, 92, 246, 0.05)
+        );
+      }
+
+      .mini-title {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        font-weight: 600;
+      }
+
+      .mini-date {
+        font-size: 0.8rem;
+        color: var(--accent-primary);
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .right-panel-inner::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .right-panel-inner::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+          180deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        border-radius: 10px;
+      }
+
+      .right-panel-inner::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .left-panel::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .left-panel::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+      }
+
+      @media (max-width: 1024px) {
+        .content-wrapper {
+          flex-direction: column;
+        }
+
+        .right-column-container {
+          width: 100%;
+          max-height: 60vh;
+        }
+
+        .left-panel {
+          min-height: 300px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .page-container {
+          padding: 16px;
+          gap: 16px;
+        }
+
+        .left-panel h1 {
+          font-size: 2rem;
+        }
+
+        .right-column-container {
+          max-height: 50vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    {{inject_navbar}}
+    <div class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="header-info">
+            <h1>
+              <div class="header-icon">
+                <img
+                  src=" /pictures/25A01LOGODISC.png"
+                  alt="Logo de WolfDefansy"
+                />
+              </div>
+              Bienvenue chez WolfDefansy
+            </h1>
+            <p class="header-subtitle">
+              Plateforme communautaire dédiée à la cybersécurité
+            </p>
+            <p class="header-description">
+              WolfDefansy est une association qui vise principalement à aider
+              les lycéens et les jeunes étudiants du monde entier à accéder
+              gratuitement à l'apprentissage de la cybersécurité.
+              <br /><br />
+              Notre objectif est de fournir une plateforme de formation et de
+              CTF accessible à tous, en construisant un environnement
+              polyvalent, centralisé et bienveillant.
+              <br /><br />
+              Nous croyons fermement aux valeurs de l'entraide et de la
+              solidarité. Aucun objectif commercial : notre mission est de
+              partager notre passion pour faire émerger de nouveaux passionnés.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-container">
+      <div class="header">
+        <div class="header-title">Actualités Projet</div>
+        <div class="header-badge">hebdomadaire</div>
+      </div>
+
+      <div class="content-wrapper">
+        <div class="left-panel" aria-live="polite">
+          <div class="left-panel-content">
+            <h1 id="detail-heading">Lancement Officiel</h1>
+            <p id="detail-content">
+              Sélectionnez une actualité pour afficher son contenu détaillé ici.
+              Vous pouvez filtrer les actualités par catégorie à l'aide du menu
+              déroulant à droite.
+            </p>
+          </div>
+        </div>
+
+        <div class="right-column-container" aria-label="Liste des actualités">
+          <div class="dropdown-container">
+            <label for="news-filter">Filtrer par Catégorie</label>
+            <select
+              id="news-filter"
+              class="professional-select"
+              aria-controls="news-list-container"
+            >
+              <option value="all">Toutes les Actualités</option>
+              <option value="project">Mises à Jour Projet</option>
+              <option value="press">Communiqués de Presse</option>
+              <option value="events">Événements</option>
+            </select>
+          </div>
+
+          <div class="right-panel" id="news-list-container">
+            <div class="right-panel-inner" id="news-inner">
+              <div class="right-panel-top" id="news-top"></div>
+
+              <div
+                id="news-more-indicator"
+                class="news-more-indicator"
+                style="display: none"
+              >
+                <div class="indicator-text">
+                  <span class="count-badge" id="more-count">+0</span>
+                  <span>Autres actualités</span>
+                </div>
+                <div class="scroll-hint">
+                  <span>↓ Défiler</span>
+                </div>
+              </div>
+
+              <div
+                class="news-scroll-section"
+                id="news-scroll"
+                style="display: none"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const newsData = [
+        {
+          title: "LANCEMENT OFFICIEL",
+          date: { day: "01", month: "JUN" },
+          heading: "Lancement Officiel du Projet",
+          content:
+            "Nous sommes ravis d'annoncer le lancement officiel de notre projet. Cette première actualité marque une étape majeure dans notre développement. Notre équipe a travaillé sans relâche pour créer une solution innovante qui transformera l'industrie. Cette initiative représente des mois de recherche, de développement et de tests rigoureux.",
+          category: "project",
+        },
+        {
+          title: "MISE À JOUR ALPHA",
+          date: { day: "02", month: "MAI" },
+          heading: "Nouvelle Version Alpha Disponible",
+          content:
+            "Une nouvelle version Alpha est maintenant disponible, intégrant de nouvelles fonctionnalités révolutionnaires et des corrections importantes. Cette mise à jour améliore considérablement les performances et l'expérience utilisateur. Nous avons écouté vos retours et implémenté les changements les plus demandés.",
+          category: "project",
+        },
+        {
+          title: "CONFÉRENCE TECH",
+          date: { day: "15", month: "AVR" },
+          heading: "Présentation au TechSummit",
+          content:
+            "Notre équipe a brillamment présenté le projet lors de la conférence annuelle TechSummit. L'accueil a été exceptionnel avec plus de 500 participants présents. Nous avons reçu des retours très positifs de la part des leaders de l'industrie et des investisseurs potentiels.",
+          category: "events",
+        },
+        {
+          title: "COMMUNIQUÉ OFFICIEL",
+          date: { day: "08", month: "AVR" },
+          heading: "Annonce de Partenariats Stratégiques",
+          content:
+            "Publication d'un communiqué de presse officiel concernant nos nouveaux partenariats stratégiques. Ces collaborations permettront d'accélérer notre croissance et d'élargir notre portée sur de nouveaux marchés. Nous sommes fiers de nous associer avec des leaders reconnus.",
+          category: "press",
+        },
+        {
+          title: "NOUVELLE CHARTE",
+          date: { day: "22", month: "MAR" },
+          heading: "Identité Visuelle Modernisée",
+          content:
+            "Découvrez notre nouvelle identité visuelle ! Nous avons complètement revu notre charte graphique pour un look plus moderne, cohérent et professionnel. Cette évolution reflète notre vision d'avenir et notre engagement envers l'innovation.",
+          category: "project",
+        },
+        {
+          title: "ACCORD MAJEUR",
+          date: { day: "10", month: "MAR" },
+          heading: "Partenariat avec un Leader du Secteur",
+          content:
+            "Signature d'un accord de partenariat stratégique avec un leader mondial de notre secteur. Cette collaboration ouvre de nouvelles opportunités de croissance et renforce notre position sur le marché international.",
+          category: "press",
+        },
+        {
+          title: "CORRECTIF CRITIQUE",
+          date: { day: "28", month: "FÉV" },
+          heading: "Patch de Sécurité Déployé",
+          content:
+            "Déploiement immédiat d'un patch correctif pour améliorer la stabilité et la sécurité de notre plateforme. Notre équipe technique a travaillé jour et nuit pour résoudre ces problèmes critiques et garantir une expérience optimale.",
+          category: "project",
+        },
+        {
+          title: "WEBINAR EXCLUSIF",
+          date: { day: "14", month: "FÉV" },
+          heading: "Découvrez les Futures Fonctionnalités",
+          content:
+            "Rejoignez-nous pour un webinar exclusif où nous dévoilerons les fonctionnalités à venir ! Notre équipe présentera les innovations qui arriveront dans les prochains mois. Une session Q&A sera organisée pour répondre à toutes vos questions.",
+          category: "events",
+        },
+        {
+          title: "RAPPORT FINANCIER",
+          date: { day: "05", month: "FÉV" },
+          heading: "Résultats Trimestriels Solides",
+          content:
+            "Publication de notre rapport financier du troisième trimestre avec des résultats exceptionnels. Nos revenus ont augmenté de 45% par rapport à l'année précédente, confirmant la solidité de notre modèle économique et la confiance de nos clients.",
+          category: "press",
+        },
+        {
+          title: "EXPANSION EUROPÉENNE",
+          date: { day: "20", month: "JAN" },
+          heading: "Ouverture de Nouveaux Bureaux",
+          content:
+            "Annonce de notre expansion en Europe avec l'ouverture de trois nouveaux bureaux à Paris, Berlin et Londres. Cette croissance témoigne de notre ambition internationale et de notre engagement à servir nos clients européens avec excellence.",
+          category: "project",
+        },
+        {
+          title: "PRIX INNOVATION",
+          date: { day: "12", month: "JAN" },
+          heading: "Récompense pour l'Excellence",
+          content:
+            "Nous sommes honorés d'avoir reçu le Prix de l'Innovation 2024 pour notre solution révolutionnaire. Cette reconnaissance valide notre approche innovante et notre engagement envers l'excellence. Merci à toute notre équipe pour ce succès collectif.",
+          category: "events",
+        },
+      ];
+
+      const detailHeading = document.getElementById("detail-heading");
+      const detailContent = document.getElementById("detail-content");
+      const newsTop = document.getElementById("news-top");
+      const newsScroll = document.getElementById("news-scroll");
+      const newsFilter = document.getElementById("news-filter");
+      const moreIndicator = document.getElementById("news-more-indicator");
+      const moreCount = document.getElementById("more-count");
+
+      function updateDetails(index) {
+        const news = newsData[index];
+        if (!news) return;
+        detailHeading.textContent = news.heading;
+        detailContent.textContent = news.content;
+      }
+
+      function clearActive() {
+        document.querySelectorAll(".news-item, .news-mini").forEach((it) => {
+          it.classList.remove("active");
+        });
+      }
+
+      function makeTopItem(news, originalIndex) {
+        const item = document.createElement("div");
+        item.className = "news-item";
+        item.setAttribute("data-index", originalIndex);
+        item.tabIndex = 0;
+        item.innerHTML = `
+          <div class="news-content">
+            <div class="news-title">${news.title}</div>
+            <div class="news-sub">${news.heading}</div>
+          </div>
+          <div class="news-date" aria-hidden="true">
+            <div>${news.date.day}</div>
+            <small>${news.date.month}</small>
+          </div>
+        `;
+        item.addEventListener("click", () => {
+          clearActive();
+          item.classList.add("active");
+          updateDetails(originalIndex);
+        });
+        item.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            item.click();
+          }
+        });
+        return item;
+      }
+
+      function makeMiniItem(news, originalIndex) {
+        const mini = document.createElement("div");
+        mini.className = "news-mini";
+        mini.setAttribute("data-index", originalIndex);
+        mini.tabIndex = 0;
+        mini.innerHTML = `
+          <div class="mini-title">${news.title}</div>
+          <div class="mini-date">${news.date.day} ${news.date.month}</div>
+        `;
+        mini.addEventListener("click", () => {
+          clearActive();
+          const topMatch = document.querySelector(
+            '.news-item[data-index="' + originalIndex + '"]'
+          );
+          if (topMatch) topMatch.classList.add("active");
+          else mini.classList.add("active");
+          updateDetails(originalIndex);
+          mini.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        });
+        mini.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            mini.click();
+          }
+        });
+        return mini;
+      }
+
+      function renderNews(filter = "all") {
+        newsTop.innerHTML = "";
+        newsScroll.innerHTML = "";
+        moreIndicator.style.display = "none";
+        newsScroll.style.display = "none";
+
+        let filteredNews = newsData;
+        if (filter !== "all") {
+          filteredNews = newsData.filter((n) => n.category === filter);
+        }
+
+        if (filteredNews.length === 0) {
+          newsTop.innerHTML =
+            '<div style="padding:20px;color:var(--text-muted);text-align:center">Aucune actualité trouvée pour cette catégorie.</div>';
+          detailHeading.textContent = "Aucun Résultat";
+          detailContent.textContent =
+            "Veuillez sélectionner une autre catégorie pour afficher les actualités disponibles.";
+          return;
+        }
+
+        const withIndex = filteredNews.map((fn) => ({
+          item: fn,
+          originalIndex: newsData.indexOf(fn),
+        }));
+
+        const topFive = withIndex.slice(0, 5);
+        const rest = withIndex.slice(5);
+
+        topFive.forEach((obj) => {
+          newsTop.appendChild(makeTopItem(obj.item, obj.originalIndex));
+        });
+
+        if (rest.length > 0) {
+          moreIndicator.style.display = "flex";
+          moreCount.textContent = "+" + rest.length;
+          newsScroll.style.display = "flex";
+          rest.forEach((obj) => {
+            newsScroll.appendChild(makeMiniItem(obj.item, obj.originalIndex));
+          });
+        }
+
+        const firstTop = newsTop.querySelector("[data-index]");
+        if (firstTop) {
+          firstTop.classList.add("active");
+          updateDetails(parseInt(firstTop.getAttribute("data-index")));
+        }
+      }
+
+      newsFilter.addEventListener("change", (e) => {
+        renderNews(e.target.value);
+      });
+
+      renderNews("all");
+    </script>
+  </body>
+</html>

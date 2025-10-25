@@ -1,56 +1,259 @@
 <header id="navbar">
-    <nav class="nav">
-        <div class="navbar-container" style="margin-top: 5px">
-            <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
-            <ul class="nav-links" id="nav-links">
-                <a href="/" class="nav-logo">
-                    <img src=" /pictures/25A01LOGODISC.png" alt="Logo" class="logo-img">
-                </a>
-                <li><a href="/" class="nav-link">Accueil</a></li>
-                <li><a href="/recrutement" class="nav-link">News</a></li>
-                <li><a href="/recrutement" class="nav-link">Recrutements</a></li>
-                <li><a href="/project" class="nav-link">Le Projet</a></li>
-                <li><a href="/partners" class="nav-link">Partenaires</a></li>
-                <li><a href="/contact" class="nav-link">Contacts</a></li>
-                <li><span class="nav-date">>>Réseaux>></span></li>
-                <li><a href="https://discord.gg/eZFpfu3QYN" class="nav-link" target="_blank" rel="noopener">DISCORD</a></li>
-                <li><a href="https://www.tiktok.com/@wolfdefansy" class="nav-link" target="_blank" rel="noopener">TIKTOK</a></li>
-                <li><a href="https://www.youtube.com/@WolfDefansy" class="nav-link" target="_blank" rel="noopener">YOUTUBE</a></li>
-                <li><a href="https://twitter.com/wolfdefansy" class="nav-link" target="_blank" rel="noopener">TWEETER</a></li>
-                <li><a href="https://www.instagram.com/wolfdefansy" class="nav-link" target="_blank" rel="noopener">INSTAGRAM</a></li>
-            </ul>
-        </div>
-    </nav>
+  <nav class="nav">
+    <div class="navbar-container" style="margin-top: 5px">
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        &#9776;
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <a href="/" class="nav-logo">
+          <img src=" /pictures/25A01LOGODISC.png" alt="Logo" class="logo-img" />
+        </a>
+        <li class="dropdown">
+          <a href="/" class="nav-link">ACCUEIL</a>
+        </li>
+        <li class="dropdown">
+          <a href="/news" class="nav-link">NEWS</a>
+        </li>
+        <li class="dropdown">
+          <a href="/recrutement" class="nav-link">RECRUTEMENTS</a>
+          <ul class="dropdown-content">
+            <li><a href="/recrutement">Etapes</a></li>
+            <li><a href="/recrutement/prog">Développeurs</a></li>
+            <li><a href="/recrutement/graphisme">Graphistes</a></li>
+            <li><a href="/recrutement/cyber">Cyber</a></li>
+            <li><a href="/recrutement/pedagogie">Pédagogie</a></li>
+            <li><a href="/recrutement/strategie">Stratégie</a></li>
+            <li><a href="/entrainement">Entraînement</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="/project" class="nav-link">LE PROJET</a>
+          <ul class="dropdown-content">
+            <li><a href="/project/staff">Présentation</a></li>
+            <li><a href="/project/objectifs">Objectifs</a></li>
+            <li><a href="/project/realisations">Ambitions</a></li>
+            <li><a href="/project/">Notre Équipe</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="/partners" class="nav-link">COLLABORATIONS</a>
+          <ul class="dropdown-content">
+            <li><a href="/partners">Partenaires</a></li>
+            <li><a href="/partenariats">Rejoindre</a></li>
+            <li><a href="/partners/oteria">Oteria CS</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="/contact" class="nav-link">CONTACTS</a>
+          <ul class="dropdown-content">
+            <li><a href="/contact/formulaire">Formulaire</a></li>
+            <li><a href="/contact/support">Support</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="" class="nav-link">RESEAUX</a>
+          <ul class="dropdown-content">
+            <li>
+              <a
+                href="https://discord.gg/eZFpfu3QYN"
+                class="nav-link"
+                target="_blank"
+                rel="noopener"
+                >Disord</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.tiktok.com/@wolfdefansy"
+                class="nav-link"
+                target="_blank"
+                rel="noopener"
+                >Tiktok</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/@WolfDefansy"
+                class="nav-link"
+                target="_blank"
+                rel="noopener"
+                >YouTube</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/wolfdefansy"
+                class="nav-link"
+                target="_blank"
+                rel="noopener"
+                >Tweeter</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/wolfdefansy"
+                class="nav-link"
+                target="_blank"
+                rel="noopener"
+                >Instagram</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>
-
 
 <div class="overlay"></div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navbarContainer = document.querySelector('.nav-links');
-    const overlay = document.querySelector('.overlay');
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const navbarContainer = document.querySelector(".nav-links");
+    const overlay = document.querySelector(".overlay");
+    const dropdowns = document.querySelectorAll(".dropdown");
 
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navbarContainer.classList.toggle('active');
-        overlay.classList.toggle('active');
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navbarContainer.classList.toggle("active");
+      overlay.classList.toggle("active");
     });
 
+    // Gestion des dropdowns en mobile
+    dropdowns.forEach((dropdown) => {
+      const link = dropdown.querySelector("a");
+      if (link && dropdown.querySelector(".dropdown-content")) {
+        link.addEventListener("click", (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle("active");
 
-    document.addEventListener('click', (event) => {
-        const isClickInsideMenu = navbarContainer.contains(event.target);
-        const isClickOnHamburger = hamburger.contains(event.target);
+            // Fermer les autres dropdowns
+            dropdowns.forEach((other) => {
+              if (other !== dropdown) {
+                other.classList.remove("active");
+              }
+            });
+          }
+        });
+      }
+    });
 
-        if (!isClickInsideMenu && !isClickOnHamburger) {
-            if (navbarContainer.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navbarContainer.classList.remove('active');
-                overlay.classList.remove('active');
-            }
+    // Fermer les dropdowns quand on clique ailleurs
+    document.addEventListener("click", (event) => {
+      const isClickInsideMenu = navbarContainer.contains(event.target);
+      const isClickOnHamburger = hamburger.contains(event.target);
+
+      if (!isClickInsideMenu && !isClickOnHamburger) {
+        dropdowns.forEach((dropdown) => {
+          dropdown.classList.remove("active");
+        });
+
+        if (navbarContainer.classList.contains("active")) {
+          hamburger.classList.remove("active");
+          navbarContainer.classList.remove("active");
+          overlay.classList.remove("active");
         }
+      }
     });
-});
-
+  });
 </script>
+
+<style>
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: #ffffffdc;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  @media screen and (max-width: 768px) {
+    .dropdown-content {
+      position: static;
+      width: 100%;
+      box-shadow: none;
+      padding-left: 20px;
+      transform: translateY(-10px);
+    }
+
+    .dropdown.active .dropdown-content {
+      max-height: 1000px;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .nav-links li {
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    .dropdown:hover .dropdown-content {
+      max-height: 1000px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .dropdown-content li {
+    display: block;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .dropdown.active .dropdown-content li,
+  .dropdown:hover .dropdown-content li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Animation décalée pour chaque élément de la liste */
+  .dropdown-content li:nth-child(1) {
+    transition-delay: 0.05s;
+  }
+  .dropdown-content li:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+  .dropdown-content li:nth-child(3) {
+    transition-delay: 0.15s;
+  }
+  .dropdown-content li:nth-child(4) {
+    transition-delay: 0.2s;
+  }
+  .dropdown-content li:nth-child(5) {
+    transition-delay: 0.25s;
+  }
+  .dropdown-content li:nth-child(6) {
+    transition-delay: 0.3s;
+  }
+  .dropdown-content li:nth-child(7) {
+    transition-delay: 0.35s;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+</style>
