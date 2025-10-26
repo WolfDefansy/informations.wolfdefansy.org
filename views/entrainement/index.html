@@ -1,55 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WolfDefansy-Asso | Entraînement Staff</title>
     {{inject_head}}
-    <link rel="stylesheet" href=" /all.css">
-    <link rel="stylesheet" href=" /index.css">
-</head>
-<body>
-
-{{inject_navbar}}
-
-<main class="page-wrapper" style="max-width: 1300px; margin: 60px auto; padding: 40px;">
-    <h1 class="main-title">Quel est votre pôle ?</h1>
-    <div class="cursus-wrapper" style="margin: 60px 20px;">
-        <div class="glass-container" style="color: white">
-            <p class="description-text">
-                Sélectionnez un domaine pour explorer les formations disponibles et rejoindre un pôle adapté à vos compétences et vos centres d'intérêt.
+    <link rel="stylesheet" href=" /all.css" />
+    <link rel="stylesheet" href=" /index.css" />
+  </head>
+  <body>
+    {{inject_navbar}}
+    <div class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="header-info">
+            <h1>
+              <div class="header-icon">
+                <img
+                  src=" /pictures/25A01LOGODISC.png"
+                  alt="Logo WolfDefansy"
+                />
+              </div>
+              Ressources d'apprentissage en stratégie
+            </h1>
+            <p class="header-subtitle">Apprendre et pratiquer la stratégie</p>
+            <p class="header-description">
+              Retrouvez ici des playlists vidéo sélectionnées pour développer
+              vos compétences stratégiques, organisées en quatre piliers :
+              analyse de l'écosystème et du marché, outils de stratégie,
+              innovation et créativité, et suivi de l'évolution des projets.
+              Chaque pilier progresse du niveau débutant au niveau avancé.
             </p>
-            <div class="cursus-list">
-                <a href="/entrainement/prog" class="cursus-card">
-                    <h2>Programmation</h2>
-                    <p>Maîtrisez les langages de développement, les bonnes pratiques de codage et les architectures
-                        logicielles modernes.</p>
-                </a>
-                <a href="/entrainement/strategie" class="cursus-card">
-                    <h2>Stratégie</h2>
-                    <p>Apprenez à définir une vision, piloter des projets, analyser les données et prendre des décisions
-                        éclairées.</p>
-                </a>
-                <a href="/entrainement/graphisme" class="cursus-card">
-                    <h2>Graphisme</h2>
-                    <p>Explorez la création visuelle, le design d’interface, l’identité de marque et les outils de
-                        conception graphique.</p>
-                </a>
-                <a href="/entrainement/cyber" class="cursus-card">
-                    <h2>Infrastructures et Cybersécurité</h2>
-                    <p>Déployez des systèmes robustes, sécurisez les environnements numériques et maîtrisez les protocoles
-                        de défense.</p>
-                </a>
-                <a href="/entrainement/pedagogie" class="cursus-card">
-                    <h2>Pédagogie et Création</h2>
-                    <p>Concevez des contenus éducatifs, animez des formations interactives et créez des challenges pour
-                        stimuler l’apprentissage.</p>
-                </a>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-</main>
 
-{{inject_footer}}
-</body>
+    <main
+      class="page-wrapper"
+      style="max-width: 1300px; margin: 60px auto; padding: 40px"
+    >
+      <h1 class="main-title">Quel est votre pôle ?</h1>
+      <div class="cursus-wrapper" style="margin: 60px 20px">
+        <div class="glass-container" style="color: white">
+          <p class="description-text">
+            Sélectionnez un domaine pour explorer les formations disponibles et
+            rejoindre un pôle adapté à vos compétences et vos centres d'intérêt.
+          </p>
+          <div class="cursus-list">
+            <a href="/entrainement/prog" class="cursus-card">
+              <h2>Programmation</h2>
+              <p>
+                Maîtrisez les langages de développement, les bonnes pratiques de
+                codage et les architectures logicielles modernes.
+              </p>
+            </a>
+            <a href="/entrainement/strategie" class="cursus-card">
+              <h2>Stratégie</h2>
+              <p>
+                Apprenez à définir une vision, piloter des projets, analyser les
+                données et prendre des décisions éclairées.
+              </p>
+            </a>
+            <a href="/entrainement/graphisme" class="cursus-card">
+              <h2>Graphisme</h2>
+              <p>
+                Explorez la création visuelle, le design d’interface, l’identité
+                de marque et les outils de conception graphique.
+              </p>
+            </a>
+            <a href="/entrainement/cyber" class="cursus-card">
+              <h2>Infrastructures et Cybersécurité</h2>
+              <p>
+                Déployez des systèmes robustes, sécurisez les environnements
+                numériques et maîtrisez les protocoles de défense.
+              </p>
+            </a>
+            <a href="/entrainement/pedagogie" class="cursus-card">
+              <h2>Pédagogie et Création</h2>
+              <p>
+                Concevez des contenus éducatifs, animez des formations
+                interactives et créez des challenges pour stimuler
+                l’apprentissage.
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id="background-grid">
+        <div id="grid-container"></div>
+      </div>
+    </main>
+    <script src="/js/oneko.js"></script>
+    {{inject_footer}}
+  </body>
 </html>

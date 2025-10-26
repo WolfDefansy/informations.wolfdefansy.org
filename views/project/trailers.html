@@ -699,12 +699,12 @@
         <p>Une équipe passionnée et dévouée</p>
       </div>
     </section>
+    <div id="background-grid">
+      <div id="grid-container"></div>
+    </div>
 
     <!-- Footer -->
-    <footer class="footer">
-      <p>© 2025 WolfDefansy. Tous droits réservés.</p>
-    </footer>
-
+    {{inject_footer}}
     <script>
       const teamMembers = [
         { name: "Luffy", role: "Founder" },
@@ -834,5 +834,6 @@
 
       updateCarousel(0);
     </script>
+    <script src="/js/oneko.js"></script>
   </body>
 </html>

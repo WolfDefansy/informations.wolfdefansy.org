@@ -16,8 +16,13 @@
         <div class="header-content">
           <div class="header-info">
             <h1>
-              <div class="container_choice"></div>
-              Etre bénévole chez WolfDefansy
+              <div class="header-icon">
+                <img
+                  src=" /pictures/25A01LOGODISC.png"
+                  alt="Logo de WolfDefansy"
+                />
+              </div>
+              Bienvenue chez WolfDefansy
             </h1>
             <p class="header-subtitle">Recruitment process and form</p>
             <p class="header-description">
@@ -39,7 +44,6 @@
           Rejoindre le pôle
           <div class="rs-roulette">
             <div class="rs-options">
-              <div class="rs-option">{Choisir}</div>
               <div class="rs-option">développeur</div>
               <div class="rs-option">cyber</div>
               <div class="rs-option">pédagogie</div>
@@ -125,8 +129,10 @@
         </div>
       </div>
     </div>
-    {{inject_recruit}}
-    {{inject_footer}}
+    <div id="background-grid">
+      <div id="grid-container"></div>
+    </div>
+    {{inject_recruit}} {{inject_footer}}
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const cards = document.querySelectorAll(".timeline-card");
@@ -285,5 +291,6 @@
         roulette.addEventListener("touchend", enableScroll);
       });
     </script>
+    <script src="/js/oneko.js"></script>
   </body>
 </html>

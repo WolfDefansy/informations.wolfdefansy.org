@@ -1,139 +1,547 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WolfDefansy - Dashboard</title>
+    <title>WolfDefansy-Asso | Nous contacter</title>
+    <script src="https://raw.githack.com/strangerintheq/rgba/0.0.8/rgba.js"></script>
+    <link rel="stylesheet" href=" /all.css" />
+    <link rel="stylesheet" href="public/all.css" />
+    <link rel="stylesheet" href=" /index.css" />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      #c {
+        width: 360px;
+        height: 360px;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-crisp-edges;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
       }
 
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(
-          135deg,
-          #1a002b 0%,
-          #230045 50%,
-          #32007a 100%
-        );
-        min-height: 100vh;
-        padding: 40px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
+      .team-container {
         width: 100%;
+        margin: 40px auto;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        position: relative;
+        z-index: 1;
       }
 
-      .grid {
+      .top-section {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
       }
 
-      .card {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        padding: 30px;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.4s ease;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 8px 32px rgba(58, 0, 128, 0.3);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+      .member-card {
+        background: rgba(18, 4, 98, 0.185);
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
         position: relative;
         overflow: hidden;
       }
 
-      .card::before {
+      .member-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
+
+      .member-info h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: white;
+      }
+
+      .member-info p {
+        font-size: 12px;
+        opacity: 0.9;
+        line-height: 1.4;
+        color: white;
+      }
+
+      .section-title {
+        background: rgba(18, 4, 98, 0.185);
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 4px solid #3b82f6;
+      }
+
+      .section-title h2 {
+        font-size: 18px;
+        font-weight: 600;
+        color: white;
+        margin: 0;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
+      .team-member {
+        background: url("/pictures/25A01LOGODISC.png");
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        padding: 25px 20px;
+        border: 1px solid rgba(71, 85, 105, 0.5);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .team-member::before {
         content: "";
         position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(186, 85, 211, 0.15) 0%,
-          rgba(138, 43, 226, 0.15) 50%,
-          rgba(0, 191, 255, 0.15) 100%
-        );
-        opacity: 0.7;
-        transition: opacity 0.5s ease;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
         z-index: 0;
       }
 
-      .card:hover::before {
-        opacity: 1;
-      }
-
-      .card:hover {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 12px 45px rgba(150, 80, 255, 0.5);
-        border-color: rgba(255, 255, 255, 0.25);
-      }
-
-      .card h2 {
-        color: #ffffff;
-        font-size: 1.4em;
-        font-weight: 600;
-        margin-bottom: 10px;
+      .team-member > * {
         position: relative;
         z-index: 1;
       }
 
-      .card p {
-        color: rgba(255, 255, 255, 0.75);
-        font-size: 0.9em;
-        position: relative;
-        z-index: 1;
+      .team-member h4 {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: white;
+        margin-top: 0;
+        background: rgba(59, 130, 246, 0.3);
+        padding: 8px 12px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
       }
 
-      /* Optional glowing accent around center cards */
-      .card.glow {
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        box-shadow: 0 0 20px rgba(160, 32, 240, 0.3),
-          inset 0 0 15px rgba(255, 255, 255, 0.05);
+      .team-member .role {
+        font-size: 12px;
+        opacity: 0.9;
+        margin-bottom: 15px;
+        color: white;
+        background: rgba(59, 130, 246, 0.3);
+        padding: 8px 12px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: inline-block;
+      }
+
+      .tech-badge {
+        display: inline-block;
+        background: rgba(18, 4, 98, 0.185);
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 11px;
+        margin-top: 10px;
+        color: white;
+      }
+
+      .divider {
+        text-align: center;
+        margin: 30px 0;
+        font-size: 18px;
+        opacity: 0.6;
+        color: white;
+      }
+
+      .bottom-section {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .text-content {
+        background: rgba(18, 4, 98, 0.185);
+        padding: 30px;
+        border-radius: 10px;
+        border: 1px solid rgba(71, 85, 105, 0.3);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+      }
+
+      .text-content h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        margin-top: 0;
+        color: #3b82f6;
+      }
+
+      .text-content p {
+        font-size: 13px;
+        line-height: 1.8;
+        opacity: 0.9;
+        text-align: justify;
+        color: white;
+        margin: 0;
+      }
+
+      .logo-section {
+        background: rgba(18, 4, 98, 0.185);
+        border-radius: 10px;
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+      }
+
+      .security-section {
+        margin-bottom: 30px;
+      }
+
+      .security-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .member-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: rgba(18, 4, 98, 0.185);
+        border-radius: 50%;
+        margin-left: 5px;
+      }
+
+      @media (max-width: 1200px) {
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .security-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
 
       @media (max-width: 768px) {
-        body {
-          padding: 20px;
+        .top-section {
+          grid-template-columns: 1fr;
+        }
+        .team-grid,
+        .security-grid {
+          grid-template-columns: 1fr;
+        }
+        .bottom-section {
+          grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
-  <body>
-    <div class="container">
-      <div class="grid">
-        <div class="card">
-          <h2>L'équipe</h2>
-        </div>
-        <div class="card center large">
-          <h2>WolfDefansy</h2>
-          <p>Centre de contrôle</p>
-        </div>
-        <div class="card">
-          <h2>Notre mission</h2>
-        </div>
-      </div>
 
-      <div class="grid">
-        <div class="card">
-          <h2>Trailers</h2>
-        </div>
-        <div class="card center">
-          <h2>Événements</h2>
-        </div>
-        <div class="card">
-          <h2>Nos ambitions</h2>
+  <body>
+    {{inject_navbar}}
+    <div class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="header-info">
+            <h1>
+              <div class="header-icon">
+                <img
+                  src=" /pictures/25A01LOGODISC.png"
+                  alt="WolfDefansy logo"
+                />
+              </div>
+              Contacts
+            </h1>
+            <p class="header-subtitle">
+              Contactez-nous pour toute question, collaboration ou retour
+            </p>
+            <p class="header-description">
+              Vous souhaitez nous poser une question, proposer une collaboration
+              ou simplement nous faire un retour ?
+              <br /><br />
+              L'équipe WolfDefansy reste à votre écoute. Afin d'assurer un
+              meilleur suivi et centraliser les échanges, toutes les demandes
+              doivent être envoyées par email.
+              <br /><br />
+              📧 <strong>contact@WolfDefansy.org</strong> <br /><br />
+              Merci pour votre compréhension et à bientôt !
+            </p>
+          </div>
+          <canvas id="c" width="16" height="16"></canvas>
         </div>
       </div>
     </div>
+
+    <!-- Team Organization Section -->
+    <div class="team-container">
+      <!-- Top Leaders Section -->
+      <div class="top-section">
+        <div class="member-card">
+          <div class="avatar">
+            <img
+              src="/pictures/25A01LOGODISC.png"
+              alt="Logo WolfDefansy"
+              style="width: 100%; overflow: hidden; border-radius: 50%"
+            />
+          </div>
+          <div class="member-info">
+            <h3>Secretaire</h3>
+            <p>Leksal</p>
+          </div>
+        </div>
+        <div class="member-card highlight">
+          <div class="avatar">
+            <img
+              src="/pictures/25A01LOGODISC.png"
+              alt="Logo WolfDefansy"
+              style="width: 100%; overflow: hidden; border-radius: 50%"
+            />
+          </div>
+          <div class="member-info">
+            <h3>Trésorier</h3>
+            <p>NewNapalm</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="avatar">
+            <img
+              src="/pictures/25A01LOGODISC.png"
+              alt="Logo WolfDefansy"
+              style="width: 100%; overflow: hidden; border-radius: 50%"
+            />
+          </div>
+          <div class="member-info">
+            <h3>Présidents</h3>
+            <p>IceShadow et WhiteDreams</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Development Team Section -->
+      <div class="section-title">
+        <h2>PSEUDO - Chef de l'équipe de développeurs</h2>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <h4>PSEUDO DEVELOPPEUR</h4>
+          <p class="role">ROLE <br />ROLE <br />ROLE</p>
+          <span class="tech-badge">TECHNO</span>
+        </div>
+        <div class="team-member">
+          <h4>PSEUDO DEVELOPPEUR</h4>
+          <p class="role">ROLE <br />ROLE <br />ROLE</p>
+          <span class="tech-badge">TECHNO</span>
+        </div>
+        <div class="team-member">
+          <h4>PSEUDO DEVELOPPEUR</h4>
+          <p class="role">ROLE <br />ROLE <br />ROLE</p>
+          <span class="tech-badge">TECHNO</span>
+        </div>
+        <div class="team-member">
+          <h4>PSEUDO DEVELOPPEUR</h4>
+          <p class="role">ROLE <br />ROLE <br />ROLE</p>
+          <span class="tech-badge">TECHNO</span>
+        </div>
+      </div>
+
+      <div class="divider">- 418 \_(°-°)_/ I'm not a teapot -</div>
+
+      <!-- Security Team Section -->
+      <div class="security-section">
+        <div class="section-title">
+          <h2>PSEUDO - Lead de l'équipe de cybersécurité</h2>
+        </div>
+
+        <div class="security-grid">
+          <div class="team-member">
+            <h4>PSEUDO<br />ROLE</h4>
+            <span class="member-icon"></span>
+            <span class="tech-badge">SPE</span>
+          </div>
+          <div class="team-member">
+            <h4>PSEUDO<br />ROLE</h4>
+            <span class="member-icon"></span>
+            <span class="tech-badge">SPE</span>
+          </div>
+          <div class="team-member">
+            <h4>PSEUDO<br />ROLE</h4>
+            <span class="member-icon"></span>
+            <span class="tech-badge">SPE</span>
+          </div>
+          <div class="team-member">
+            <h4>PSEUDO-<br />ROLE<br /></h4>
+            <span class="member-icon"></span>
+            <span class="tech-badge">SPE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Section -->
+      <div class="bottom-section">
+        <div class="text-content">
+          <h3>Rejoignez le cercle des membres proches de notre équipe</h3>
+          <p>
+            Devenir membre proche de notre association, c'est accéder à un
+            niveau d'engagement unique. Vous découvrirez nos nouvelles
+            fonctionnalités, projets et initiatives en avant-première, avant
+            qu'ils ne soient partagés avec le public. Chaque test, chaque retour
+            et chaque suggestion que vous partagez contribue directement à
+            améliorer nos services et à rendre l'expérience de notre communauté
+            encore plus riche et pertinente.
+          </p>
+          <p style="margin-top: 15px">
+            Votre rôle ne se limite pas à observer. En tant que membre proche,
+            vous participez activement à l'évolution de nos projets. Vos avis,
+            vos idées et vos recommandations sont pris en compte pour façonner
+            l'association de demain. Vous aurez l'occasion d'influencer les
+            choix, d'expérimenter de nouvelles fonctionnalités et de collaborer
+            étroitement avec l'équipe sur des initiatives concrètes.
+          </p>
+          <p style="margin-top: 15px">
+            Au-delà de l'aspect pratique, rejoindre ce cercle offre une
+            expérience humaine unique. Vous serez en contact direct avec
+            l'équipe, échangeant dans un environnement privilégié où l'écoute,
+            la créativité et le partage sont au cœur de chaque interaction.
+            C'est une chance de participer à une aventure collective, où vos
+            contributions ont un impact tangible et où chaque idée compte.
+          </p>
+          <p style="margin-top: 15px">
+            Ce rôle de membre proche vous permet non seulement de découvrir et
+            tester nos projets avant tout le monde, mais aussi de soutenir
+            l'association dans sa mission et de renforcer le lien entre notre
+            équipe et la communauté. Votre engagement devient un moteur de
+            progrès, d'innovation et de cohésion.
+          </p>
+          <p style="margin-top: 15px; font-weight: bold">
+            Rejoindre ce cercle, c'est bien plus qu'une inscription : c'est une
+            invitation à contribuer, à influencer et à grandir avec nous. Prenez
+            part à l'aventure et découvrez l'impact que votre engagement peut
+            avoir.
+          </p>
+          <a
+            href="URL_D_INSCRIPTION"
+            style="
+              display: inline-block;
+              margin-top: 20px;
+              padding: 14px 28px;
+              background-color: #0070f3;
+              color: #fff;
+              text-decoration: none;
+              border-radius: 8px;
+              font-weight: bold;
+              font-size: 16px;
+            "
+          >
+            S'inscrire et rejoindre le cercle
+          </a>
+        </div>
+
+        <div class="logo-section">
+          <img
+            src="/pictures/25A01LOGODISC.png"
+            alt="Logo WolfDefansy"
+            style="width: 100%; overflow: hidden"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div id="background-grid">
+      <div id="grid-container"></div>
+    </div>
+
+    {{inject_footer}}
+
+    <script>
+      var canvas = document.getElementById("c");
+      var ctx = canvas.getContext("2d");
+      ctx.translate(0, 16);
+      ctx.scale(1, -1);
+
+      var fps = 7;
+      var interval = 1000 / fps;
+      var prev = Date.now();
+
+      var y = [2, 1, 0, 0, 0, 0, 1, 2];
+      var max = [7, 9, 11, 13, 13, 11, 9, 7];
+      var min = [4, 7, 8, 10, 10, 8, 7, 4];
+
+      function flame() {
+        var now = Date.now();
+        var dif = now - prev;
+
+        if (dif > interval) {
+          prev = now;
+
+          ctx.clearRect(0, 0, 360, 360);
+
+          ctx.strokeStyle = "#d14234";
+          var i = 0;
+          for (var x = 4; x < 12; x++) {
+            var a = Math.random() * (max[i] - min[i] + 1) + min[i];
+
+            ctx.beginPath();
+            ctx.moveTo(x + 0.5, y[i++]);
+            ctx.lineTo(x + 0.5, a);
+            ctx.stroke();
+          }
+
+          ctx.strokeStyle = "#f2a55f";
+          var j = 1;
+          for (var x = 5; x < 11; x++) {
+            var a =
+              Math.random() * (max[j] - 5 - (min[j] - 5) + 1) + (min[j] - 5);
+
+            ctx.beginPath();
+            ctx.moveTo(x + 0.5, y[j++] + 1);
+            ctx.lineTo(x + 0.5, a);
+            ctx.stroke();
+          }
+
+          ctx.strokeStyle = "#e8dec5";
+          var k = 3;
+          for (var x = 7; x < 9; x++) {
+            var a =
+              Math.random() * (max[k] - 9 - (min[k] - 9) + 1) + (min[k] - 9);
+
+            ctx.beginPath();
+            ctx.moveTo(x + 0.5, y[k++]);
+            ctx.lineTo(x + 0.5, a);
+            ctx.stroke();
+          }
+        }
+        window.requestAnimationFrame(flame);
+      }
+
+      flame();
+    </script>
+    <script src="/js/oneko.js"></script>
   </body>
 </html>

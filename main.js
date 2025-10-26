@@ -218,7 +218,12 @@ app.get("/sitemap.xml", (req, res) => {
 });
 
 app.use((req, res, next) => {
-  res.status(404).send("Page non trouvée - WolfDefansy");
+  const file = path.join(__dirname, "views/404.html");
+  if (fs.existsSync(file)) {
+    res.status(404).sendFile(file); // Serve the 404 page directly
+  } else {
+    res.status(404).send("Page non trouvée"); // Fallback if 404 page doesn't exist
+  }
 });
 
 app.listen(PORT, () => {

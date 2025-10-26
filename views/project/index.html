@@ -1,368 +1,421 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WolfDefansy-Asso | Nous contacter</title>
-    <link rel="stylesheet" href=" /all.css" />
+    <script src="https://raw.githack.com/strangerintheq/rgba/0.0.8/rgba.js"></script>
+    <link rel="stylesheet" href="/all.css" />
     <link rel="stylesheet" href="public/all.css" />
-    <link rel="stylesheet" href=" /index.css" />
+    <link rel="stylesheet" href="/index.css" />
     <style>
-      .team-container {
-        max-width: 1400px;
-        margin: 40px auto;
-        padding: 40px;
-        background: rgba(18, 4, 98, 0.185);
-        border-radius: 15px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      }
-
-      .top-section {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin-bottom: 40px;
-      }
-
-      .member-card {
-        background: rgba(18, 4, 98, 0.185);
-        border-radius: 12px;
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        border: 1px solid rgba(59, 130, 246, 0.3);
-      }
-
-      .avatar {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-      }
-
-      .member-info h3 {
-        font-size: 16px;
-        margin-bottom: 5px;
-        color: white;
-      }
-
-      .member-info p {
-        font-size: 12px;
-        opacity: 0.8;
-        line-height: 1.4;
-        color: white;
-      }
-
-      .section-title {
-        background: rgba(18, 4, 98, 0.185);
-        padding: 15px 20px;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        border-left: 4px solid #3b82f6;
-      }
-
-      .section-title h2 {
-        font-size: 18px;
-        font-weight: 600;
-        color: white;
-      }
-
-      .team-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        margin-bottom: 40px;
-      }
-
-      .team-member {
-        background: rgba(18, 4, 98, 0.185);
-        border-radius: 10px;
-        padding: 25px 20px;
-        border: 1px solid rgba(71, 85, 105, 0.5);
+      /* Styles pour la section onglets */
+      .tabs-section {
         position: relative;
+        z-index: 1;
+        padding: 60px 0 80px;
       }
 
-      .team-member h4 {
-        font-size: 14px;
-        margin-bottom: 5px;
-        color: white;
+      .tabs-container {
+        margin: 0 auto;
+        padding: 0 20px;
       }
 
-      .team-member .role {
-        font-size: 12px;
-        opacity: 0.7;
-        margin-bottom: 15px;
-        color: white;
-      }
-
-      .tech-badge {
-        display: inline-block;
-        background: rgba(18, 4, 98, 0.185);
-        padding: 4px 10px;
-        border-radius: 4px;
-        font-size: 11px;
-        margin-top: 10px;
-        color: white;
-      }
-
-      .divider {
+      .tabs-header {
         text-align: center;
-        margin: 30px 0;
-        font-size: 18px;
-        opacity: 0.6;
-        color: white;
+        margin-bottom: 40px;
       }
 
-      .bottom-section {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 30px;
-        margin-top: 40px;
+      .tabs-header h2 {
+        font-size: 2.5rem;
+        background: linear-gradient(135deg, #667eea 0%, #00d9ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
       }
 
-      .text-content {
-        background: rgba(18, 4, 98, 0.185);
-        padding: 30px;
-        border-radius: 10px;
-        border: 1px solid rgba(71, 85, 105, 0.3);
-      }
-
-      .text-content h3 {
-        font-size: 20px;
-        margin-bottom: 20px;
-        color: #3b82f6;
-      }
-
-      .text-content p {
-        font-size: 13px;
-        line-height: 1.8;
-        opacity: 0.9;
-        text-align: justify;
-        color: white;
-      }
-
-      .logo-section {
-        background: rgba(18, 4, 98, 0.185);
-        border-radius: 10px;
-        padding: 40px;
+      /* Tabs Navigation */
+      .tabs-nav {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        gap: 0;
+        background: rgba(30, 35, 55, 0.6);
+        border-radius: 15px 15px 0 0;
+        padding: 10px 10px 0;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(102, 126, 234, 0.2);
+        border-bottom: none;
+        overflow-x: auto;
+        flex-wrap: nowrap;
       }
 
-      .logo {
-        width: 100%;
-        max-width: 200px;
-        height: auto;
+      .tab-button {
+        flex: 1;
+        min-width: 200px;
+        padding: 15px 25px;
+        background: transparent;
+        border: none;
+        color: #a0a0a0;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 10px 10px 0 0;
+        position: relative;
+        white-space: nowrap;
       }
 
-      .security-section {
-        margin-bottom: 30px;
+      .tab-button:hover {
+        color: #667eea;
+        background: rgba(102, 126, 234, 0.1);
       }
 
-      .security-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
+      .tab-button.active {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.2) 0%,
+          rgba(118, 75, 162, 0.2) 100%
+        );
+        color: #fff;
+        border-bottom: 3px solid #667eea;
       }
 
-      .member-icon {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
+      /* Content Area */
+      .content-wrapper {
+        background: linear-gradient(
+          135deg,
+          rgba(60, 80, 140, 0.3) 0%,
+          rgba(90, 70, 130, 0.3) 100%
+        );
+        border-radius: 0 0 30px 30px;
+        padding: 50px;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(102, 126, 234, 0.2);
+        border-top: none;
+        min-height: 500px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         background: rgba(18, 4, 98, 0.185);
-        border-radius: 50%;
-        margin-left: 5px;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(15px);
       }
 
-      @media (max-width: 1200px) {
-        .team-grid {
-          grid-template-columns: repeat(2, 1fr);
+      .tab-content {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
-        .security-grid {
-          grid-template-columns: repeat(2, 1fr);
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
 
+      .content-header {
+        position: relative;
+        margin-bottom: 30px;
+        padding-right: 80px;
+      }
+
+      .member-title-section h3 {
+        font-size: 2.5rem;
+        color: #fff;
+        margin-bottom: 10px;
+      }
+
+      .member-role {
+        font-size: 1.2rem;
+        color: #667eea;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .vertical-text {
+        position: absolute;
+        right: 0;
+        top: 0;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-size: 3rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #5d9cd8 0%, #0d0081 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0.3;
+        letter-spacing: 5px;
+      }
+
+      .content-text {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: #d0d0d0;
+        text-align: justify;
+        padding-right: 80px;
+      }
+
+      .content-text p {
+        margin-bottom: 20px;
+      }
+
+      /* Responsive */
       @media (max-width: 768px) {
-        .top-section {
-          grid-template-columns: 1fr;
+        .tabs-nav {
+          padding: 5px 5px 0;
         }
-        .team-grid,
-        .security-grid {
-          grid-template-columns: 1fr;
+
+        .tab-button {
+          min-width: 150px;
+          padding: 12px 15px;
+          font-size: 0.9rem;
         }
-        .bottom-section {
-          grid-template-columns: 1fr;
+
+        .content-wrapper {
+          padding: 30px 20px;
+        }
+
+        .content-header {
+          padding-right: 0;
+        }
+
+        .vertical-text {
+          position: static;
+          writing-mode: horizontal-tb;
+          transform: none;
+          font-size: 2rem;
+          margin-bottom: 20px;
+          display: block;
+        }
+
+        .member-title-section h3 {
+          font-size: 2rem;
+        }
+
+        .tabs-header h2 {
+          font-size: 2rem;
         }
       }
     </style>
-
-    {{inject_head}}
   </head>
 
   <body>
     {{inject_navbar}}
+
+    <!-- Section Contact (header original) -->
     <div class="header">
       <div class="container">
         <div class="header-content">
           <div class="header-info">
             <h1>
               <div class="header-icon">
-                <img
-                  src=" /pictures/25A01LOGODISC.png"
-                  alt="WolfDefansy logo"
-                />
+                <img src="/pictures/25A01LOGODISC.png" alt="WolfDefansy logo" />
               </div>
-              Contacts
+              Les voix du bureau – WolfDefansy
             </h1>
             <p class="header-subtitle">
-              Contactez-nous pour toute question, collaboration ou retour
+              Découverte des réflexions, des parcours et des convictions des
+              membres du bureau de l’association.
             </p>
             <p class="header-description">
-              Vous souhaitez nous poser une question, proposer une collaboration
-              ou simplement nous faire un retour ?
+              Cette page rassemble les avis et les témoignages des membres du
+              bureau de WolfDefansy. Chacun d’entre nous y partage sa vision
+              personnelle de l’association, son expérience au sein de l’équipe,
+              et la manière dont il ou elle incarne au quotidien les valeurs qui
+              nous définissent.
               <br /><br />
-              L'équipe WolfDefansy reste à votre écoute. Afin d'assurer un
-              meilleur suivi et centraliser les échanges, toutes les demandes
-              doivent être envoyées par email.
+              <strong>WolfDefansy</strong> repose sur plusieurs piliers
+              essentiels : <br /><br />
+              • <strong>La solidarité</strong> — parce que chaque action que
+              nous entreprenons vise à unir, à soutenir et à protéger nos
+              membres et nos partenaires.
+              <br />
+              • <strong>La transparence</strong> — un engagement permanent à
+              communiquer avec clarté, honnêteté et cohérence, afin de renforcer
+              la confiance collective.
+              <br />
+              • <strong>La responsabilité</strong> — nous agissons avec rigueur
+              et sens du devoir, conscients de l’impact de chaque décision sur
+              notre communauté et sur l’environnement qui nous entoure.
+              <br />
+              • <strong>L’entraide</strong> — au cœur de notre fonctionnement,
+              elle traduit la volonté de grandir ensemble, de partager nos
+              compétences et d’apprendre mutuellement.
+              <br />
+              • <strong>L’engagement</strong> — moteur de nos initiatives, il
+              reflète la passion et la détermination qui animent chacun de nos
+              projets. <br /><br />
+              À travers ces témoignages, nous souhaitons montrer que WolfDefansy
+              n’est pas une structure figée, mais une dynamique collective
+              portée par des individus différents, aux parcours variés, qui
+              avancent dans une même direction.
               <br /><br />
-              📧 <strong>contact@WolfDefansy.org</strong> <br /><br />
-              Merci pour votre compréhension et à bientôt !
+              Ces avis ne cherchent pas à délivrer une vérité unique, mais à
+              offrir une vision humaine et plurielle de ce que nous construisons
+              ensemble. Chaque mot traduit une part de notre identité, un
+              fragment de ce qui fait la force et la singularité de notre
+              association.
+              <br /><br />
+              Nous espérons que ces partages vous permettront de mieux
+              comprendre qui nous sommes, ce que nous défendons et pourquoi nous
+              croyons que WolfDefansy peut faire la différence.
+              <br /><br />
+              <em
+                >Bienvenue dans le cœur et la pensée du bureau de
+                WolfDefansy.</em
+              >
             </p>
           </div>
+          <canvas id="c" width="16" height="16"></canvas>
         </div>
       </div>
     </div>
 
-    <!-- Team Organization Section -->
-    <div class="team-container">
-      <!-- Top Leaders Section -->
-      <div class="top-section">
-        <div class="member-card">
-          <div class="avatar">👤</div>
-          <div class="member-info">
-            <h3>レクサル</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
+    <!-- Section Membres du Bureau (nouvelle) -->
+    <section class="tabs-section">
+      <div class="tabs-container">
+        <div class="tabs-header">
+          <h2>Un mot de chacun des membres du bureau</h2>
         </div>
-        <div class="member-card highlight">
-          <div class="avatar">👤</div>
-          <div class="member-info">
-            <h3>NewNapalm</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+        <nav class="tabs-nav">
+          <button class="tab-button active" data-tab="description">
+            レクサル
+          </button>
+          <button class="tab-button" data-tab="newnapalm">NewNapalm</button>
+          <button class="tab-button" data-tab="leksal">IceShadow</button>
+          <button class="tab-button" data-tab="ice">WhiteDreams</button>
+        </nav>
+
+        <div class="content-wrapper">
+          <!-- Description Globale -->
+          <div class="tab-content active" id="description">
+            <div class="content-header">
+              <div class="member-title-section">
+                <h3>Site récemment mis à jour !</h3>
+                <div class="member-role">Témoignages à venir</div>
+              </div>
+              <div class="vertical-text">LekSal</div>
+              <div class="vertical-text"></div>
+            </div>
+            <div class="content-text">
+              <p>
+                Nous sommes heureux de vous informer que notre site a récemment
+                bénéficié d'une mise à jour importante. Cette amélioration a
+                pour but d'enrichir votre expérience et de vous fournir des
+                informations plus pertinentes concernant notre association. Dans
+                un futur proche, nous allons intégrer les témoignages des
+                membres du bureau, qui partageront leurs réflexions, parcours et
+                convictions. Ces témoignages joueront un rôle clé pour mettre en
+                avant la diversité et la richesse de notre communauté. Restez
+                connectés, car nous avons hâte de vous faire découvrir ces voix
+                qui illustrent la force de notre association !
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="member-card">
-          <div class="avatar">👤</div>
-          <div class="member-info">
-            <h3>IceShadow & WhiteDreams</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+          <!-- NewNapalm -->
+          <div class="tab-content" id="newnapalm">
+            <div class="content-header">
+              <div class="member-title-section">
+                <h3>Témoignage à venir</h3>
+                <div class="member-role">Membre du bureau</div>
+              </div>
+              <div class="vertical-text">NewNapalm</div>
+            </div>
+            <div class="content-text">
+              <p>
+                Nous sommes ravis de vous annoncer que notre site a subi une
+                mise à jour significative. Dans un avenir proche, nous
+                ajouterons des témoignages qui mettront en lumière les
+                expériences et les réflexions des membres du bureau. Ces
+                contributions sont essentielles pour illustrer notre engagement
+                et notre vision collective. Restez à l'écoute pour découvrir ces
+                récits inspirants qui enrichiront notre communauté.
+              </p>
+            </div>
+          </div>
+
+          <!-- Leksal -->
+          <div class="tab-content" id="leksal">
+            <div class="content-header">
+              <div class="member-title-section">
+                <h3>Témoignage à venir</h3>
+                <div class="member-role">Membre du bureau</div>
+              </div>
+              <div class="vertical-text">IceShadow</div>
+            </div>
+            <div class="content-text">
+              <p>
+                Nous sommes heureux de vous informer que notre site a récemment
+                bénéficié d'une mise à jour importante. Dans un futur proche,
+                nous allons intégrer des témoignages qui partageront les
+                réflexions et les parcours des membres du bureau. Ces
+                témoignages sont cruciaux pour mettre en avant la diversité et
+                la richesse de notre communauté. Restez connectés pour découvrir
+                ces voix qui font la force de notre association !
+              </p>
+            </div>
+          </div>
+
+          <!-- Ice et White -->
+          <div class="tab-content" id="ice">
+            <div class="content-header">
+              <div class="member-title-section">
+                <h3>Témoignage à venir</h3>
+                <div class="member-role">Membre du bureau</div>
+              </div>
+              <div class="vertical-text">WhiteDreams</div>
+            </div>
+            <div class="content-text">
+              <p>
+                Nous sommes ravis de vous annoncer que notre site a subi une
+                mise à jour significative. Dans un avenir proche, nous
+                ajouterons des témoignages qui mettront en lumière les
+                expériences et les réflexions des membres du bureau. Ces
+                contributions sont essentielles pour illustrer notre engagement
+                et notre vision collective. Restez à l'écoute pour découvrir ces
+                récits inspirants qui enrichiront notre communauté.
+              </p>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Development Team Section -->
-      <div class="section-title">
-        <h2>NewNapalm - Chef de l'équipe de développeurs</h2>
-      </div>
-
-      <div class="team-grid">
-        <div class="team-member">
-          <h4>Loadav.</h4>
-          <p class="role">DevOps,<br />développeur<br />react</p>
-          <span class="tech-badge">JS</span>
-        </div>
-        <div class="team-member">
-          <h4>Dev2.</h4>
-          <p class="role">DevOps,<br />développeur<br />angular</p>
-          <span class="tech-badge">JS</span>
-        </div>
-        <div class="team-member">
-          <h4>Dev3.</h4>
-          <p class="role">DevOps,<br />développeur<br />react</p>
-          <span class="tech-badge">JS</span>
-        </div>
-        <div class="team-member">
-          <h4>Dev4.</h4>
-          <p class="role">Dev,<br />typescript,<br />angular</p>
-          <span class="tech-badge">JS</span>
-        </div>
-      </div>
-
-      <div class="divider">⚡ → 418 → I'm not a teapot</div>
-
-      <!-- Security Team Section -->
-      <div class="security-section">
-        <div class="section-title">
-          <h2>PRTech - Lead de l'équipe de cybersécurité</h2>
-        </div>
-
-        <div class="security-grid">
-          <div class="team-member">
-            <h4>WItsu-<br />Forgestor</h4>
-            <span class="member-icon"></span>
-            <span class="tech-badge">PY</span>
-          </div>
-          <div class="team-member">
-            <h4>$Pirity ❄️<br />soucoupes</h4>
-            <span class="member-icon"></span>
-            <span class="tech-badge">PY</span>
-          </div>
-          <div class="team-member">
-            <h4>accalt-membre<br />polygone</h4>
-            <span class="member-icon"></span>
-            <span class="tech-badge">RS</span>
-          </div>
-          <div class="team-member">
-            <h4>Notdynos-<br />consultant<br />cyber</h4>
-            <span class="member-icon"></span>
-            <span class="tech-badge">RS</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom Section -->
-      <div class="bottom-section">
-        <div class="text-content">
-          <h3>2 Membres proches de notre équipe</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p style="margin-top: 15px">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-            eos qui ratione voluptatem sequi nesciunt.
-          </p>
-          <p style="margin-top: 15px">
-            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-            consectetur, adipisci velit, sed quia non numquam eius modi tempora
-            incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut
-            enim ad minima veniam, quis nostrum exercitationem ullam corporis
-            suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
-          </p>
-        </div>
-
-        <div class="logo-section">
-          <img src="public/pictures/25A01LOGODISC.png" alt="" />
-        </div>
-      </div>
+    <div id="background-grid">
+      <div id="grid-container"></div>
     </div>
-    {{inject_recruit}} {{inject_footer}}
+
+    {{inject_footer}}
+
+    <script>
+      // Gestion des onglets
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Retirer la classe active de tous les boutons et contenus
+          tabButtons.forEach((btn) => btn.classList.remove("active"));
+          tabContents.forEach((content) => content.classList.remove("active"));
+
+          // Ajouter la classe active au bouton cliqué
+          button.classList.add("active");
+
+          // Afficher le contenu correspondant
+          const tabId = button.getAttribute("data-tab");
+          document.getElementById(tabId).classList.add("active");
+        });
+      });
+    </script>
+    <script src="/js/oneko.js"></script>
   </body>
 </html>

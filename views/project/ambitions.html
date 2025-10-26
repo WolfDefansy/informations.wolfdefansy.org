@@ -5,547 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Montagnes avec drapeaux</title>
     <link rel="stylesheet" href=" /all.css" />
-    <link rel="stylesheet" href="public/all.css" />
+
     <link rel="stylesheet" href=" /index.css" />
-    <style>
-      .header {
-        padding: 60px 20px;
-        text-align: center;
-        position: relative;
-        z-index: 5;
-      }
-
-      .header-content {
-        max-width: 900px;
-        margin: 0 auto;
-      }
-
-      .header-icon {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto 20px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      }
-
-      .header-icon img {
-        width: 50px;
-        height: 50px;
-        object-fit: contain;
-      }
-
-      h1 {
-        font-size: 48px;
-        font-weight: 700;
-        margin-bottom: 15px;
-        background: linear-gradient(135deg, #fff 0%, #a0b4ff 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .header-subtitle {
-        font-size: 20px;
-        color: rgba(255, 255, 255, 0.8);
-        margin-bottom: 25px;
-        font-weight: 500;
-      }
-
-      .header-description {
-        font-size: 15px;
-        line-height: 1.8;
-        color: rgba(255, 255, 255, 0.7);
-        max-width: 700px;
-        margin: 0 auto;
-      }
-
-      .header-description strong {
-        color: #6b8aff;
-        font-weight: 600;
-        font-size: 16px;
-      }
-
-      .scene-wrapper {
-        display: flex;
-        justify-content: center;
-        padding: 40px 20px 80px;
-        position: relative;
-      }
-
-      .scene {
-        position: relative;
-        width: 100%;
-        max-width: 1200px;
-        height: 600px;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 30px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(20px);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-        overflow: hidden;
-      }
-
-      .mountains-container {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 450px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-      }
-
-      .mountain {
-        position: absolute;
-        bottom: 0;
-        transition: filter 0.3s ease;
-      }
-
-      .mountain:hover {
-        filter: brightness(1.1);
-      }
-
-      .mountain1 {
-        left: 10%;
-        width: 0;
-        height: 0;
-        border-left: 120px solid transparent;
-        border-right: 120px solid transparent;
-        border-bottom: 280px solid #1a1f3a;
-        z-index: 1;
-        filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.6));
-      }
-
-      .mountain1::before {
-        content: "";
-        position: absolute;
-        top: 15px;
-        left: -110px;
-        width: 0;
-        height: 0;
-        border-left: 110px solid transparent;
-        border-right: 110px solid transparent;
-        border-bottom: 265px solid rgba(255, 255, 255, 0.95);
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-      }
-
-      .mountain1::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: -105px;
-        width: 210px;
-        height: 210px;
-        background: repeating-radial-gradient(
-          circle at 50% 100%,
-          transparent 0px,
-          transparent 12px,
-          #1a1f3a 12px,
-          #1a1f3a 24px
-        );
-        clip-path: ellipse(105px 105px at 50% 100%);
-      }
-
-      .mountain1-shadow {
-        position: absolute;
-        left: calc(10% - 80px);
-        bottom: 120px;
-        width: 0;
-        height: 0;
-        border-left: 40px solid transparent;
-        border-right: 40px solid transparent;
-        border-bottom: 100px solid rgba(0, 0, 0, 0.2);
-        z-index: 2;
-      }
-
-      .mountain1-ridge {
-        position: absolute;
-        left: calc(10% + 30px);
-        bottom: 180px;
-        width: 0;
-        height: 0;
-        border-left: 20px solid transparent;
-        border-right: 20px solid transparent;
-        border-bottom: 50px solid rgba(255, 255, 255, 0.15);
-        z-index: 2;
-      }
-
-      .mountain2 {
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 0;
-        border-left: 180px solid transparent;
-        border-right: 180px solid transparent;
-        border-bottom: 400px solid #1a1f3a;
-        z-index: 3;
-        filter: drop-shadow(0 6px 25px rgba(0, 0, 0, 0.7));
-      }
-
-      .mountain2::before {
-        content: "";
-        position: absolute;
-        top: 20px;
-        left: -165px;
-        width: 0;
-        height: 0;
-        border-left: 165px solid transparent;
-        border-right: 165px solid transparent;
-        border-bottom: 380px solid rgba(255, 255, 255, 0.95);
-      }
-
-      .mountain3 {
-        right: 15%;
-        width: 0;
-        height: 0;
-        border-left: 140px solid transparent;
-        border-right: 140px solid transparent;
-        border-bottom: 320px solid #1a1f3a;
-        z-index: 2;
-        filter: drop-shadow(0 5px 22px rgba(0, 0, 0, 0.6));
-      }
-
-      .mountain3::before {
-        content: "";
-        position: absolute;
-        top: 18px;
-        left: -125px;
-        width: 0;
-        height: 0;
-        border-left: 125px solid transparent;
-        border-right: 125px solid transparent;
-        border-bottom: 302px solid rgba(255, 255, 255, 0.95);
-      }
-
-      .mountain3::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: -115px;
-        width: 230px;
-        height: 160px;
-        background: repeating-linear-gradient(
-          -50deg,
-          transparent 0px,
-          transparent 10px,
-          #1a1f3a 10px,
-          #1a1f3a 20px
-        );
-        clip-path: ellipse(115px 80px at 50% 100%);
-      }
-
-      .ground {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(to right, #0a0e27, #2a2f4a, #0a0e27);
-        z-index: 10;
-        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
-      }
-
-      .flag {
-        position: absolute;
-        cursor: pointer;
-        z-index: 25;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .flag:hover {
-        transform: scale(1.08) translateY(-5px);
-      }
-
-      .flag:hover .flag-pole {
-        background: linear-gradient(to bottom, #a0b4ff, #6b8aff);
-      }
-
-      .flag-pole {
-        width: 3px;
-        height: 100px;
-        background: linear-gradient(to bottom, #9ca3af, #6b7280);
-        position: relative;
-        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.4);
-        transition: background 0.3s ease;
-        transform: rotate(-15deg); /* Inclinaison du poteau */
-        transform-origin: bottom; /* Point d'origine pour la transformation */
-      }
-
-      .flag1 .flag-pole {
-        transform: rotate(-15deg); /* Inclinaison spécifique pour le flag1 */
-      }
-
-      .flag2 .flag-pole {
-        transform: rotate(15deg); /* Inclinaison spécifique pour le flag2 */
-      }
-
-      .flag3 .flag-pole {
-        transform: rotate(10deg); /* Inclinaison spécifique pour le flag3 */
-      }
-
-      .flag-content {
-        position: absolute;
-        top: 8px;
-        left: 3px;
-        min-width: 140px;
-        padding: 12px 18px;
-        background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        border-radius: 8px;
-        color: white;
-        font-size: 14px;
-        font-weight: 600;
-        white-space: nowrap;
-        backdrop-filter: blur(20px);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-        transition: all 0.3s ease;
-      }
-
-      .flag:hover .flag-content {
-        background: rgba(107, 138, 255, 0.2);
-        border-color: rgba(107, 138, 255, 0.4);
-        box-shadow: 0 12px 32px rgba(107, 138, 255, 0.3);
-      }
-
-      .flag-content span {
-        font-size: 16px;
-        transition: transform 0.3s ease;
-      }
-
-      .flag:hover .flag-content span {
-        transform: translateX(4px);
-      }
-
-      .flag1 {
-        bottom: 280px;
-        left: calc(20% - 1.5px);
-        animation: flagWave 3s ease-in-out infinite;
-      }
-
-      .flag2 {
-        bottom: 400px;
-        left: calc(50% - 1.5px);
-        animation: flagWave 3s ease-in-out 1s infinite;
-      }
-
-      .flag3 {
-        bottom: 320px;
-        right: calc(27% + 1.5px);
-        animation: flagWave 3s ease-in-out 2s infinite;
-      }
-
-      @keyframes flagWave {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-8px);
-        }
-      }
-
-      .info-box {
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        width: 340px;
-        padding: 30px;
-        background: rgba(26, 31, 58, 0.7);
-        border-radius: 24px;
-        color: white;
-        opacity: 0;
-        transform: translateX(30px);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        pointer-events: none;
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        z-index: 30;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-      }
-
-      .info-box.active {
-        opacity: 1;
-        transform: translateX(0);
-        pointer-events: auto;
-      }
-
-      .info-box-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 20px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      }
-
-      .info-box h2 {
-        font-size: 26px;
-        font-weight: 700;
-        background: linear-gradient(135deg, #fff 0%, #a0b4ff 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .close-btn {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-size: 18px;
-        color: white;
-      }
-
-      .close-btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: rotate(90deg);
-      }
-
-      .info-box p {
-        line-height: 1.8;
-        font-size: 15px;
-        color: rgba(255, 255, 255, 0.85);
-      }
-
-      .star {
-        position: absolute;
-        background: white;
-        border-radius: 50%;
-        animation: twinkle 4s infinite ease-in-out;
-      }
-
-      @keyframes twinkle {
-        0%,
-        100% {
-          opacity: 0.2;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.5);
-        }
-      }
-
-      .star:nth-child(1) {
-        width: 2px;
-        height: 2px;
-        top: 8%;
-        left: 12%;
-        animation-delay: 0s;
-      }
-      .star:nth-child(2) {
-        width: 3px;
-        height: 3px;
-        top: 15%;
-        left: 78%;
-        animation-delay: 0.7s;
-      }
-      .star:nth-child(3) {
-        width: 2px;
-        height: 2px;
-        top: 12%;
-        left: 42%;
-        animation-delay: 1.4s;
-      }
-      .star:nth-child(4) {
-        width: 2px;
-        height: 2px;
-        top: 25%;
-        left: 88%;
-        animation-delay: 2.1s;
-      }
-      .star:nth-child(5) {
-        width: 3px;
-        height: 3px;
-        top: 20%;
-        left: 22%;
-        animation-delay: 2.8s;
-      }
-      .star:nth-child(6) {
-        width: 2px;
-        height: 2px;
-        top: 18%;
-        left: 55%;
-        animation-delay: 3.5s;
-      }
-      .star:nth-child(7) {
-        width: 2px;
-        height: 2px;
-        top: 10%;
-        left: 65%;
-        animation-delay: 1s;
-      }
-      .star:nth-child(8) {
-        width: 3px;
-        height: 3px;
-        top: 22%;
-        left: 35%;
-        animation-delay: 1.8s;
-      }
-
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 36px;
-        }
-        .header-subtitle {
-          font-size: 18px;
-        }
-        .scene {
-          height: 500px;
-          border-radius: 20px;
-        }
-        .info-box {
-          position: fixed;
-          bottom: 20px;
-          top: auto;
-          right: 20px;
-          left: 20px;
-          width: auto;
-          transform: translateY(30px);
-        }
-        .info-box.active {
-          transform: translateY(0);
-        }
-      }
-    </style>
   </head>
   {{inject_navbar}}
   <body>
     <div class="header">
-      <div class="header-content">
-        <div class="header-icon">
-          <img src="/pictures/25A01LOGODISC.png" alt="WolfDefansy logo" />
+      <div class="container">
+        <div class="header-content">
+          <div class="header-info">
+            <h1>
+              <div class="header-icon">
+                <img
+                  src=" /pictures/25A01LOGODISC.png"
+                  alt="Logo de WolfDefansy"
+                />
+              </div>
+              Bienvenue chez WolfDefansy
+            </h1>
+            <p class="header-subtitle">
+              Plateforme communautaire dédiée à la cybersécurité
+            </p>
+            <p class="header-description">
+              WolfDefansy est une association qui vise principalement à aider
+              les lycéens et les jeunes étudiants du monde entier à accéder
+              gratuitement à l'apprentissage de la cybersécurité.
+              <br /><br />
+              Notre objectif est de fournir une plateforme de formation et de
+              CTF accessible à tous, en construisant un environnement
+              polyvalent, centralisé et bienveillant.
+              <br /><br />
+              Nous croyons fermement aux valeurs de l'entraide et de la
+              solidarité. Aucun objectif commercial : notre mission est de
+              partager notre passion pour faire émerger de nouveaux passionnés.
+            </p>
+          </div>
         </div>
-        <h1>Contacts</h1>
-        <p class="header-subtitle">
-          Contactez-nous pour toute question, collaboration ou retour
-        </p>
-        <p class="header-description">
-          Vous souhaitez nous poser une question, proposer une collaboration ou
-          simplement nous faire un retour ?
-          <br /><br />
-          L'équipe WolfDefansy reste à votre écoute. Afin d'assurer un meilleur
-          suivi et centraliser les échanges, toutes les demandes doivent être
-          envoyées par email.
-          <br /><br />
-        </p>
       </div>
     </div>
 
@@ -603,6 +98,10 @@
         </div>
       </div>
     </div>
+    <div id="background-grid">
+      <div id="grid-container"></div>
+    </div>
+    {{inject_footer}}
 
     <script>
       let currentActive = null;
@@ -641,5 +140,7 @@
         if (e.key === "Escape") closeInfo();
       });
     </script>
+
+    <script src="/js/oneko.js"></script>
   </body>
 </html>
