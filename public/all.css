@@ -873,7 +873,7 @@ body {
     border-radius: 5px;
   }
 
-  .header-icon{
+  .header-icon {
     display: none;
   }
 
@@ -908,8 +908,17 @@ body {
   .nav-logo {
     display: none;
   }
-  
-  
+
+  .header-description {
+    display: none;
+  }
+  .responsive_container2 {
+    display: none;
+  }
+
+  .header-subtitle{
+    text-align: left;
+  }
 }
 
 .active-page {
@@ -2495,7 +2504,6 @@ body {
   overflow: hidden;
 }
 
-
 .dropdown-container {
   background: rgba(18, 4, 98, 0.185);
   border: 1px solid var(--border-subtle);
@@ -2515,7 +2523,7 @@ body {
   margin-bottom: 12px;
 }
 
-.hgh{
+.hgh {
   background-color: rgba(23, 3, 80, 0.774);
 }
 
