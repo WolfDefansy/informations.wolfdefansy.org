@@ -619,7 +619,7 @@ body {
   font-size: 1.125rem;
   opacity: 0.8;
   margin-bottom: 1rem;
-  color: var(--blue);
+  color: white;
   font-weight: 500;
 }
 
@@ -627,7 +627,7 @@ body {
   font-size: 1rem;
   opacity: 0.7;
   line-height: 1.6;
-
+  color: white;
   text-align: justify;
   hyphens: auto;
 }
@@ -2402,7 +2402,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 16px 24px;
-  background: rgba(18, 4, 98, 0.185);
+  background: rgba(10, 4, 46, 0.397);
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
   backdrop-filter: blur(20px);
@@ -3379,7 +3379,7 @@ body {
 }
 
 .header-subtitle {
-  color: #9fb4d6;
+  color: #ffffff;
   margin-bottom: 18px;
 }
 
