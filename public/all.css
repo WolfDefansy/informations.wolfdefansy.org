@@ -1153,7 +1153,9 @@ body {
 }
 
 .video-card {
-  background: white;
+  background: rgba(18, 4, 98, 0.185);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -1219,7 +1221,7 @@ body {
 }
 
 .video-description {
-  color: var(--gray);
+  color: white;
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -1260,7 +1262,7 @@ body {
 }
 
 .watch-btn:hover {
-  color: var(--primary);
+  color: var(--purple);
   transform: translateX(2px);
 }
 
@@ -1326,6 +1328,9 @@ body {
   color: #fff;
   text-decoration: none;
   display: block;
+  background: rgba(18, 4, 98, 0.185);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 .cursus-card:nth-child(1) {
@@ -1451,7 +1456,8 @@ body {
 
 .alternative {
   display: inline-block;
-  margin-top: 50%;
+  margin-top: 15vh;
+  height: 60%;
   margin-left: 50%;
   position: absolute;
   width: 90%;
@@ -1741,6 +1747,9 @@ section {
   color: white;
   background-color: rgba(255, 255, 255, 0.2);
   margin: 0.25%;
+  background: rgba(18, 4, 98, 0.185);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 .timeline-card.visible {
@@ -1996,14 +2005,14 @@ section {
 .video-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--primary);
+  color: white;
   margin-bottom: 0.75rem;
   line-height: 1.4;
   font-family: "Silkscreen", monospace;
 }
 
 .video-description {
-  color: var(--gray);
+  color: white;
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -2044,7 +2053,7 @@ section {
 }
 
 .watch-btn:hover {
-  color: var(--primary);
+  color: var(--purple);
   transform: translateX(2px);
 }
 
@@ -2202,7 +2211,6 @@ section {
 }
 
 .wolde-welcome-card {
-  max-width: 800px;
   width: 100%;
   background: rgba(30, 58, 138, 0.4);
   backdrop-filter: blur(10px);
@@ -2210,6 +2218,7 @@ section {
   border: 1px solid rgba(96, 165, 250, 0.3);
   padding: 40px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  margin-top: -15%;
 }
 
 .wolde-welcome-content {
@@ -2876,6 +2885,9 @@ body {
   justify-content: center;
   padding: 20px;
   transition: transform 0.3s ease;
+  background: rgba(18, 4, 98, 0.185);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 .partner-card img {
@@ -3172,6 +3184,11 @@ body {
 
 .tabs-wrapper {
   width: 100%;
+
+  background: rgba(18, 4, 98, 0.185);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 15px;
 }
 
 .tabs-header {
@@ -3908,3 +3925,5 @@ body {
   -webkit-backdrop-filter: blur(15px);
   border-radius: 15px;
 }
+
+
