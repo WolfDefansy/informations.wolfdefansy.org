@@ -916,7 +916,7 @@ body {
     display: none;
   }
 
-  .header-subtitle{
+  .header-subtitle {
     text-align: left;
   }
 }
@@ -1765,6 +1765,11 @@ section {
   background: rgba(18, 4, 98, 0.185);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
+}
+
+.timeline-card:hover {
+  background-color: rgba(255, 255, 255, 0.63);
+  color: black;
 }
 
 .timeline-card.visible {
