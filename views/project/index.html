@@ -9,16 +9,53 @@
     <link rel="stylesheet" href="public/all.css" />
     <link rel="stylesheet" href="/index.css" />
     <style>
-      /* Styles pour la section onglets */
+
+
+
+
+      .header-subtitle {
+        font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+        color: #667eea;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .header-description {
+        font-size: clamp(0.95rem, 2vw, 1.05rem);
+        line-height: 1.8;
+        color: #d0d0d0;
+        text-align: justify;
+      }
+.header-subtitle {
+        font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+        color: #667eea;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .header-description {
+        font-size: clamp(0.95rem, 2vw, 1.05rem);
+        line-height: 1.8;
+        color: #d0d0d0;
+        text-align: justify;
+      }
+      #c {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 1;
+      }
+
+      /* ========== TABS SECTION ========== */
       .tabs-section {
         position: relative;
         z-index: 1;
-        padding: 60px 0 80px;
+        padding: 60px 20px 80px;
       }
 
       .tabs-container {
+
         margin: 0 auto;
-        padding: 0 20px;
       }
 
       .tabs-header {
@@ -27,7 +64,7 @@
       }
 
       .tabs-header h2 {
-        font-size: 2.5rem;
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
         background: linear-gradient(135deg, #667eea 0%, #00d9ff 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -47,16 +84,32 @@
         border-bottom: none;
         overflow-x: auto;
         flex-wrap: nowrap;
+        scrollbar-width: thin;
+        scrollbar-color: #667eea rgba(30, 35, 55, 0.6);
+      }
+
+      .tabs-nav::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .tabs-nav::-webkit-scrollbar-track {
+        background: rgba(30, 35, 55, 0.3);
+        border-radius: 10px;
+      }
+
+      .tabs-nav::-webkit-scrollbar-thumb {
+        background: #667eea;
+        border-radius: 10px;
       }
 
       .tab-button {
         flex: 1;
-        min-width: 200px;
+        min-width: 180px;
         padding: 15px 25px;
         background: transparent;
         border: none;
         color: #a0a0a0;
-        font-size: 1rem;
+        font-size: clamp(0.9rem, 2vw, 1rem);
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
@@ -82,21 +135,15 @@
 
       /* Content Area */
       .content-wrapper {
-        background: linear-gradient(
-          135deg,
-          rgba(60, 80, 140, 0.3) 0%,
-          rgba(90, 70, 130, 0.3) 100%
-        );
+        background: rgba(18, 4, 98, 0.185);
         border-radius: 0 0 30px 30px;
         padding: 50px;
         backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
         border: 1px solid rgba(102, 126, 234, 0.2);
         border-top: none;
-        min-height: 500px;
+        min-height: 400px;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        background: rgba(18, 4, 98, 0.185);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(15px);
       }
 
       .tab-content {
@@ -122,17 +169,17 @@
       .content-header {
         position: relative;
         margin-bottom: 30px;
-        padding-right: 80px;
+        padding-right: 100px;
       }
 
       .member-title-section h3 {
-        font-size: 2.5rem;
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
         color: #fff;
         margin-bottom: 10px;
       }
 
       .member-role {
-        font-size: 1.2rem;
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
         color: #667eea;
         font-weight: 600;
         margin-bottom: 20px;
@@ -144,7 +191,7 @@
         top: 0;
         writing-mode: vertical-rl;
         transform: rotate(180deg);
-        font-size: 3rem;
+        font-size: clamp(2rem, 5vw, 3rem);
         font-weight: 900;
         background: linear-gradient(135deg, #5d9cd8 0%, #0d0081 100%);
         -webkit-background-clip: text;
@@ -155,7 +202,7 @@
       }
 
       .content-text {
-        font-size: 1.05rem;
+        font-size: clamp(0.95rem, 2vw, 1.05rem);
         line-height: 1.8;
         color: #d0d0d0;
         text-align: justify;
@@ -166,41 +213,185 @@
         margin-bottom: 20px;
       }
 
-      /* Responsive */
+      /* ========== RESPONSIVE BREAKPOINTS ========== */
+      
+      /* Tablette (768px - 1024px) */
+      @media (max-width: 1024px) {
+        .header-content {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        #c {
+          max-width: 300px;
+          margin: 0 auto;
+          display: block;
+        }
+
+        .content-wrapper {
+          padding: 40px 30px;
+        }
+
+        .content-header {
+          padding-right: 70px;
+        }
+
+        .content-text {
+          padding-right: 60px;
+        }
+      }
+
+      /* Mobile large (481px - 768px) */
       @media (max-width: 768px) {
+        .header {
+          padding: 40px 15px;
+        }
+
+        .tabs-section {
+          padding: 40px 15px 60px;
+        }
+
         .tabs-nav {
           padding: 5px 5px 0;
+          border-radius: 10px 10px 0 0;
         }
 
         .tab-button {
-          min-width: 150px;
+          min-width: 140px;
           padding: 12px 15px;
-          font-size: 0.9rem;
         }
 
         .content-wrapper {
           padding: 30px 20px;
+          border-radius: 0 0 20px 20px;
+          min-height: 300px;
         }
 
         .content-header {
           padding-right: 0;
+          margin-bottom: 20px;
         }
 
         .vertical-text {
           position: static;
           writing-mode: horizontal-tb;
           transform: none;
-          font-size: 2rem;
-          margin-bottom: 20px;
+          text-align: center;
+          margin-bottom: 15px;
           display: block;
+          opacity: 0.2;
+        }
+
+        .content-text {
+          padding-right: 0;
+        }
+
+        .header-description {
+          text-align: left;
+        }
+
+        .header-description br {
+          display: none;
+        }
+
+        #c {
+          max-width: 250px;
+        }
+      }
+
+      /* Mobile petit (320px - 480px) */
+      @media (max-width: 480px) {
+        .header {
+          padding: 30px 10px;
+        }
+
+        .tabs-section {
+          padding: 30px 10px 50px;
+        }
+
+
+
+        .header-info h1 {
+          text-align: center;
+        }
+
+        .tab-button {
+          min-width: 120px;
+          padding: 10px 12px;
+          font-size: 0.85rem;
+        }
+
+        .content-wrapper {
+          padding: 20px 15px;
+          border-radius: 0 0 15px 15px;
         }
 
         .member-title-section h3 {
-          font-size: 2rem;
+          text-align: center;
+        }
+
+        .member-role {
+          text-align: center;
+        }
+
+        .content-text {
+          font-size: 0.9rem;
+          text-align: left;
         }
 
         .tabs-header h2 {
-          font-size: 2rem;
+          padding: 0 10px;
+        }
+
+        #c {
+          max-width: 200px;
+        }
+
+        /* Amélioration de la lisibilité sur très petits écrans */
+        .header-description strong {
+          display: inline-block;
+          margin-top: 5px;
+        }
+      }
+
+      /* Très petit mobile (< 360px) */
+      @media (max-width: 360px) {
+        .tab-button {
+          min-width: 100px;
+          padding: 8px 10px;
+          font-size: 0.8rem;
+        }
+
+        .content-wrapper {
+          padding: 15px 10px;
+        }
+
+        .tabs-nav {
+          padding: 3px 3px 0;
+        }
+      }
+
+      /* Paysage mobile */
+      @media (max-width: 896px) and (orientation: landscape) {
+        .header {
+          padding: 30px 20px;
+        }
+
+        .tabs-section {
+          padding: 30px 20px 40px;
+        }
+
+        .header-content {
+          grid-template-columns: 1fr 1fr;
+          gap: 30px;
+        }
+
+        #c {
+          max-width: 250px;
+        }
+
+        .content-wrapper {
+          min-height: 250px;
         }
       }
     </style>
@@ -222,12 +413,12 @@
             </h1>
             <p class="header-subtitle">
               Découverte des réflexions, des parcours et des convictions des
-              membres du bureau de l’association.
+              membres du bureau de l'association.
             </p>
             <p class="header-description">
               Cette page rassemble les avis et les témoignages des membres du
-              bureau de WolfDefansy. Chacun d’entre nous y partage sa vision
-              personnelle de l’association, son expérience au sein de l’équipe,
+              bureau de WolfDefansy. Chacun d'entre nous y partage sa vision
+              personnelle de l'association, son expérience au sein de l'équipe,
               et la manière dont il ou elle incarne au quotidien les valeurs qui
               nous définissent.
               <br /><br />
@@ -242,18 +433,18 @@
               la confiance collective.
               <br />
               • <strong>La responsabilité</strong> — nous agissons avec rigueur
-              et sens du devoir, conscients de l’impact de chaque décision sur
-              notre communauté et sur l’environnement qui nous entoure.
+              et sens du devoir, conscients de l'impact de chaque décision sur
+              notre communauté et sur l'environnement qui nous entoure.
               <br />
-              • <strong>L’entraide</strong> — au cœur de notre fonctionnement,
+              • <strong>L'entraide</strong> — au cœur de notre fonctionnement,
               elle traduit la volonté de grandir ensemble, de partager nos
-              compétences et d’apprendre mutuellement.
+              compétences et d'apprendre mutuellement.
               <br />
-              • <strong>L’engagement</strong> — moteur de nos initiatives, il
+              • <strong>L'engagement</strong> — moteur de nos initiatives, il
               reflète la passion et la détermination qui animent chacun de nos
               projets. <br /><br />
               À travers ces témoignages, nous souhaitons montrer que WolfDefansy
-              n’est pas une structure figée, mais une dynamique collective
+              n'est pas une structure figée, mais une dynamique collective
               portée par des individus différents, aux parcours variés, qui
               avancent dans une même direction.
               <br /><br />
@@ -273,7 +464,6 @@
               >
             </p>
           </div>
-          <canvas id="c" width="16" height="16"></canvas>
         </div>
       </div>
     </div>
@@ -303,7 +493,6 @@
                 <div class="member-role">Témoignages à venir</div>
               </div>
               <div class="vertical-text">LekSal</div>
-              <div class="vertical-text"></div>
             </div>
             <div class="content-text">
               <p>

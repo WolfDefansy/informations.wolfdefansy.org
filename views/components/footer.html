@@ -13,11 +13,16 @@
     margin-bottom: 30px;
   }
 
-
+  .footer-logo-img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 15px;
+  }
 
   .footer-copy {
     font-size: 0.9em;
     color: #aaa;
+    line-height: 1.6;
   }
 
   /* --- COLONNES DE LIENS --- */
@@ -37,12 +42,27 @@
     min-width: 180px;
   }
 
+  .footer-logo-section {
+    flex: 1 1 250px;
+    text-align: center;
+  }
+
+  .footer-links-group {
+    flex: 1 1 220px;
+  }
+
   .footer-section h3 {
     color: #fff;
     margin-bottom: 10px;
+    margin-top: 20px;
     border-bottom: 2px solid #333;
     display: inline-block;
     padding-bottom: 5px;
+    font-size: 1em;
+  }
+
+  .footer-section h3:first-child {
+    margin-top: 0;
   }
 
   .footer-link {
@@ -51,6 +71,8 @@
     text-decoration: none;
     margin: 4px 0;
     transition: color 0.2s ease;
+    font-size: 0.95em;
+    text-align: left;
   }
 
   .footer-link:hover {
@@ -61,22 +83,100 @@
   .footer-bottom {
     border-top: 1px solid #333;
     padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .footer-bottom .footer-link {
     display: inline-block;
-    margin: 0 10px;
+    margin: 5px 10px;
   }
 
-  /* --- RESPONSIVE --- */
+  /* --- RESPONSIVE TABLETTE --- */
+  @media (max-width: 992px) {
+    .footer-container {
+      gap: 30px;
+    }
+
+    .footer-section {
+      flex: 1 1 250px;
+    }
+  }
+
+  /* --- RESPONSIVE MOBILE --- */
   @media (max-width: 768px) {
+    .site-footer {
+      padding: 30px 15px;
+    }
+
     .footer-container {
       flex-direction: column;
       text-align: center;
+      gap: 25px;
     }
 
     .footer-section {
       text-align: center;
+      width: 100%;
+      min-width: auto;
+    }
+
+    .footer-logo-section {
+      padding-bottom: 10px;
+    }
+
+    .footer-logo-img {
+      max-width: 120px;
+    }
+
+    .footer-section h3 {
+      font-size: 1.1em;
+      margin-top: 15px;
+    }
+
+    .footer-link {
+      font-size: 0.9em;
+      margin: 6px 0;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .footer-bottom .footer-link {
+      margin: 3px 0;
+      font-size: 0.85em;
+    }
+  }
+
+  /* --- RESPONSIVE PETIT MOBILE --- */
+  @media (max-width: 480px) {
+    .site-footer {
+      padding: 25px 10px;
+    }
+
+    .footer-logo-img {
+      max-width: 100px;
+    }
+
+    .footer-copy {
+      font-size: 0.8em;
+    }
+
+    .footer-section h3 {
+      font-size: 1em;
+    }
+
+    .footer-link {
+      font-size: 0.85em;
+    }
+
+    .footer-bottom .footer-link {
+      font-size: 0.8em;
     }
   }
 </style>
@@ -85,7 +185,7 @@
   <div class="footer-container">
     <div class="footer-section footer-logo-section">
       <img
-        src=" /pictures/25A01LOGODISC.png"
+        src="/pictures/25A01LOGODISC.png"
         alt="Logo WolfDefansy"
         class="footer-logo-img"
       />
@@ -108,7 +208,7 @@
       <a href="/project/staff" class="footer-link">Notre Équipe</a>
       <a href="/project/ambitions" class="footer-link">Ambitions</a>
       <a href="/partners" class="footer-link">Collaborations</a>
-      <a href="/partenariats"class="footer-link">Devenir partenaire</a>
+      <a href="/partenariats" class="footer-link">Devenir partenaire</a>
     </div>
 
     <div class="footer-section footer-links-group">
@@ -162,3 +262,4 @@
     <a href="/cgv" class="footer-link">Conditions Générales d'Utilisation</a>
   </div>
 </footer>
+

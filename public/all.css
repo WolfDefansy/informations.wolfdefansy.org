@@ -606,8 +606,8 @@ body {
 }
 
 .header-icon {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -873,6 +873,10 @@ body {
     border-radius: 5px;
   }
 
+  .header-icon{
+    display: none;
+  }
+
   /* Menu nav caché hors écran à droite */
   .nav-links {
     position: fixed;
@@ -904,6 +908,8 @@ body {
   .nav-logo {
     display: none;
   }
+  
+  
 }
 
 .active-page {
@@ -2489,6 +2495,7 @@ body {
   overflow: hidden;
 }
 
+
 .dropdown-container {
   background: rgba(18, 4, 98, 0.185);
   border: 1px solid var(--border-subtle);
@@ -2508,12 +2515,16 @@ body {
   margin-bottom: 12px;
 }
 
+.hgh{
+  background-color: rgba(23, 3, 80, 0.774);
+}
+
 .professional-select {
   width: 100%;
   padding: 14px 18px;
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
-  background: var(--bg-secondary);
+  background: rgba(0, 0, 0, 0);
   color: var(--text-primary);
   font-weight: 600;
   font-size: 0.95rem;
@@ -3925,5 +3936,3 @@ body {
   -webkit-backdrop-filter: blur(15px);
   border-radius: 15px;
 }
-
-

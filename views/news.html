@@ -60,7 +60,7 @@
       <div class="content-wrapper">
         <div class="left-panel" aria-live="polite">
           <div class="left-panel-content">
-            <h1 id="detail-heading">Lancement Officiel</h1>
+            <h1 id="detail-heading">Mise à Jour Majeure du Site</h1>
             <p id="detail-content">
               Sélectionnez une actualité pour afficher son contenu détaillé ici.
               Vous pouvez filtrer les actualités par catégorie à l'aide du menu
@@ -77,10 +77,9 @@
               class="professional-select"
               aria-controls="news-list-container"
             >
-              <option value="all">Toutes les Actualités</option>
-              <option value="project">Mises à Jour Projet</option>
-              <option value="press">Communiqués de Presse</option>
-              <option value="events">Événements</option>
+              <option value="all" class="hgh">Toutes les Actualités</option>
+              <option value="project" class="hgh">Sites webs</option>
+              <option value="press" class="hgh">Association</option>
             </select>
           </div>
 
@@ -119,92 +118,20 @@
     <script>
       const newsData = [
         {
-          title: "LANCEMENT OFFICIEL",
-          date: { day: "01", month: "JUN" },
-          heading: "Lancement Officiel du Projet",
+          title: "MISE À JOUR MAJEURE",
+          date: { day: "28", month: "OCT" },
+          heading: "Refonte Complète du Site d'Information WolfDefansy",
           content:
-            "Nous sommes ravis d'annoncer le lancement officiel de notre projet. Cette première actualité marque une étape majeure dans notre développement. Notre équipe a travaillé sans relâche pour créer une solution innovante qui transformera l'industrie. Cette initiative représente des mois de recherche, de développement et de tests rigoureux.",
+            "Nous sommes heureux de vous présenter la mise à jour majeure de notre site d'information officiel. Cette refonte complète marque une étape significative dans notre engagement à offrir une expérience utilisateur optimale et professionnelle. Les améliorations incluent une interface modernisée avec une navigation intuitive, une architecture responsive entièrement repensée pour une consultation optimale sur tous les appareils, et une accessibilité renforcée conformément aux standards WCAG 2.1. Le nouveau design met l'accent sur la clarté de l'information avec une hiérarchie visuelle améliorée, des temps de chargement considérablement réduits grâce à une optimisation technique approfondie, et l'intégration de nouveaux modules interactifs pour présenter nos défis CTF et nos programmes de formation. Cette mise à jour témoigne de notre volonté constante d'innovation et d'amélioration continue au service de notre communauté. Nous avons également ajouté une section dédiée aux témoignages des participants, un système de notifications pour ne manquer aucune actualité importante, et une meilleure intégration avec nos plateformes de formation. L'ensemble de ces évolutions a été pensé en écoutant vos retours et en analysant vos besoins pour créer un espace digital qui reflète véritablement la mission et les valeurs de WolfDefansy.",
           category: "project",
         },
         {
-          title: "MISE À JOUR ALPHA",
-          date: { day: "02", month: "MAI" },
-          heading: "Nouvelle Version Alpha Disponible",
+          title: "NOUVEAU SECRÉTAIRE",
+          date: { day: "29", month: "OCT" },
+          heading: "Désignation Officielle du Nouveau Secrétaire de l'Association",
           content:
-            "Une nouvelle version Alpha est maintenant disponible, intégrant de nouvelles fonctionnalités révolutionnaires et des corrections importantes. Cette mise à jour améliore considérablement les performances et l'expérience utilisateur. Nous avons écouté vos retours et implémenté les changements les plus demandés.",
-          category: "project",
-        },
-        {
-          title: "CONFÉRENCE TECH",
-          date: { day: "15", month: "AVR" },
-          heading: "Présentation au TechSummit",
-          content:
-            "Notre équipe a brillamment présenté le projet lors de la conférence annuelle TechSummit. L'accueil a été exceptionnel avec plus de 500 participants présents. Nous avons reçu des retours très positifs de la part des leaders de l'industrie et des investisseurs potentiels.",
-          category: "events",
-        },
-        {
-          title: "COMMUNIQUÉ OFFICIEL",
-          date: { day: "08", month: "AVR" },
-          heading: "Annonce de Partenariats Stratégiques",
-          content:
-            "Publication d'un communiqué de presse officiel concernant nos nouveaux partenariats stratégiques. Ces collaborations permettront d'accélérer notre croissance et d'élargir notre portée sur de nouveaux marchés. Nous sommes fiers de nous associer avec des leaders reconnus.",
+            "L'association WolfDefansy est fière d'annoncer la désignation officielle de son nouveau secrétaire, qui prendra ses fonctions dès le 29 octobre 2025. Cette nomination intervient dans le cadre du renforcement de notre structure organisationnelle et témoigne de notre croissance continue. Le nouveau secrétaire apporte avec lui une expertise significative en gestion associative et une passion profonde pour la cybersécurité et l'éducation numérique. Ses responsabilités incluront la coordination administrative de l'association, la gestion des communications internes et externes, l'organisation des assemblées générales et réunions du conseil d'administration, ainsi que le suivi rigoureux de la conformité réglementaire et statutaire. Il travaillera en étroite collaboration avec l'ensemble du bureau pour assurer la bonne gouvernance de WolfDefansy et soutenir efficacement nos initiatives solidaires et pédagogiques. Cette désignation marque également notre engagement à maintenir une structure associative solide, transparente et efficace, capable de porter nos ambitions de démocratisation de l'accès à la formation en cybersécurité. Nous sommes convaincus que cette nouvelle dynamique renforcera notre capacité à servir notre communauté avec excellence et professionnalisme. Le nouveau secrétaire sera le point de contact privilégié pour toutes les questions administratives et statutaires, et nous vous encourageons à le contacter pour toute information relative au fonctionnement de l'association. Toute l'équipe de WolfDefansy se réjouit de cette nomination et vous invite à souhaiter la bienvenue à notre nouveau secrétaire.",
           category: "press",
-        },
-        {
-          title: "NOUVELLE CHARTE",
-          date: { day: "22", month: "MAR" },
-          heading: "Identité Visuelle Modernisée",
-          content:
-            "Découvrez notre nouvelle identité visuelle ! Nous avons complètement revu notre charte graphique pour un look plus moderne, cohérent et professionnel. Cette évolution reflète notre vision d'avenir et notre engagement envers l'innovation.",
-          category: "project",
-        },
-        {
-          title: "ACCORD MAJEUR",
-          date: { day: "10", month: "MAR" },
-          heading: "Partenariat avec un Leader du Secteur",
-          content:
-            "Signature d'un accord de partenariat stratégique avec un leader mondial de notre secteur. Cette collaboration ouvre de nouvelles opportunités de croissance et renforce notre position sur le marché international.",
-          category: "press",
-        },
-        {
-          title: "CORRECTIF CRITIQUE",
-          date: { day: "28", month: "FÉV" },
-          heading: "Patch de Sécurité Déployé",
-          content:
-            "Déploiement immédiat d'un patch correctif pour améliorer la stabilité et la sécurité de notre plateforme. Notre équipe technique a travaillé jour et nuit pour résoudre ces problèmes critiques et garantir une expérience optimale.",
-          category: "project",
-        },
-        {
-          title: "WEBINAR EXCLUSIF",
-          date: { day: "14", month: "FÉV" },
-          heading: "Découvrez les Futures Fonctionnalités",
-          content:
-            "Rejoignez-nous pour un webinar exclusif où nous dévoilerons les fonctionnalités à venir ! Notre équipe présentera les innovations qui arriveront dans les prochains mois. Une session Q&A sera organisée pour répondre à toutes vos questions.",
-          category: "events",
-        },
-        {
-          title: "RAPPORT FINANCIER",
-          date: { day: "05", month: "FÉV" },
-          heading: "Résultats Trimestriels Solides",
-          content:
-            "Publication de notre rapport financier du troisième trimestre avec des résultats exceptionnels. Nos revenus ont augmenté de 45% par rapport à l'année précédente, confirmant la solidité de notre modèle économique et la confiance de nos clients.",
-          category: "press",
-        },
-        {
-          title: "EXPANSION EUROPÉENNE",
-          date: { day: "20", month: "JAN" },
-          heading: "Ouverture de Nouveaux Bureaux",
-          content:
-            "Annonce de notre expansion en Europe avec l'ouverture de trois nouveaux bureaux à Paris, Berlin et Londres. Cette croissance témoigne de notre ambition internationale et de notre engagement à servir nos clients européens avec excellence.",
-          category: "project",
-        },
-        {
-          title: "PRIX INNOVATION",
-          date: { day: "12", month: "JAN" },
-          heading: "Récompense pour l'Excellence",
-          content:
-            "Nous sommes honorés d'avoir reçu le Prix de l'Innovation 2024 pour notre solution révolutionnaire. Cette reconnaissance valide notre approche innovante et notre engagement envers l'excellence. Merci à toute notre équipe pour ce succès collectif.",
-          category: "events",
         },
       ];
 
