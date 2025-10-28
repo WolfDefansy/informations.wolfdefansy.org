@@ -36,18 +36,28 @@
       }
 
       .member-card {
-        background: rgba(18, 4, 98, 0.185);
+        background: rgba(18, 4, 98, 0);
         border-radius: 12px;
         padding: 20px;
         display: flex;
         align-items: center;
         gap: 15px;
         border: 1px solid rgba(59, 130, 246, 0.3);
-        backdrop-filter: blur(15px);
+        backdrop-filter: blur(1px);
         -webkit-backdrop-filter: blur(15px);
         position: relative;
         overflow: hidden;
+        /* Ajout de la gestion de l'image de fond pour member-card */
+        background-image: var(--background-image, none);
+        background-size: cover;
+        background-position: center;
       }
+
+      /* Pour member-card, on retire le background par défaut si une image est définie */
+      .member-card[style*="--background-image"] {
+          background-color: transparent; /* Permet à l'image de fond de s'afficher */
+      }
+
 
       .member-card > * {
         position: relative;
@@ -101,8 +111,9 @@
         margin-bottom: 40px;
       }
 
+      /* Mise à jour pour utiliser la variable CSS personnalisée pour l'image de fond */
       .team-member {
-        background: url("/pictures/25A01LOGODISC.png");
+        background-image: var(--background-image); /* Utilise la variable définie en ligne */
         background-size: cover;
         background-position: center;
         border-radius: 10px;
@@ -110,7 +121,14 @@
         border: 1px solid rgba(71, 85, 105, 0.5);
         position: relative;
         overflow: hidden;
+        background-color: rgba(18, 4, 98, 0.185); /* Fond par défaut si pas d'image */
       }
+      
+      /* Si une image est définie, on s'assure que le background-color par défaut n'est pas utilisé */
+      .team-member[style*="--background-image"] {
+        background-color: transparent; 
+      }
+
 
       .team-member::before {
         content: "";
@@ -119,8 +137,9 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(8px);
+        /* Ajout d'une couleur de fond semi-transparente pour le flou et la lisibilité */
+        background: rgba(0, 0, 0, 0.7); 
+        backdrop-filter: blur(2px);
         -webkit-backdrop-filter: blur(8px);
         z-index: 0;
       }
@@ -273,39 +292,67 @@
               <div class="header-icon">
                 <img
                   src=" /pictures/25A01LOGODISC.png"
-                  alt="WolfDefansy logo"
+                  alt="Logo de WolfDefansy"
                 />
               </div>
-              Contacts
+              Rencontrez l'Équipe Engagée de WolfDefansy
             </h1>
             <p class="header-subtitle">
-              Contactez-nous pour toute question, collaboration ou retour
+              Une communauté de bénévoles passionnés, experts en cybersécurité,
+              unis par la mission d'une éducation numérique gratuite et solidaire.
             </p>
             <p class="header-description">
-              Vous souhaitez nous poser une question, proposer une collaboration
-              ou simplement nous faire un retour ?
+              WolfDefansy n'est pas qu'une plateforme ; c'est un mouvement porté
+              par une équipe de bénévoles dévoués, allant d'étudiants prometteurs
+              à des professionnels reconnus dans le secteur de la cybersécurité.
+              Chacun d'entre nous est animé par une conviction forte : la
+              connaissance en sécurité numérique doit être un droit, et non un
+              privilège.
               <br /><br />
-              L'équipe WolfDefansy reste à votre écoute. Afin d'assurer un
-              meilleur suivi et centraliser les échanges, toutes les demandes
-              doivent être envoyées par email.
-              <br /><br />
-              📧 <strong>contact@WolfDefansy.org</strong> <br /><br />
-              Merci pour votre compréhension et à bientôt !
+               Notre Structure et Nos Rôles : 
+              <br />
+              Notre équipe est organisée autour de pôles d'expertise clés qui
+              garantissent la qualité et la pérennité de notre projet :
+              <br />
+              <ul>
+                <li>
+                   Pôle Technique & Développement :  Le cœur battant de notre
+                  plateforme. Ce pôle assure l'innovation, la maintenance, et la
+                  sécurité de l'environnement de formation et de CTF. Ils construisent
+                  les défis techniques qui affûtent vos compétences.
+                </li>
+                <li>
+                   Pôle Contenu Pédagogique & Rédaction :  L'excellence
+                  éducative. Ils conçoivent les modules de formation, rédigent
+                  les supports de cours clairs et pertinents, et s'assurent que
+                  notre contenu est toujours à jour avec les dernières menaces
+                  et pratiques du secteur.
+                </li>
+                <li>
+                   Pôle Communication & Partenariats :  Ils gèrent notre
+                  présence communautaire, établissent des liens précieux avec
+                  d'autres organisations solidaires ou professionnelles, et
+                  organisent nos événements éducatifs.
+                </li>
+              </ul>
+              <br />
+              Nous croyons que la diversité des talents est notre plus grande
+              force. En travaillant ensemble, nous construisons un outil
+              pédagogique polyvalent, centralisé, et capable de repousser les
+              limites de l'apprentissage en ligne. Découvrez les visages, les
+              expertises et les motivations de ceux qui s'engagent à vos côtés
+              pour un futur numérique plus sûr.
             </p>
           </div>
-          <canvas id="c" width="16" height="16"></canvas>
         </div>
       </div>
     </div>
 
-    <!-- Team Organization Section -->
     <div class="team-container">
-      <!-- Top Leaders Section -->
       <div class="top-section">
-        <div class="member-card">
-          <div class="avatar">
+        <div class="member-card" style="--background-image: url('URL_IMAGE_SECRETAIRE');"> <div class="avatar">
             <img
-              src="/pictures/25A01LOGODISC.png"
+              src="/pictures/pp_rexl.png"
               alt="Logo WolfDefansy"
               style="width: 100%; overflow: hidden; border-radius: 50%"
             />
@@ -315,10 +362,9 @@
             <p>Leksal</p>
           </div>
         </div>
-        <div class="member-card highlight">
-          <div class="avatar">
+        <div class="member-card highlight" style="--background-image: url('URL_IMAGE_TRESORIER');"> <div class="avatar">
             <img
-              src="/pictures/25A01LOGODISC.png"
+              src="/pictures/pp_napalm.png"
               alt="Logo WolfDefansy"
               style="width: 100%; overflow: hidden; border-radius: 50%"
             />
@@ -328,82 +374,103 @@
             <p>NewNapalm</p>
           </div>
         </div>
-        <div class="member-card">
-          <div class="avatar">
+        <div class="member-card" style="--background-image: url('URL_IMAGE_PRESIDENTS');"> <div class="avatar">
             <img
-              src="/pictures/25A01LOGODISC.png"
+              src="/pictures/pp_ice.png"
               alt="Logo WolfDefansy"
               style="width: 100%; overflow: hidden; border-radius: 50%"
             />
           </div>
           <div class="member-info">
-            <h3>Présidents</h3>
-            <p>IceShadow et WhiteDreams</p>
+            <h3>Vice-Président</h3>
+            <p>IceShadow</p>
           </div>
         </div>
       </div>
-
-      <!-- Development Team Section -->
-      <div class="section-title">
-        <h2>PSEUDO - Chef de l'équipe de développeurs</h2>
+        <div class="member-card" style="--background-image: url('URL_IMAGE_PRESIDENTS');"> <div class="avatar">
+            <img
+              src="/pictures/pp_white.png"
+              alt="Logo WolfDefansy"
+              style="width: 100%; overflow: hidden; border-radius: 50%"
+            />
+          </div>
+          <div class="member-info">
+            <h3>Président</h3>
+            <p>WhiteDreams</p>
+          </div>
+        </div>
       </div>
+      <div class="security-section">
+        <div class="section-title">
+          <h2>NEWNAPALM - chef de l'équipe de développeurs</h2>
+        </div>
 
-      <div class="team-grid">
-        <div class="team-member">
-          <h4>PSEUDO DEVELOPPEUR</h4>
-          <p class="role">ROLE <br />ROLE <br />ROLE</p>
-          <span class="tech-badge">TECHNO</span>
-        </div>
-        <div class="team-member">
-          <h4>PSEUDO DEVELOPPEUR</h4>
-          <p class="role">ROLE <br />ROLE <br />ROLE</p>
-          <span class="tech-badge">TECHNO</span>
-        </div>
-        <div class="team-member">
-          <h4>PSEUDO DEVELOPPEUR</h4>
-          <p class="role">ROLE <br />ROLE <br />ROLE</p>
-          <span class="tech-badge">TECHNO</span>
-        </div>
-        <div class="team-member">
-          <h4>PSEUDO DEVELOPPEUR</h4>
-          <p class="role">ROLE <br />ROLE <br />ROLE</p>
-          <span class="tech-badge">TECHNO</span>
+        <div class="security-grid">
+          <div class="team-member" style="--background-image: url('/pictures/25A01LOGODISC.png');"> <h4>anonyme<br />developpeur</h4>
+            <span class="member-icon"></span>
+            <span class="tech-badge">React</span>
+          </div>
+          <div class="team-member" style="--background-image: url('/pictures/25A01LOGODISC.png');"> <h4>anonyme<br />developpeur</h4>
+            <span class="member-icon"></span>
+            <span class="tech-badge">React</span>
+          </div>
+          <div class="team-member" style="--background-image: url('/pictures/pp_napalm.png');"> <h4>NewNapalm<br />developpeur</h4>
+            <span class="member-icon"></span>
+            <span class="tech-badge">Angular</span>
+            <span class="tech-badge">React</span>
+            <span class="tech-badge">Lead</span>
+          </div>
+
+
         </div>
       </div>
 
       <div class="divider">- 418 \_(°-°)_/ I'm not a teapot -</div>
 
-      <!-- Security Team Section -->
       <div class="security-section">
         <div class="section-title">
-          <h2>PSEUDO - Lead de l'équipe de cybersécurité</h2>
+          <h2>PTITBOB - Lead de l'équipe de cybersécurité</h2>
         </div>
 
         <div class="security-grid">
-          <div class="team-member">
-            <h4>PSEUDO<br />ROLE</h4>
+          <div class="team-member" style="--background-image: url('/pictures/pp_will.png');"> <h4>willou<br />pentester</h4>
             <span class="member-icon"></span>
-            <span class="tech-badge">SPE</span>
+            <span class="tech-badge">red team ++</span>
+
+ 
           </div>
-          <div class="team-member">
-            <h4>PSEUDO<br />ROLE</h4>
+          <div class="team-member" style="--background-image: url('/pictures/pp_broly.png');"> <h4>broly<br />pentester</h4>
             <span class="member-icon"></span>
-            <span class="tech-badge">SPE</span>
+            <span class="tech-badge">red team +</span>
           </div>
-          <div class="team-member">
-            <h4>PSEUDO<br />ROLE</h4>
+          <div class="team-member" style="--background-image: url('/pictures/pp_hex.png');"> <h4>hexcode<br />pentester</h4>
             <span class="member-icon"></span>
-            <span class="tech-badge">SPE</span>
+            <span class="tech-badge">polyvalent ++</span>
           </div>
-          <div class="team-member">
-            <h4>PSEUDO-<br />ROLE<br /></h4>
+          <div class="team-member" style="--background-image: url('/pictures/pp_bob.png');"> <h4>ptitbob<br />pentester</h4>
             <span class="member-icon"></span>
-            <span class="tech-badge">SPE</span>
+            <span class="tech-badge">lead</span>
+            <span class="tech-badge">polyvalent ++</span>
+          </div>
+
+        </div>
+      </div>
+<div class="divider">- 218 Status Code: This is Fine ^^ -</div>
+      <div class="security-section">
+        <div class="section-title">
+          <h2>Skinnya - Lead de l'équipe de graphisme - recrutement en cours</h2>
+        </div>
+
+        <div class="security-grid">
+          <div class="team-member" style="--background-image: url('/pictures/25A01LOGODISC.png');"> <h4>anonyme<br />graphiste</h4>
+            <span class="member-icon"></span>
+            <span class="tech-badge">conseils</span>
+
+ 
           </div>
         </div>
       </div>
 
-      <!-- Bottom Section -->
       <div class="bottom-section">
         <div class="text-content">
           <h3>Rejoignez le cercle des membres proches de notre équipe</h3>

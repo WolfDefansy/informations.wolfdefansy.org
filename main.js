@@ -65,6 +65,18 @@ app.get("/news", (req, res) => {
   }
 });
 
+app.get("/legal", (req, res) => {
+  const file = path.join(__dirname, "views/legal.html");
+  try {
+    let content = fs.readFileSync(file, "utf8");
+    return res.send(injector(content));
+  } catch (e) {
+    res
+      .status(500)
+      .send("Erreur interne du serveur: Fichier index.html non trouvé.");
+  }
+});
+
 app.get("/partners/oteria", (req, res) => {
   const file = path.join(__dirname, "views/partners/oteria.html");
   try {

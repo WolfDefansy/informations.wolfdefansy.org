@@ -99,10 +99,10 @@ dist
 .svelte-kit/
 
 # vitepress build output
-**/.vitepress/dist
+ /.vitepress/dist
 
 # vitepress cache directory
-**/.vitepress/cache
+ /.vitepress/cache
 
 # Docusaurus cache and generated files
 .docusaurus

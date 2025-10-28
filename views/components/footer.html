@@ -1,17 +1,164 @@
+<style>
+  /* === FOOTER GENERAL === */
+  .site-footer {
+    background-color: #111;
+    color: #ddd;
+    font-family: "Poppins", sans-serif;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  /* --- PARTIE HAUTE : logo + copyright --- */
+  .footer-top {
+    margin-bottom: 30px;
+  }
+
+
+
+  .footer-copy {
+    font-size: 0.9em;
+    color: #aaa;
+  }
+
+  /* --- COLONNES DE LIENS --- */
+  .footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto 30px auto;
+    text-align: left;
+  }
+
+  .footer-section {
+    flex: 1 1 200px;
+    min-width: 180px;
+  }
+
+  .footer-section h3 {
+    color: #fff;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #333;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  .footer-link {
+    display: block;
+    color: #bbb;
+    text-decoration: none;
+    margin: 4px 0;
+    transition: color 0.2s ease;
+  }
+
+  .footer-link:hover {
+    color: #fff;
+  }
+
+  /* --- BAS DU FOOTER --- */
+  .footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 15px;
+  }
+
+  .footer-bottom .footer-link {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-section {
+      text-align: center;
+    }
+  }
+</style>
+
 <footer class="site-footer">
-    <div class="footer-container">
-        <div class="footer-logo">
-            <img src=" /pictures/25A01LOGODISC.png" alt="Logo WolfDefansy" class="footer-logo-img">
-        </div>
-        <div class="footer-links">
-            <a href="/" class="footer-link">Accueil</a>
-            <a href="/recrutement" class="footer-link">Recrutement</a>
-            <a href="/entrainement" class="footer-link">Entraînements</a>
-            <a href="/contact" class="footer-link">Contact</a>
-            <a href="https://wolfdefansy.org" class="footer-link" target="_blank" rel="noopener">CTF</a>
-        </div>
-        <div class="footer-copy">
-            &copy; 2025 WolfDefansy — Tous droits réservés.
-        </div>
+  <div class="footer-container">
+    <div class="footer-section footer-logo-section">
+      <img
+        src=" /pictures/25A01LOGODISC.png"
+        alt="Logo WolfDefansy"
+        class="footer-logo-img"
+      />
+      <p class="footer-copy">
+        &copy; 2025 WolfDefansy — Tous droits réservés.
+        <br />
+        Association Loi 1901.
+      </p>
     </div>
+
+    <div class="footer-section footer-links-group">
+      <h3>Liens Rapides</h3>
+      <a href="/" class="footer-link">Accueil</a>
+      <a href="/news" class="footer-link">Actualités (NEWS)</a>
+      <a href="/entrainement" class="footer-link">Entraînements</a>
+      <a href="/contact" class="footer-link">Contacts</a>
+
+      <h3>Le Projet</h3>
+      <a href="/project" class="footer-link">Présentation</a>
+      <a href="/project/staff" class="footer-link">Notre Équipe</a>
+      <a href="/project/ambitions" class="footer-link">Ambitions</a>
+      <a href="/partners" class="footer-link">Collaborations</a>
+      <a href="/partenariats"class="footer-link">Devenir partenaire</a>
+    </div>
+
+    <div class="footer-section footer-links-group">
+      <h3>Recrutements</h3>
+      <a href="/recrutement" class="footer-link">Étapes de Candidature</a>
+      <a href="/recrutement/prog" class="footer-link">Poste Développeurs</a>
+      <a href="/recrutement/cyber" class="footer-link">Poste Cybersécurité</a>
+      <a href="/recrutement/pedagogie" class="footer-link">Poste Pédagogie</a>
+      <a href="/recrutement/strategie" class="footer-link">Poste Stratégie</a>
+
+      <h3>Nous Suivre</h3>
+      <a
+        href="https://discord.gg/eZFpfu3QYN"
+        class="footer-link social-link"
+        target="_blank"
+        rel="noopener"
+        >Discord</a
+      >
+      <a
+        href="https://www.youtube.com/@WolfDefansy"
+        class="footer-link social-link"
+        target="_blank"
+        rel="noopener"
+        >YouTube</a
+      >
+      <a
+        href="https://twitter.com/wolfdefansy"
+        class="footer-link social-link"
+        target="_blank"
+        rel="noopener"
+        >X / Twitter</a
+      >
+      <a
+        href="https://www.tiktok.com/@wolfdefansy"
+        class="footer-link social-link"
+        target="_blank"
+        rel="noopener"
+        >TikTok</a
+      >
+      <a
+        href="https://www.instagram.com/wolfdefansy"
+        class="footer-link social-link"
+        target="_blank"
+        rel="noopener"
+        >Instagram</a
+      >
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <a href="/legal" class="footer-link">Mentions Légales</a>
+    <a href="/cgv" class="footer-link">Conditions Générales d'Utilisation</a>
+  </div>
 </footer>
