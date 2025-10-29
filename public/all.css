@@ -3949,3 +3949,8 @@ body {
   -webkit-backdrop-filter: blur(15px);
   border-radius: 15px;
 }
+
+
+.stronger{
+  background-color: #ff0000;
+}

@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WolfDefansy - Contacts</title>
+    <title>WolfDefansy | Trailers</title>
     <link rel="stylesheet" href=" /all.css" />
     <link rel="stylesheet" href="public/all.css" />
     <link rel="stylesheet" href=" /index.css" />
+    {{inject_head}}
     <style>
       /* Hero Section */
       .hero {
@@ -636,7 +637,7 @@
       ></iframe>
       <div class="video-overlay">
         <h3>TRAILER #1</h3>
-        <p>Le début d'un grand projet</p>
+        <p>Transmettre le savoir, c’est allumer mille lumières là où il n’y en avait qu’une - Anonyme</p>
       </div>
     </section>
 
@@ -681,9 +682,9 @@
         </div>
 
         <div class="controls-section">
-          <div class="section-label">Notre Équipe</div>
+          <div class="section-label">Quelques appercus ?</div>
           <div class="member-info">
-            <h2 class="member-name">Luffy</h2>
+            <h2 class="member-name">Page d'acueil</h2>
             <p class="member-role">Founder</p>
           </div>
           <div class="nav-controls">
@@ -721,8 +722,8 @@
         allowfullscreen
       ></iframe>
       <div class="video-overlay">
-        <h3>Notre Vision</h3>
-        <p>Une équipe passionnée et dévouée</p>
+        <h3>Trailer #2</h3>
+        <p>La passion ne vaut que si elle est vécue pleinement et partagée avec détermination - Anonyme</p>
       </div>
     </section>
     <div id="background-grid">
@@ -733,12 +734,13 @@
     {{inject_footer}}
     <script>
       const teamMembers = [
-        { name: "Luffy", role: "Founder" },
-        { name: "Monkey D. Luffy", role: "Creative Director" },
-        { name: "Luffy chan", role: "Lead Developer" },
-        { name: "Lucy", role: "UX Designer" },
-        { name: "Luffy kun", role: "Marketing Manager" },
-        { name: "Monkey chan", role: "Product Manager" },
+   { name: "Page d'accueil", role: "Votre hub d'entraînement tout-en-un pour progresser chaque jour" },
+{ name: "Learning paths", role: "Parcours gratuits, conçus par des experts pour devenir incollable" },
+{ name: "Entraînement", role: "Exercez-vous en Blue et Red Team, quotidiennement et intensément" },
+{ name: "Compétition", role: "Affrontez les meilleurs, dépassez vos limites, montrez votre talent" },
+{ name: "Classement", role: "Devenez le #1 de la saison et inscrivez votre nom dans la légende" },
+{ name: "Forum", role: "Une IA et une communauté pour vous guider et vous challenger" },
+
       ];
 
       const cards = document.querySelectorAll(".card");
