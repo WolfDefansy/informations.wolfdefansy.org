@@ -1,65 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+    <!-- Page principale -->
     <url>
-        <loc>https://informations.wolfdefansy.org</loc>
-        <lastmod>2025-08-20</lastmod>
+        <loc>https://wolfdefansy.org</loc>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
+
+    <!-- Contact -->
     <url>
-        <loc>https://informations.wolfdefansy.org/contact</loc>
-        <lastmod>2025-08-20</lastmod>
+        <loc>https://wolfdefansy.org/contact</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Actualités -->
+    <url>
+        <loc>https://wolfdefansy.org/news</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Partenariats -->
+    <url>
+        <loc>https://wolfdefansy.org/partenariats</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Partners -->
+    <url>
+        <loc>https://wolfdefansy.org/partners</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Projet (page legacy) -->
+    <url>
+        <loc>https://wolfdefansy.org/projet</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Section Project -->
+    <url>
+        <loc>https://wolfdefansy.org/project</loc>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://informations.wolfdefansy.org/partenariats</loc>
-        <lastmod>2025-08-20</lastmod>
+        <loc>https://wolfdefansy.org/project/ambitions</loc>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://informations.wolfdefansy.org/projet</loc>
-        <lastmod>2025-08-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://informations.wolfdefansy.org/recrutement</loc>
-        <lastmod>2025-08-20</lastmod>
-        <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://informations.wolfdefansy.org/recrutement/cyber</loc>
-        <lastmod>2025-08-20</lastmod>
+        <loc>https://wolfdefansy.org/project/staff</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://wolfdefansy.org/project/trailers</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Section Entraînement -->
+    <url>
+        <loc>https://wolfdefansy.org/entrainement</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://wolfdefansy.org/entrainement/sub/cyber</loc>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://informations.wolfdefansy.org/recrutement/graphisme</loc>
-        <lastmod>2025-08-20</lastmod>
+        <loc>https://wolfdefansy.org/entrainement/sub/graphisme</loc>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://informations.wolfdefansy.org/recrutement/pedagogie</loc>
-        <lastmod>2025-08-20</lastmod>
+        <loc>https://wolfdefansy.org/entrainement/sub/pedagogie</loc>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://informations.wolfdefansy.org/recrutement/prog</loc>
-        <lastmod>2025-08-20</lastmod>
+        <loc>https://wolfdefansy.org/entrainement/sub/prog</loc>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://informations.wolfdefansy.org/recrutement/strategie</loc>
-        <lastmod>2025-08-20</lastmod>
+        <loc>https://wolfdefansy.org/entrainement/sub/strategie</loc>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
+    </url>
+
+    <!-- Section Recrutement -->
+    <url>
+        <loc>https://wolfdefansy.org/recrutement</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://wolfdefansy.org/recrutement/sub/cyber</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://wolfdefansy.org/recrutement/sub/graphisme</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://wolfdefansy.org/recrutement/sub/pedagogie</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://wolfdefansy.org/recrutement/sub/prog</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://wolfdefansy.org/recrutement/sub/strategie</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Mentions légales -->
+    <url>
+        <loc>https://wolfdefansy.org/legal</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
     </url>
 
 </urlset>
